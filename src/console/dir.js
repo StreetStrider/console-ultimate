@@ -2,13 +2,14 @@
 
 
 var
-	NL = '\n',
-	util = require('util'),
-
 	slice = Array.prototype.slice,
 	extend = require('aux.js/object/extend'),
 
-	styling = require('../styling/dir');
+	styling = require('../styling/dir'),
+
+	format = require('../format'),
+	nl = format.nl,
+	inspect = format.inspect;
 
 var dir = module.exports = function (object, options /* flags */)
 {
@@ -34,7 +35,7 @@ var dir = module.exports = function (object, options /* flags */)
 		options = eff;
 	}
 
-	console._stdout.write(util.inspect(object, options) + NL);
+	console._stdout.write(nl(inspect(object, options)));
 }
 
 
