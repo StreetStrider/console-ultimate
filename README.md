@@ -28,3 +28,6 @@ npm install StreetStrider/console-ultimate
 * [ ] count
 * [ ] debug
 * [ ] browserify
+
+# license
+MIT, copyright © 2015 StreetStrider.
