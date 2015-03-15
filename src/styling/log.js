@@ -20,6 +20,11 @@ module.exports = function (name)
 	{
 		var eff = extend({}, defaults);
 
+		if (hasStyling(name, options))
+		{
+			extend(eff, options.styling[name]);
+		}
+
 		if (! styling.isColors(options))
 		{
 			eff.color = same;
@@ -51,4 +56,14 @@ var genericDefaults =
 		color: red,
 		stream: 'stderr'
 	}
+}
+
+function hasStyling (name, options)
+{
+	if (! options.styling) return false;
+
+	var object = options.styling[name];
+	if (! object) return false;
+
+	return Object(object) === object;
 }

@@ -1,11 +1,27 @@
 
 
 var
+	colr = require('cli-color'),
 	Console = require('../console-ultimate');
 
-var
-	c = Console(null, null, { styling: { colors: true, dir: { colors: false }}}),
-	log = c.log;
+var c = Console(null, null,
+{
+	styling:
+	{
+		colors: true,
+		dir:
+		{
+			colors: false
+		},
+		warn:
+		{
+			stream: 'stdout',
+			color: function (v) { return colr.bold(colr.green(v)); }
+		}
+	}
+});
+
+var log = c.log;
 
 log('options:');
 c.dir(c.options, Infinity);
