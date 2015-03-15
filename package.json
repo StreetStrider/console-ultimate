@@ -10,6 +10,10 @@
 		"test": "node test.js"
 	},
 
+	"homepage":            "https://github.com/StreetStrider/console-ultimate",
+	"bugs":       { "url": "https://github.com/StreetStrider/console-ultimate/issues" },
+	"repository": { "url": "https://github.com/StreetStrider/console-ultimate.git", "type": "git" },
+
 	"dependencies":
 	{
 		"aux.js": "~2",
