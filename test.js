@@ -1,6 +1,6 @@
 
 
-var c, Console = require('./src/Console');
+var c, Console = require('../console-ultimate');
 
 c = Console();
 

@@ -5,14 +5,16 @@
 	"description": "replacement for std console with extra features",
 	"tags": [ "console", "color", "cli" ],
 
+	"homepage":            "https://github.com/StreetStrider/console-ultimate",
+	"bugs":       { "url": "https://github.com/StreetStrider/console-ultimate/issues" },
+	"repository": { "url": "https://github.com/StreetStrider/console-ultimate.git", "type": "git" },
+
+	"main": "src/Console",
+
 	"scripts":
 	{
 		"test": "node test.js"
 	},
-
-	"homepage":            "https://github.com/StreetStrider/console-ultimate",
-	"bugs":       { "url": "https://github.com/StreetStrider/console-ultimate/issues" },
-	"repository": { "url": "https://github.com/StreetStrider/console-ultimate.git", "type": "git" },
 
 	"dependencies":
 	{
