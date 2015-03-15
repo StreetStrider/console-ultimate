@@ -6,23 +6,27 @@ var
 	util = require('util'),
 
 	slice = Array.prototype.slice,
-	extend = require('aux.js/object/extend');
+	extend = require('aux.js/object/extend'),
+
+	styling = require('../styling');
 
 var dir = module.exports = function (object, options /* flags */)
 {
+	var console = this;
+
 	if (arguments.length === 1)
 	{
-		options = doDefaults();
+		options = doDefaults(console);
 	}
 	else if (isNodeLike(arguments))
 	{
-		options = doDefaults(options);
+		options = doDefaults(console, options);
 	}
 	else
 	{
 		/* extended behavior: flags */
 		var
-			eff   = doDefaults(),
+			eff   = doDefaults(console),
 			flags = slice.call(arguments, 1);
 
 		flags.forEach(doFlag(eff));
@@ -30,27 +34,28 @@ var dir = module.exports = function (object, options /* flags */)
 		options = eff;
 	}
 
-	this._stdout.write(util.inspect(object, options) + NL);
+	console._stdout.write(util.inspect(object, options) + NL);
 }
 
 
-function doDefaults (options)
+function doDefaults (console, options)
 {
-	if (! options)
+	var eff = extend({}, defaults);
+
+	/* dynamic colors check */
+	eff.colors = styling.isColors(console.options);
+
+	if (options)
 	{
-		return extend({}, defaults);
+		extend(eff, options);
 	}
-	else
-	{
-		return extend({}, defaults, options);
-	}
+
+	return eff;
 }
 
 var defaults =
 {
 	customInspect: false,
-	colors: true, /* for conformance with log, info, warn, error above,
-	later it will be customizeable via Console(_, _, options) */
 
 	/* Node defaults: */
 	// showHidden: false,

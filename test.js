@@ -4,7 +4,7 @@ var
 	Console = require('../console-ultimate');
 
 var
-	c = Console(),
+	c = Console(null, null, { styling: false }),
 	log = c.log;
 
 log('options:');
