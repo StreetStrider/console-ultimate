@@ -1,6 +1,6 @@
 # console-ultimate
 
-> Compatible with node `console` replacement with extra features.
+> Node-compatible `console` object with extra features.
 
 # install
 ```sh
