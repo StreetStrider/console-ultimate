@@ -4,6 +4,8 @@ var
 	inst = require('aux.js/inst'),
 	prop = require('aux.js/prop'),
 
+	reset = require('cli-color').reset,
+
 	expand = require('./options').expand,
 
 	log = require('./console/log'),
@@ -31,15 +33,6 @@ var Console = module.exports = function Console (stdout, stderr, options)
 Console.defaults = require('./options').defaults;
 
 
-Console.prototype.log   = log('log');
-Console.prototype.info  = log('info');
-Console.prototype.error = log('error');
-Console.prototype.warn  = log('warn');
-
-
-Console.prototype.dir = dir;
-
-
 function bind (console)
 {
 	bindings(console,
@@ -50,4 +43,19 @@ function bind (console)
 		'error',
 		'dir'
 	]);
+}
+
+
+Console.prototype.log   = log('log');
+Console.prototype.info  = log('info');
+Console.prototype.error = log('error');
+Console.prototype.warn  = log('warn');
+
+
+Console.prototype.dir = dir;
+
+
+Console.prototype.clear = function ()
+{
+	this.log(reset);
 }

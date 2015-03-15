@@ -61,3 +61,5 @@ log();
 log('std options');
 c.dir(tree, { depth: 0, colors: true, showHidden: true });
 log();
+
+// c.clear();

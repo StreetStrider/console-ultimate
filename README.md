@@ -39,7 +39,7 @@ console.log('...');
   * [x] logger's prefixes
 * [ ] table
 * [ ] null-console — silent console
-* [ ] clear
+* [x] clear
 * [ ] count
 * [ ] debug
 * [ ] browserify
