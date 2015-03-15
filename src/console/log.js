@@ -2,15 +2,23 @@
 
 
 var
-	format = require('../format').format,
-	nl = require('../format').nl,
-	styling = require('../styling');
+	styling = require('../styling/log'),
 
-module.exports = function (stream, color, name)
+	format = require('../format').format,
+	nl = require('../format').nl;
+
+module.exports = function (stream, name)
 {
+	var styler = styling(name);
+
 	return function ()
 	{
-		var output = styling.applyIsColors(color, format(arguments), this.options);
-		this[stream].write(nl(output));
+		var styles = styler(this.options);
+
+		var output = format(arguments);
+		output = nl(output);
+		output = styles.color(output);
+
+		this[stream].write(output);
 	}
 }

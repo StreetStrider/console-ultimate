@@ -21,15 +21,3 @@ styling.isColors = function (options)
 		}
 	}
 }
-
-styling.applyIsColors = function (asciiFn, string, options)
-{
-	if (styling.isColors(options))
-	{
-		return asciiFn(string);
-	}
-	else
-	{
-		return string;
-	}
-}

@@ -3,16 +3,10 @@
 var
 	inst = require('aux.js/inst'),
 	prop = require('aux.js/prop'),
-	same = require('aux.js/identity'),
 
 	expand = require('./options').expand,
 
-	log = require('./console/log'),
-
-	colr = require('cli-color'),
-	blue = colr.blue,
-	red  = colr.red,
-	yellow = colr.yellow;
+	log = require('./console/log');
 
 var Console = module.exports = function Console (stdout, stderr, options)
 {
@@ -34,10 +28,10 @@ var Console = module.exports = function Console (stdout, stderr, options)
 Console.defaults = require('./options').defaults;
 
 
-Console.prototype.log = log('_stdout', same, 'log');
-Console.prototype.info = log('_stdout', blue, 'info');
-Console.prototype.error = log('_stderr', red, 'error');
-Console.prototype.warn = log('_stderr', yellow, 'warn');
+Console.prototype.log   = log('_stdout', 'log');
+Console.prototype.info  = log('_stdout', 'info');
+Console.prototype.error = log('_stderr', 'error');
+Console.prototype.warn  = log('_stderr', 'warn');
 
 
 Console.prototype.dir = require('./console/dir');
