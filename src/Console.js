@@ -12,7 +12,9 @@ var
 	inst = require('aux.js/inst'),
 	prop = require('aux.js/prop'),
 
-	expand = require('./options').expand;
+	expand = require('./options').expand,
+
+	styling = require('./styling');
 
 var Console = module.exports = function Console (stdout, stderr, options)
 {
@@ -42,17 +44,20 @@ Console.prototype.log = function ()
 
 Console.prototype.info = function ()
 {
-	this._stdout.write(blue(format(arguments) + NL));
+	var output = styling.applyIsColors(blue, format(arguments), this.options);
+	this._stdout.write(output + NL);
 }
 
 Console.prototype.error = function ()
 {
-	this._stderr.write(red(format(arguments)) + NL);
+	var output = styling.applyIsColors(red, format(arguments), this.options);
+	this._stderr.write(output + NL);
 }
 
 Console.prototype.warn = function ()
 {
-	this._stderr.write(yellow(format(arguments) + NL));
+	var output = styling.applyIsColors(yellow, format(arguments), this.options);
+	this._stderr.write(output + NL);
 }
 
 function format (items)
