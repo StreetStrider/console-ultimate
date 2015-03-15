@@ -33,18 +33,22 @@ var genericDefaults =
 {
 	log:
 	{
-		color: same
+		color: same,
+		stream: 'stdout'
 	},
 	info:
 	{
-		color: blue
+		color: blue,
+		stream: 'stdout'
 	},
 	warn:
 	{
-		color: yellow
+		color: yellow,
+		stream: 'stderr'
 	},
 	error:
 	{
-		color: red
+		color: red,
+		stream: 'stderr'
 	}
 }

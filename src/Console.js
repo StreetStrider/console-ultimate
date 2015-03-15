@@ -29,10 +29,10 @@ var Console = module.exports = function Console (stdout, stderr, options)
 Console.defaults = require('./options').defaults;
 
 
-Console.prototype.log   = log('_stdout', 'log');
-Console.prototype.info  = log('_stdout', 'info');
-Console.prototype.error = log('_stderr', 'error');
-Console.prototype.warn  = log('_stderr', 'warn');
+Console.prototype.log   = log('log');
+Console.prototype.info  = log('info');
+Console.prototype.error = log('error');
+Console.prototype.warn  = log('warn');
 
 
 Console.prototype.dir = dir;

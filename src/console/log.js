@@ -7,7 +7,7 @@ var
 	format = require('../format').format,
 	nl = require('../format').nl;
 
-module.exports = function (stream, name)
+module.exports = function (name)
 {
 	var styler = styling(name);
 
@@ -18,6 +18,8 @@ module.exports = function (stream, name)
 		var output = format(arguments);
 		output = nl(output);
 		output = styles.color(output);
+
+		var stream = '_' + styles.stream;
 
 		this[stream].write(output);
 	}
