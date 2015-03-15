@@ -39,22 +39,26 @@ var genericDefaults =
 	log:
 	{
 		color: same,
-		stream: 'stdout'
+		stream: 'stdout',
+		prefix: '   '
 	},
 	info:
 	{
 		color: blue,
-		stream: 'stdout'
+		stream: 'stdout',
+		prefix: ' ⓘ '
 	},
 	warn:
 	{
 		color: yellow,
-		stream: 'stderr'
+		stream: 'stderr',
+		prefix: ' ⚠ '
 	},
 	error:
 	{
 		color: red,
-		stream: 'stderr'
+		stream: 'stderr',
+		prefix: ' ⚡ '
 	}
 }
 
