@@ -9,8 +9,24 @@ npm install console-ultimate
 npm install StreetStrider/console-ultimate
 ```
 
+# usage
+```javascript
+var Console = require('console-ultimate');
+var console;
+
+console = new Console(process.stdout, process.stderr);
+// or:
+console = Console(process.stdout, process.stderr);
+// or just (if default std streams):
+console = Console();
+
+console.log('...');
+```
+
 # todo
 
+* [x] log, info, warn, error
+* [x] dir
 * [ ] time, timeEnd
 * [ ] trace
 * [ ] assert
