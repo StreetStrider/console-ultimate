@@ -6,7 +6,8 @@ var
 
 	expand = require('./options').expand,
 
-	log = require('./console/log');
+	log = require('./console/log'),
+	dir = require('./console/dir');
 
 var Console = module.exports = function Console (stdout, stderr, options)
 {
@@ -34,7 +35,7 @@ Console.prototype.error = log('_stderr', 'error');
 Console.prototype.warn  = log('_stderr', 'warn');
 
 
-Console.prototype.dir = require('./console/dir');
+Console.prototype.dir = dir;
 
 
 function bindings (console)
