@@ -8,7 +8,7 @@ var
 	slice = Array.prototype.slice,
 	extend = require('aux.js/object/extend'),
 
-	styling = require('../styling');
+	styling = require('../styling/dir');
 
 var dir = module.exports = function (object, options /* flags */)
 {
@@ -16,17 +16,17 @@ var dir = module.exports = function (object, options /* flags */)
 
 	if (arguments.length === 1)
 	{
-		options = doDefaults(console);
+		options = doStyles(console);
 	}
 	else if (isNodeLike(arguments))
 	{
-		options = doDefaults(console, options);
+		options = doStyles(console, options);
 	}
 	else
 	{
 		/* extended behavior: flags */
 		var
-			eff   = doDefaults(console),
+			eff   = doStyles(console),
 			flags = slice.call(arguments, 1);
 
 		flags.forEach(doFlag(eff));
@@ -38,12 +38,9 @@ var dir = module.exports = function (object, options /* flags */)
 }
 
 
-function doDefaults (console, options)
+function doStyles (console, options)
 {
-	var eff = extend({}, defaults);
-
-	/* dynamic colors check */
-	eff.colors = styling.isColors(console.options);
+	var eff = styling(console.options);
 
 	if (options)
 	{
@@ -51,17 +48,6 @@ function doDefaults (console, options)
 	}
 
 	return eff;
-}
-
-var defaults =
-{
-	customInspect: false,
-
-	/* Node defaults: */
-	// showHidden: false,
-	// depth: 2,
-	// colors: false,
-	// customInspect: true,
 }
 
 function isNodeLike (A)

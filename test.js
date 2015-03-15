@@ -4,7 +4,7 @@ var
 	Console = require('../console-ultimate');
 
 var
-	c = Console(null, null, { styling: false }),
+	c = Console(null, null, { styling: { colors: true, dir: { colors: false }}}),
 	log = c.log;
 
 log('options:');
