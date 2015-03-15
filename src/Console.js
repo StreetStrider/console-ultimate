@@ -10,9 +10,11 @@ var
 	yellow = colr.yellow,
 
 	inst = require('aux.js/inst'),
-	prop = require('aux.js/prop');
+	prop = require('aux.js/prop'),
 
-var Console = module.exports = function Console (stdout, stderr)
+	expand = require('./options').expand;
+
+var Console = module.exports = function Console (stdout, stderr, options)
 {
 	var console = inst(Console);
 
@@ -22,10 +24,16 @@ var Console = module.exports = function Console (stdout, stderr)
 	prop.value(console, '_stdout', stdout, 'write', 'config');
 	prop.value(console, '_stderr', stderr, 'write', 'config');
 
+	prop.value(console, 'options', expand(options, Console));
+
 	bindings(console);
 
 	return console;
 }
+
+
+Console.defaults = require('./options').defaults;
+
 
 Console.prototype.log = function ()
 {

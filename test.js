@@ -7,6 +7,10 @@ var
 	c = Console(),
 	log = c.log;
 
+log('options:');
+c.dir(c.options, Infinity);
+log()
+
 c.log('a', 'b', 'c');
 c.log('%s/%s', 'b', 1);
 
@@ -21,23 +25,23 @@ c.error('%s/%s', 'b', 1);
 
 var tree = { x: 1, y: 2, 3: { 3: { 3: 'tree' }}};
 
-log('');
+log();
 log('depth: 0');
 c.dir(tree, 0);
-log('');
+log();
 
 log('depth: 1');
 c.dir(tree, 1);
-log('');
+log();
 
 log('depth: default');
 c.dir(tree);
-log('');
+log();
 
 log('nocolors');
 c.dir(tree, 'nocolors');
-log('');
+log();
 
 log('std options');
 c.dir(tree, { depth: 0, colors: true, showHidden: true });
-log('');
+log();
