@@ -7,7 +7,9 @@ var
 	expand = require('./options').expand,
 
 	log = require('./console/log'),
-	dir = require('./console/dir');
+	dir = require('./console/dir'),
+
+	bindings = require('./bindings');
 
 var Console = module.exports = function Console (stdout, stderr, options)
 {
@@ -21,7 +23,7 @@ var Console = module.exports = function Console (stdout, stderr, options)
 
 	prop.value(console, 'options', expand(options, Console));
 
-	bindings(console);
+	bind(console);
 
 	return console;
 }
@@ -38,17 +40,14 @@ Console.prototype.warn  = log('warn');
 Console.prototype.dir = dir;
 
 
-function bindings (console)
+function bind (console)
 {
+	bindings(console,
 	[
 		'log',
 		'info',
 		'warn',
 		'error',
 		'dir'
-	]
-	.forEach(function (key)
-	{
-		console[key] = console[key].bind(console);
-	});
+	]);
 }
