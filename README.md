@@ -32,12 +32,11 @@ console.log('...');
 * [ ] assert
 * [ ] console/global — path global `console`
 * [ ] console/proxy — proxy calls to another console instance
-* [ ] options & feature gates:
-
-  * [ ] colors: turn on|off, advanced styling
-  * [ ] mapping method → stream (stdout or stderr)
-  * [ ] per-method feature gate
-
+* [x] options & feature gates:
+  * [x] colors: turn on|off, advanced styling
+  * [x] mapping method → stream (stdout or stderr)
+  * [x] per-method feature gate
+  * [x] logger's prefixes
 * [ ] table
 * [ ] null-console — silent console
 * [ ] clear
