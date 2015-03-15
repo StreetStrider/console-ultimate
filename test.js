@@ -1,8 +1,11 @@
 
 
-var c, Console = require('../console-ultimate');
+var
+	Console = require('../console-ultimate');
 
-c = Console();
+var
+	c = Console(),
+	log = c.log;
 
 c.log('a', 'b', 'c');
 c.log('%s/%s', 'b', 1);
@@ -18,23 +21,23 @@ c.error('%s/%s', 'b', 1);
 
 var tree = { x: 1, y: 2, 3: { 3: { 3: 'tree' }}};
 
-console.log('');
-console.log('depth: 0');
+log('');
+log('depth: 0');
 c.dir(tree, 0);
-console.log('');
+log('');
 
-console.log('depth: 1');
+log('depth: 1');
 c.dir(tree, 1);
-console.log('');
+log('');
 
-console.log('depth: default');
+log('depth: default');
 c.dir(tree);
-console.log('');
+log('');
 
-console.log('nocolors');
+log('nocolors');
 c.dir(tree, 'nocolors');
-console.log('');
+log('');
 
-console.log('std options');
+log('std options');
 c.dir(tree, { depth: 0, colors: true, showHidden: true });
-console.log('');
+log('');

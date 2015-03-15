@@ -64,6 +64,8 @@ var Console = module.exports = function Console (stdout, stderr)
 	prop.value(console, '_stdout', stdout, 'write', 'config');
 	prop.value(console, '_stderr', stderr, 'write', 'config');
 
+	bindings(console);
+
 	return console;
 }
 
@@ -201,3 +203,18 @@ function stringFlag (options, flag)
 return dir;
 
 }());
+
+function bindings (console)
+{
+	[
+		'log',
+		'info',
+		'warn',
+		'error',
+		'dir'
+	]
+	.forEach(function (key)
+	{
+		console[key] = console[key].bind(console);
+	});
+}
