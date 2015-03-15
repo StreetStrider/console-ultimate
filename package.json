@@ -2,7 +2,7 @@
 	"name": "console-ultimate",
 	"version": "0.0.0",
 
-	"description": "replacement for std console with colors and other cool features",
+	"description": "replacement for std console with extra features",
 	"tags": [ "console", "color", "cli" ],
 
 	"scripts":
