@@ -2,6 +2,8 @@
 
 var
 	colr = require('cli-color'),
+	compose = require('aux.js/fn/compose'),
+
 	Console = require('../console-ultimate');
 
 var c = Console(null, null,
@@ -17,7 +19,7 @@ var c = Console(null, null,
 		{
 			stream: 'stdout',
 			prefix: colr.red.bold(' x '),
-			color: function (v) { return colr.bold(colr.green(v)); }
+			color: compose(colr.green, colr.bold)
 		}
 	}
 });

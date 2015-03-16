@@ -21,7 +21,7 @@
 
 	"dependencies":
 	{
-		"aux.js": "~2",
+		"aux.js": "^2.3",
 		"cli-color": "^0.3"
 	}
 }
