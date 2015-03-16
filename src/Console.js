@@ -41,7 +41,10 @@ function bind (console)
 		'info',
 		'warn',
 		'error',
-		'dir'
+
+		'dir',
+
+		'clear'
 	]);
 }
 
