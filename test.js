@@ -16,6 +16,7 @@ var c = Console(null, null,
 		warn:
 		{
 			stream: 'stdout',
+			prefix: colr.red.bold(' x '),
 			color: function (v) { return colr.bold(colr.green(v)); }
 		}
 	}
