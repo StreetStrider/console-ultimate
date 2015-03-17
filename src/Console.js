@@ -60,5 +60,6 @@ Console.prototype.dir = dir;
 
 Console.prototype.clear = function ()
 {
-	this.log(reset);
+	this._stdout.write(reset);
+	this._stderr.write(reset);
 }
