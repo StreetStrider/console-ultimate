@@ -4,12 +4,11 @@ var
 	inst = require('aux.js/inst'),
 	prop = require('aux.js/prop'),
 
-	reset = require('cli-color').reset,
-
 	expand = require('./options').expand,
 
 	log = require('./console/log'),
 	dir = require('./console/dir'),
+	clear = require('./console/clear'),
 
 	bindings = require('./bindings');
 
@@ -57,9 +56,4 @@ Console.prototype.warn  = log('warn');
 
 Console.prototype.dir = dir;
 
-
-Console.prototype.clear = function ()
-{
-	this._stdout.write(reset);
-	this._stderr.write(reset);
-}
+Console.prototype.clear = clear;
