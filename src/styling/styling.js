@@ -1,6 +1,9 @@
 
 
 
+var
+	has = require('object-path').has;
+
 var styling = module.exports = {};
 
 styling.isColors = function (options)
@@ -11,12 +14,14 @@ styling.isColors = function (options)
 	}
 	else
 	{
-		if (options.styling.colors === undefined)
+		if (! has(options, 'styling.colors'))
 		{
+			/* non-existent: isColors = true */
 			return true;
 		}
 		else
 		{
+			/* explicit value: isColors = Boolean(value) */
 			return !! options.styling.colors;
 		}
 	}

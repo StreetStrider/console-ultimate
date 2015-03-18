@@ -22,6 +22,7 @@
 	"dependencies":
 	{
 		"aux.js": "^2.3",
-		"cli-color": "^0.3"
+		"cli-color": "^0.3",
+		"object-path": ">=0.9.0 <1.0.0"
 	}
 }
