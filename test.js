@@ -1,16 +1,20 @@
 
 
 var
-	colr = require('cli-color'),
 	compose = require('aux.js/fn/compose'),
 
-	Console = require('../console-ultimate');
+	Console = require('../console-ultimate'),
+	colr = Console.colors;
 
 var c = Console(null, null,
 {
 	styling:
 	{
 		colors: true,
+		log:
+		{
+			color: colr.bold
+		},
 		dir:
 		{
 			colors: false
@@ -32,6 +36,10 @@ log()
 
 c.log('a', 'b', 'c');
 c.log('%s/%s', 'b', 1);
+
+// c.options.styling.log = { color: colr.bold };
+// c.log('a', 'b', 'c');
+// c.log('%s/%s', 'b', 1);
 
 c.info('a', 'b', 'c');
 c.info('%s/%s', 'b', 1);

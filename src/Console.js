@@ -31,6 +31,7 @@ var Console = module.exports = function Console (stdout, stderr, options)
 
 Console.defaults = require('./options').defaults;
 
+Console.colors = Console.prototype.colors = require('cli-color');
 
 function bind (console)
 {

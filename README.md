@@ -22,6 +22,19 @@ console = Console();
 
 console.log('...');
 ```
+`Console.colors` and any console instance `.colors` property has a ref to [cli-color](https://github.com/medikoo/cli-color). It can be used for customizing output styles.
+
+```javascript
+console = Console(null, null, {
+  styling: {
+    log: {
+      color: console.colors.bold
+    }
+  }
+});
+
+console.log('...'); // output is bold now
+```
 
 # todo
 
