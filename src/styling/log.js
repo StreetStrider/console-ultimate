@@ -3,71 +3,73 @@
 var
 	same = require('aux.js/identity'),
 	extend = require('aux.js/object/extend'),
+	get = require('object-path').get,
 
+	isColors = require('./styling').isColors;
+
+module.exports = function (name)
+{
+	var
+		defaults = genericDefaults[name],
+		custom = genericCustom(name);
+
+	return function (options)
+	{
+		var styles = extend({}, defaults);
+
+		extend(styles, custom(options));
+
+		if (! isColors(options))
+		{
+			styles.color = same;
+		}
+
+		return styles;
+	}
+}
+
+
+var
 	colr = require('cli-color'),
 
 	blue = colr.blue,
 	red  = colr.red,
-	yellow = colr.yellow,
-
-	styling = require('./styling');
-
-module.exports = function (name)
-{
-	var defaults = genericDefaults[name];
-
-	return function (options)
-	{
-		var eff = extend({}, defaults);
-
-		if (hasStyling(name, options))
-		{
-			extend(eff, options.styling[name]);
-		}
-
-		if (! styling.isColors(options))
-		{
-			eff.color = same;
-		}
-
-		return eff;
-	}
-}
+	yellow = colr.yellow;
 
 var genericDefaults =
 {
 	log:
 	{
-		color: same,
+		color:   same,
 		stream: 'stdout',
 		prefix: '   '
 	},
 	info:
 	{
-		color: blue,
+		color:   blue,
 		stream: 'stdout',
 		prefix: ' ⓘ '
 	},
 	warn:
 	{
-		color: yellow,
+		color:   yellow,
 		stream: 'stderr',
 		prefix: ' ⚠ '
 	},
 	error:
 	{
-		color: red,
+		color:   red,
 		stream: 'stderr',
 		prefix: ' ⚡ '
 	}
 }
 
-function hasStyling (name, options)
+function genericCustom (name)
 {
-	if (! options.styling) return false;
+	var path = [ 'styling', name ];
 
-	var object = options.styling[name];
-	if (! object) return false;
-
-	return Object(object) === object;
+	return function custom (options)
+	{
+		return get(options, path) || {};
+	}
 }

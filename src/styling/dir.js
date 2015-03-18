@@ -3,26 +3,22 @@
 
 var
 	extend = require('aux.js/object/extend'),
+	get = require('object-path').get,
 
-	styling = require('./styling');
+	isColors = require('./styling').isColors;
 
 module.exports = function (options)
 {
-	var eff = extend({}, defaults);
+	var styles = extend({}, defaults);
 
-	var isColors = styling.isColors(options);
+	extend(styles, custom(options));
 
-	if (hasStyling(options))
+	if (! isColors(options))
 	{
-		extend(eff, options.styling.dir);
+		styles.colors = false;
 	}
 
-	if (! isColors)
-	{
-		eff.colors = false;
-	}
-
-	return eff;
+	return styles;
 }
 
 var defaults =
@@ -37,11 +33,7 @@ var defaults =
 	// customInspect: true,
 }
 
-function hasStyling (options)
+function custom (options)
 {
-	if (! options.styling) return false;
-	if (! options.styling.dir) return false;
-
-	var dir = options.styling.dir;
-	return Object(dir) === dir;
+	return get(options, 'styling.dir') || {};
 }
