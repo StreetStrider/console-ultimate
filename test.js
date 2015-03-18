@@ -24,8 +24,9 @@ var c = Console(null, null,
 			stream: 'stdout',
 			prefix: colr.red.bold(' x '),
 			color: compose(colr.green, colr.bold)
-		}
-	}
+		},
+	},
+	clear: true
 });
 
 var log = c.log;

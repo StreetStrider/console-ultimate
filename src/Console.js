@@ -8,6 +8,8 @@ var
 
 	log = require('./console/log'),
 	dir = require('./console/dir'),
+
+	feature = require('./feature'),
 	clear = require('./console/clear'),
 
 	bindings = require('./bindings');
@@ -23,6 +25,8 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	prop.value(console, '_stderr', stderr, 'write', 'config');
 
 	prop.value(console, 'options', expand(options, Console));
+
+	feature(console, clear);
 
 	bind(console);
 
@@ -48,13 +52,9 @@ function bind (console)
 	]);
 }
 
-
 Console.prototype.log   = log('log');
 Console.prototype.info  = log('info');
 Console.prototype.error = log('error');
 Console.prototype.warn  = log('warn');
 
-
 Console.prototype.dir = dir;
-
-Console.prototype.clear = clear;

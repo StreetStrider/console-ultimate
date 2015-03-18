@@ -5,6 +5,9 @@ module.exports = function (object, keys)
 {
 	keys.forEach(function (key)
 	{
-		object[key] = object[key].bind(object);
+		if (object[key])
+		{
+			object[key] = object[key].bind(object);
+		}
 	})
 }
