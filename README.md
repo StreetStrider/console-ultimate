@@ -25,23 +25,25 @@ console.log('...');
 
 # todo
 
-* [x] log, info, warn, error
-* [x] dir
-* [ ] time, timeEnd
-* [ ] trace
-* [ ] assert
-* [ ] console/global — path global `console`
-* [ ] console/proxy — proxy calls to another console instance
-* [x] options & feature gates:
+* features:
+  * [x] log, info, warn, error
+  * [x] dir
+  * [ ] time, timeEnd
+  * [ ] trace
+  * [ ] assert
+  * [ ] table
+  * [x] clear
+  * [ ] count
+  * [ ] debug
+* options & feature gates:
   * [x] colors: turn on|off, advanced styling
   * [x] mapping method → stream (stdout or stderr)
   * [x] per-method feature gate
   * [x] logger's prefixes
-* [ ] table
-* [ ] null-console — silent console
-* [x] clear
-* [ ] count
-* [ ] debug
+* console variations:
+  * [ ] console/global — path global `console`
+  * [ ] console/proxy — proxy calls to another console instance
+  * [ ] null-console — silent console
 * [ ] browserify
 
 # license
