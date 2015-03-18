@@ -47,7 +47,7 @@ console.log('...'); // output is bold now
   * [ ] table
   * [x] clear
   * [ ] count
-  * [ ] debug
+  * [x] debug
 * options & feature gates:
   * [x] colors: turn on|off, advanced styling
   * [x] mapping method → stream (stdout or stderr)

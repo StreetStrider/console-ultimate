@@ -11,6 +11,7 @@ var
 
 	feature = require('./feature'),
 	clear = require('./console/clear'),
+	debug = require('./console/debug'),
 
 	bindings = require('./bindings');
 
@@ -27,6 +28,7 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	prop.value(console, 'options', expand(options, Console));
 
 	feature(console, clear);
+	feature(console, debug);
 
 	bind(console);
 
@@ -36,6 +38,13 @@ var Console = module.exports = function Console (stdout, stderr, options)
 Console.defaults = require('./options').defaults;
 
 Console.colors = Console.prototype.colors = require('cli-color');
+
+Console.prototype.log   = log('log');
+Console.prototype.info  = log('info');
+Console.prototype.error = log('error');
+Console.prototype.warn  = log('warn');
+
+Console.prototype.dir = dir;
 
 function bind (console)
 {
@@ -48,13 +57,7 @@ function bind (console)
 
 		'dir',
 
-		'clear'
+		'clear',
+		'debug'
 	]);
 }
-
-Console.prototype.log   = log('log');
-Console.prototype.info  = log('info');
-Console.prototype.error = log('error');
-Console.prototype.warn  = log('warn');
-
-Console.prototype.dir = dir;

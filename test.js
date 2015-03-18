@@ -26,7 +26,8 @@ var c = Console(null, null,
 			color: compose(colr.green, colr.bold)
 		},
 	},
-	clear: true
+	clear: true,
+	debug: true
 });
 
 var log = c.log;
@@ -38,9 +39,10 @@ log()
 c.log('a', 'b', 'c');
 c.log('%s/%s', 'b', 1);
 
-// c.options.styling.log = { color: colr.bold };
-// c.log('a', 'b', 'c');
-// c.log('%s/%s', 'b', 1);
+c.options.styling.log = { color: colr.green };
+c.debug('a', 'b', 'c');
+c.debug('%s/%s', 'b', 1);
+c.options.styling.log = { color: colr.bold };
 
 c.info('a', 'b', 'c');
 c.info('%s/%s', 'b', 1);
