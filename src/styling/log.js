@@ -42,7 +42,7 @@ var genericDefaults =
 	{
 		color:   same,
 		stream: 'stdout',
-		prefix: '   '
+		prefix: ' • '
 	},
 	info:
 	{
