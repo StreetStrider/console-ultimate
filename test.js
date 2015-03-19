@@ -27,7 +27,8 @@ var c = Console(null, null,
 		},
 	},
 	clear: true,
-	debug: true
+	debug: true,
+	count: true
 });
 
 var log = c.log;
@@ -38,6 +39,15 @@ log()
 
 c.log('a', 'b', 'c');
 c.log('%s/%s', 'b', 1);
+
+c.count();
+c.count();
+c.count();
+
+c.count('X');
+c.count('X');
+
+c.count();
 
 c.options.styling.log = { color: colr.green };
 c.debug('a', 'b', 'c');

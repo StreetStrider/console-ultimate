@@ -12,6 +12,7 @@ var
 	feature = require('./feature'),
 	clear = require('./console/clear'),
 	debug = require('./console/debug'),
+	count = require('./console/count'),
 
 	bindings = require('./bindings');
 
@@ -29,6 +30,7 @@ var Console = module.exports = function Console (stdout, stderr, options)
 
 	feature(console, clear);
 	feature(console, debug);
+	feature(console, count);
 
 	bind(console);
 
@@ -58,6 +60,7 @@ function bind (console)
 		'dir',
 
 		'clear',
-		'debug'
+		'debug',
+		'count'
 	]);
 }

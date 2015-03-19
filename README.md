@@ -46,7 +46,7 @@ console.log('...'); // output is bold now
   * [ ] assert
   * [ ] table
   * [x] clear
-  * [ ] count
+  * [x] count
   * [x] debug
 * options & feature gates:
   * [x] colors: turn on|off, advanced styling
