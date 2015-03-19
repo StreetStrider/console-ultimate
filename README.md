@@ -41,13 +41,14 @@ console.log('...'); // output is bold now
 * features:
   * [x] log, info, warn, error
   * [x] dir
+  * [x] clear
+  * [x] count
+  * [x] debug
   * [ ] time, timeEnd
   * [ ] trace
   * [ ] assert
   * [ ] table
-  * [x] clear
-  * [x] count
-  * [x] debug
+  * [ ] group, groupEnd
 * options & feature gates:
   * [x] colors: turn on|off, advanced styling
   * [x] mapping method → stream (stdout or stderr)
@@ -58,6 +59,7 @@ console.log('...'); // output is bold now
   * [ ] console/proxy — proxy calls to another console instance
   * [ ] null-console — silent console
 * [ ] browserify
+* [ ] better stack traces (research)
 
 # license
 MIT, copyright © 2015 StreetStrider.
