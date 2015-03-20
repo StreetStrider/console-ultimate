@@ -44,7 +44,9 @@ console.log('...'); // output is bold now
   * [x] clear
   * [x] count
   * [x] debug
-  * [ ] time, timeEnd
+  * [x] time, timeEnd
+    * [ ] hrtime
+    * [ ] get, not print
   * [ ] trace
   * [ ] assert
   * [ ] table

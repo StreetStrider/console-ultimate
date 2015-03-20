@@ -28,10 +28,14 @@ var c = Console(null, null,
 	},
 	clear: true,
 	debug: true,
-	count: true
+	count: true,
+	timer: true
 });
 
 var log = c.log;
+
+c.time();
+c.time('X');
 
 log('options:');
 c.dir(c.options, Infinity);
@@ -87,3 +91,5 @@ c.dir(tree, { depth: 0, colors: true, showHidden: true });
 log();
 
 // c.clear();
+c.timeEnd();
+c.timeEnd('X');
