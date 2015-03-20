@@ -54,8 +54,6 @@ exports.setup = function (console)
 			output = styles.color(output);
 		}
 
-		this._stdout.write(output);
-
 		/* @dry */
 		var stream = '_' + styles.stream;
 
