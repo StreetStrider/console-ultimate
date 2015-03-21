@@ -63,9 +63,6 @@ function bind (console)
 
 		'clear',
 		'debug',
-		'count',
-
-		'time',
-		'timeEnd'
+		'count'
 	]);
 }

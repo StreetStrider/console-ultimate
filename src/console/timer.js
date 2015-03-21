@@ -12,7 +12,7 @@ module.exports = function (console)
 {
 	var timers = {};
 
-	console.time = function (label)
+	console.time = function time (label)
 	{
 		label = toLabel(label);
 
@@ -36,7 +36,7 @@ module.exports = function (console)
 		return { tick: +new Date };
 	}
 
-	console.timeEnd = function (label)
+	console.timeEnd = function timeEnd (label)
 	{
 		var delta = harvest(label);
 
