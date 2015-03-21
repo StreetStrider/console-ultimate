@@ -5,6 +5,7 @@ var
 	styling = require('../styling/timer'),
 
 	nl = require('../format').nl,
+	format = require('../format').format,
 	prefix = require('../format').prefix;
 
 exports.is = function (console)
@@ -44,7 +45,14 @@ exports.setup = function (console)
 	{
 		var delta = recieve(label);
 
-		output(console, delta);
+		if (! (delta instanceof Error))
+		{
+			output(console, delta);
+		}
+		else
+		{
+			error(console, delta);
+		}
 	}
 
 	function recieve (label)
@@ -53,7 +61,16 @@ exports.setup = function (console)
 
 		if (! (label in timers))
 		{
-			return new Error('no_such_timer: `%s`', label);
+			var message;
+			if (label)
+			{
+				message = format([ 'no_such_timer: `%s`', label ]);
+			}
+			else
+			{
+				message = 'no_timer';
+			}
+			return new Error(message);
 		}
 		else
 		{
@@ -108,5 +125,10 @@ exports.setup = function (console)
 		var stream = '_' + styles.stream;
 
 		console[stream].write(output);
+	}
+
+	function error (console, error)
+	{
+		console.error(error.message);
 	}
 }

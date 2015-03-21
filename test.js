@@ -93,3 +93,4 @@ log();
 // c.clear();
 c.timeEnd();
 c.timeEnd('X');
+c.timeEnd('Y');
