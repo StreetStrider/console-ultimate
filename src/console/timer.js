@@ -43,7 +43,7 @@ exports.setup = function (console)
 
 	console.timeEnd = function (label)
 	{
-		var delta = recieve(label);
+		var delta = harvest(label);
 
 		if (! (delta instanceof Error))
 		{
@@ -55,7 +55,7 @@ exports.setup = function (console)
 		}
 	}
 
-	function recieve (label)
+	function harvest (label)
 	{
 		label = toLabel(label);
 
@@ -77,6 +77,13 @@ exports.setup = function (console)
 			var
 				now  = init(),
 				prev = timers[label];
+
+			delete timers[label];
+			/* ^ Node does not do this,
+			   if you need such behavior, post an issue
+
+			   @task
+			 */
 
 			return delta(label, now, prev);
 		}
