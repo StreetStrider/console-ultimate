@@ -28,8 +28,7 @@ var c = Console(null, null,
 	},
 	clear: true,
 	debug: true,
-	count: true,
-	timer: true
+	count: true
 });
 
 var log = c.log;

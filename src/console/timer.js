@@ -8,12 +8,7 @@ var
 	format = require('../format').format,
 	prefix = require('../format').prefix;
 
-exports.is = function (console)
-{
-	return !! console.options.timer;
-}
-
-exports.setup = function (console)
+module.exports = function (console)
 {
 	var timers = {};
 
