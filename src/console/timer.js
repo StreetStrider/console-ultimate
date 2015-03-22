@@ -3,6 +3,8 @@
 
 var
 	noop = require('aux.js/noop'),
+	get = require('object-path').get,
+
 	styling = require('../styling/timer'),
 
 	nl = require('../format').nl,
@@ -23,13 +25,15 @@ module.exports = function (console)
 
 function setup (console)
 {
-	var timers = {};
+	var
+		model  = TimeModel(console),
+		timers = {};
 
 	console.time = function time (label)
 	{
 		label = toLabel(label);
 
-		timers[label] = init();
+		timers[label] = model.start();
 	}
 
 	function toLabel (label)
@@ -44,18 +48,13 @@ function setup (console)
 		}
 	}
 
-	function init ()
-	{
-		return { tick: +new Date };
-	}
-
 	console.time.end = console.timeEnd = function timeEnd (label)
 	{
 		var delta = harvest(label);
 
 		if (! (delta instanceof Error))
 		{
-			output(console, delta);
+			model.output(delta);
 		}
 		else
 		{
@@ -96,37 +95,84 @@ function setup (console)
 		}
 		else
 		{
-			var
-				now  = init(),
-				prev = timers[label];
+			var prev = timers[label];
 
 			delete timers[label];
-			/* ^ Node does not do this,
-			   if you need such behavior, post an issue
+			/* ^ Node does not do that,
+			   if you need such behavior, post an issue:
+			   https://github.com/StreetStrider/console-ultimate/issues
 
 			   @task
 			 */
 
-			return delta(label, now, prev);
+			return model.stop(label, prev);
 		}
 	}
 
-	function delta (label, now, prev)
+	function error (console, error)
 	{
-		return {
-			label: label,
-			value: now.tick - prev.tick
-		}
+		console.error(error.message);
+	}
+}
+
+function stub (console)
+{
+	console.time = noop;
+	console.timeEnd = noop;
+}
+
+function TimeModel (console)
+{
+	var
+		model,
+		hr = get(console.options, 'timer.hrtime') || false;
+
+	if (hr)
+	{
+		var pretty = require('pretty-hrtime');
+
+		model = {
+			start: process.hrtime,
+			stop:  function (label, prev)
+			{
+				return {
+					label: label,
+					value: nanodelta(model.start(), prev)
+				};
+			},
+			output: function (delta)
+			{
+				delta.value = pretty(delta.value, { precise: true });
+
+				basic_output(delta);
+			}
+		};
+	}
+	else
+	{
+		model = {
+			start: function () { return +new Date; },
+			stop:  function (label, prev)
+			{
+				return {
+					label: label,
+					value: model.start() - prev
+				};
+			},
+			output: function (delta)
+			{
+				delta.value += ' ms';
+
+				basic_output(delta);
+			}
+		};
 	}
 
-	function output (console, delta)
+	function basic_output (delta)
 	{
 		var
-			output,
-			label = delta.label,
-			value = delta.value;
-
-		output = value + 'ms';
+			output = delta.value,
+			label  = delta.label;
 
 		if (label)
 		{
@@ -156,14 +202,28 @@ function setup (console)
 		console[stream].write(output);
 	}
 
-	function error (console, error)
-	{
-		console.error(error.message);
-	}
+	return model;
 }
 
-function stub (console)
+function nanodelta (t2, t1)
 {
-	console.time = noop;
-	console.timeEnd = noop;
+	var
+		delta, ndelta,
+
+		s1 = t1[0],
+		s2 = t2[0],
+
+		ns1 = t1[1],
+		ns2 = t2[1];
+
+	delta = s2 - s1;
+	ndelta = ns2 - ns1;
+
+	if (ndelta < 0)
+	{
+		delta  = delta  - 1;
+		ndelta = ndelta + 1e9;
+	}
+
+	return [ delta, ndelta ];
 }
