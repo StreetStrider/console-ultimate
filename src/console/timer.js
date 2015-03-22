@@ -2,6 +2,7 @@
 
 
 var
+	noop = require('aux.js/noop'),
 	styling = require('../styling/timer'),
 
 	nl = require('../format').nl,
@@ -9,6 +10,18 @@ var
 	prefix = require('../format').prefix;
 
 module.exports = function (console)
+{
+	if (('timer' in console.options) && (! console.options.timer))
+	{
+		stub(console);
+	}
+	else
+	{
+		setup(console);
+	}
+}
+
+function setup (console)
 {
 	var timers = {};
 
@@ -147,4 +160,10 @@ module.exports = function (console)
 	{
 		console.error(error.message);
 	}
+}
+
+function stub (console)
+{
+	console.time = noop;
+	console.timeEnd = noop;
 }
