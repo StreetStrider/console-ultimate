@@ -50,6 +50,20 @@ module.exports = function (console)
 		}
 	}
 
+	console.time.retrieve = function time__retrieve (label)
+	{
+		var delta = harvest(label);
+
+		if (! (delta instanceof Error))
+		{
+			return delta.value;
+		}
+		else
+		{
+			return delta;
+		}
+	}
+
 	function harvest (label)
 	{
 		label = toLabel(label);

@@ -36,10 +36,11 @@ var log = c.log;
 c.time();
 c.time('X');
 c.time('Y');
+c.time('retrieve');
 
 log('options:');
 c.dir(c.options, Infinity);
-log()
+log();
 
 c.log('a', 'b', 'c');
 c.log('%s/%s', 'b', 1);
@@ -96,3 +97,9 @@ c.timeEnd('X');
 c.time.end('Y');
 c.timeEnd('Z');
 c.timeEnd();
+
+var t = c.time.retrieve('retrieve');
+log('timer retrieve:', t);
+
+var t = c.time.retrieve('retrieve');
+log('timer retrieve:', t);
