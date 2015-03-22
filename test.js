@@ -35,6 +35,7 @@ var log = c.log;
 
 c.time();
 c.time('X');
+c.time('Y');
 
 log('options:');
 c.dir(c.options, Infinity);
@@ -92,5 +93,6 @@ log();
 // c.clear();
 c.timeEnd();
 c.timeEnd('X');
-c.timeEnd('Y');
+c.time.end('Y');
+c.timeEnd('Z');
 c.timeEnd();

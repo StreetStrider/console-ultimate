@@ -36,7 +36,7 @@ module.exports = function (console)
 		return { tick: +new Date };
 	}
 
-	console.timeEnd = function timeEnd (label)
+	console.time.end = console.timeEnd = function timeEnd (label)
 	{
 		var delta = harvest(label);
 
