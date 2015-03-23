@@ -1,9 +1,15 @@
 {
 	"name": "console-ultimate",
-	"version": "0.2.0",
+	"version": "0.3.0",
 
 	"description": "replacement for std console with extra features",
-	"tags": [ "console", "color", "cli" ],
+	"tags":
+	[
+		"console", "color", "cli",
+		"dir", "inspect", "format", "util",
+		"timer", "timing", "hrtime", "benchmark",
+		"node"
+	],
 
 	"license": "MIT",
 	"author": "StreetStrider <teamfortresslife@gmail.com>",

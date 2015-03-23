@@ -1,6 +1,6 @@
 # console-ultimate
 
-> Node-compatible `console` object with extra features.
+Node-compatible `console` object with extra features. Replace default one with this and you'll have nice styles and advanced features out of the box. Features include: timers, terminal clear, customizable styles and behavior for every function, on-off options for every additional function and other.
 
 # install
 ```sh
@@ -22,7 +22,7 @@ console = Console();
 
 console.log('...');
 ```
-`Console.colors` and any console instance `.colors` property has a ref to [cli-color](https://github.com/medikoo/cli-color). It can be used for customizing output styles.
+`Console.colors` and any console instance `.colors` property is a ref to [cli-color](https://github.com/medikoo/cli-color). It can be used for customizing output styles.
 
 ```javascript
 console = Console(null, null, {
