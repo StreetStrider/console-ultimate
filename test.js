@@ -108,3 +108,12 @@ log('timer retrieve:', t);
 
 var t = c.time.retrieve('retrieve');
 log('timer retrieve:', t);
+
+try
+{
+	c.assert(false, 'something_wrong');
+}
+catch (e)
+{
+	console.error(e);
+}
