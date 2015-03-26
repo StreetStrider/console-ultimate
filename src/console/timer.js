@@ -7,7 +7,6 @@ var
 
 	styling = require('../styling/timer'),
 
-	nl = require('../format').nl,
 	format = require('../format').format,
 	prefix = require('../format').prefix,
 
@@ -185,8 +184,6 @@ function TimeModel (console)
 			output = output;
 		}
 
-		output = nl(output);
-
 		var styles = styling(console.options);
 		if (styles.prefix)
 		{
@@ -198,10 +195,7 @@ function TimeModel (console)
 			output = styles.color(output);
 		}
 
-		/* @dry */
-		var stream = '_' + styles.stream;
-
-		console[stream].write(output);
+		console.writer.writeln(styles.stream, output);
 	}
 
 	return model;

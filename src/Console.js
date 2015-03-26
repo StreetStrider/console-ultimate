@@ -6,6 +6,8 @@ var
 
 	expand = require('./options').expand,
 
+	Writer = require('./Writer'),
+
 	log = require('./console/log'),
 	dir = require('./console/dir'),
 	timer = require('./console/timer'),
@@ -25,8 +27,9 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	stdout || (stdout = process.stdout);
 	stderr || (stderr = process.stderr);
 
-	prop.value(console, '_stdout', stdout, 'write', 'config');
-	prop.value(console, '_stderr', stderr, 'write', 'config');
+	prop.value(console, 'writer', Writer());
+	console.writer.add('stdout', stdout);
+	console.writer.add('stderr', stderr);
 
 	prop.value(console, 'options', expand(options, Console));
 

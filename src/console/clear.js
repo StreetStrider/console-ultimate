@@ -16,6 +16,8 @@ exports.setup = function (console)
 
 function clear ()
 {
-	this._stdout.write(reset);
-	this._stderr.write(reset);
+	/* @todo: do multistream */
+	/* @todo: stream(s) choosing */
+	this.writer.write('stdout', reset);
+	this.writer.write('stderr', reset);
 }

@@ -4,7 +4,6 @@
 var
 	styling = require('../styling/count'),
 
-	nl = require('../format').nl,
 	prefix = require('../format').prefix;
 
 exports.is = function (console)
@@ -33,14 +32,10 @@ exports.setup = function (console)
 
 		var c = counters[label];
 
-		var output;
+		var output = c;
 		if (label)
 		{
-			output = nl(label + ': ' + c);
-		}
-		else
-		{
-			output = nl(c);
+			output = label + ': ' + c;
 		}
 
 		var styles = styling(this.options);
@@ -54,9 +49,6 @@ exports.setup = function (console)
 			output = styles.color(output);
 		}
 
-		/* @dry */
-		var stream = '_' + styles.stream;
-
-		this[stream].write(output);
+		this.writer.writeln(styles.stream, output);
 	}
 }

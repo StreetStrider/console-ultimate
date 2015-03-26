@@ -5,8 +5,7 @@ var
 	styling = require('../styling/log'),
 
 	format = require('../format').format,
-	prefix = require('../format').prefix,
-	nl = require('../format').nl;
+	prefix = require('../format').prefix;
 
 module.exports = function (name)
 {
@@ -17,7 +16,6 @@ module.exports = function (name)
 		var styles = styler(this.options);
 
 		var output = format(arguments);
-		output = nl(output);
 
 		if (styles.prefix)
 		{
@@ -28,8 +26,6 @@ module.exports = function (name)
 			output = styles.color(output);
 		}
 
-		var stream = '_' + styles.stream;
-
-		this[stream].write(output);
+		this.writer.writeln(styles.stream, output);
 	}
 }

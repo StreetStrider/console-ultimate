@@ -8,7 +8,6 @@ var
 	styling = require('../styling/dir'),
 
 	format = require('../format'),
-	nl = format.nl,
 	inspect = format.inspect;
 
 var dir = module.exports = function (object, options /* flags */)
@@ -35,7 +34,8 @@ var dir = module.exports = function (object, options /* flags */)
 		options = eff;
 	}
 
-	console._stdout.write(nl(inspect(object, options)));
+	/* @todo: stream choosing */
+	console.writer.writeln('stdout', inspect(object, options));
 }
 
 
