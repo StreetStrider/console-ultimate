@@ -9,17 +9,19 @@ var
 
 	nl = require('../format').nl,
 	format = require('../format').format,
-	prefix = require('../format').prefix;
+	prefix = require('../format').prefix,
+
+	defaultEnabled = require('../options').defaultEnabled;
 
 module.exports = function (console)
 {
-	if (('timer' in console.options) && (! console.options.timer))
+	if (defaultEnabled(console.options, 'timer'))
 	{
-		stub(console);
+		setup(console);
 	}
 	else
 	{
-		setup(console);
+		stub(console);
 	}
 }
 

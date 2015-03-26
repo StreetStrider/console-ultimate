@@ -5,18 +5,18 @@ var
 	slice = Array.prototype.slice,
 	ok = require('assert').ok,
 	noop = require('aux.js/noop'),
-	format = require('../format').format;
+	format = require('../format').format,
+	defaultEnabled = require('../options').defaultEnabled;
 
 module.exports = function (console)
 {
-	/* @dry */
-	if (('assert' in console.options) && (! console.options.assert))
+	if (defaultEnabled(console.options, 'assert'))
 	{
-		stub(console);
+		setup(console);
 	}
 	else
 	{
-		setup(console);
+		stub(console);
 	}
 }
 
