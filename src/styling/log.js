@@ -5,10 +5,13 @@ var
 	extend = require('aux.js/object/extend'),
 	get = require('object-path').get,
 
-	isColors = require('./styling').isColors;
+	isColors = require('./styling').isColors,
+	isPrefix = require('./styling').isPrefix;
 
 module.exports = function (name)
 {
+	/* @dry */
+
 	var
 		defaults = genericDefaults[name],
 		custom = genericCustom(name);
@@ -22,6 +25,11 @@ module.exports = function (name)
 		if (! isColors(options))
 		{
 			styles.color = same;
+		}
+
+		if (! isPrefix(options))
+		{
+			styles.prefix = false;
 		}
 
 		return styles;

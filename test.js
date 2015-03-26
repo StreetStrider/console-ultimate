@@ -11,6 +11,8 @@ var c = Console(null, null,
 	styling:
 	{
 		colors: true,
+		// prefix: false,
+
 		log:
 		{
 			color: colr.bold

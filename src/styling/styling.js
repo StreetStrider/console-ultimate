@@ -2,27 +2,35 @@
 
 
 var
-	has = require('object-path').has;
+	has = require('object-path').has,
+	get = require('object-path').get;
 
 var styling = module.exports = {};
 
-styling.isColors = function (options)
+styling.isColors = defaultEnabledButOnlyIfStyling('styling.colors');
+styling.isPrefix = defaultEnabledButOnlyIfStyling('styling.prefix');
+
+function defaultEnabledButOnlyIfStyling /* ow, shit! */ (path)
 {
-	if (! options.styling)
+	return function (options)
 	{
-		return false;
-	}
-	else
-	{
-		if (! has(options, 'styling.colors'))
+		if (! options.styling)
 		{
-			/* non-existent: isColors = true */
-			return true;
+			/* styling not exists = false (all false) */
+			return false;
 		}
 		else
 		{
-			/* explicit value: isColors = Boolean(value) */
-			return !! options.styling.colors;
+			if (! has(options, path))
+			{
+				/* non-existent = true (default) */
+				return true;
+			}
+			else
+			{
+				/* explicit value = Boolean(value) (explicit) */
+				return !! get(options, path);
+			}
 		}
 	}
 }
