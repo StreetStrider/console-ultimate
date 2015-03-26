@@ -48,7 +48,7 @@ console.log('...'); // output is bold now
     * [x] hrtime
     * [x] retrieve
   * [ ] trace
-  * [ ] assert
+  * [x] assert
   * [ ] table
   * [ ] group, groupEnd
 * options & feature gates:
