@@ -47,7 +47,8 @@ console.log('...'); // output is bold now
   * [x] time, timeEnd
     * [x] hrtime
     * [x] retrieve
-  * [ ] trace
+  * [x] trace
+    * [ ] better stack traces (research)
   * [x] assert
   * [ ] table
   * [ ] group, groupEnd
@@ -61,7 +62,6 @@ console.log('...'); // output is bold now
   * [ ] console/proxy — proxy calls to another console instance
   * [ ] null-console — silent console
 * [ ] browserify
-* [ ] better stack traces (research)
 
 # license
 MIT, copyright © 2015 StreetStrider.

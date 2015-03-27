@@ -12,6 +12,7 @@ var
 	dir = require('./console/dir'),
 	timer = require('./console/timer'),
 	assert = require('./console/assert'),
+	trace = require('./console/trace'),
 
 	feature = require('./feature'),
 	clear = require('./console/clear'),
@@ -39,6 +40,7 @@ var Console = module.exports = function Console (stdout, stderr, options)
 
 	timer(console);
 	assert(console);
+	trace(console);
 
 	bind(console);
 

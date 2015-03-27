@@ -119,3 +119,5 @@ catch (e)
 {
 	console.error(e);
 }
+
+c.trace();
