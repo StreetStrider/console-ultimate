@@ -62,6 +62,7 @@ console.log('...'); // output is bold now
   * [ ] console/proxy — proxy calls to another console instance
   * [ ] null-console — silent console
 * [ ] browserify
+* [ ] tests :)
 
 # license
 MIT, copyright © 2015 StreetStrider.
