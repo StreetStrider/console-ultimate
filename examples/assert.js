@@ -12,11 +12,12 @@ function capture (fn)
 	}
 	catch (e)
 	{
-		console.log('caught:', e);
+		console.log('Assert:');
+		console.error(e);
 	}
 }
 
 capture(function ()
 {
-	console.assert(false, 'thats_wrong');
+	console.assert(false, 'thats_wrong: %s', 'some');
 });
