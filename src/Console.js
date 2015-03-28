@@ -17,9 +17,7 @@ var
 
 	clear = require('./console/clear'),
 	debug = require('./console/debug'),
-	count = require('./console/count'),
-
-	bindings = require('./bindings');
+	count = require('./console/count');
 
 var Console = module.exports = function Console (stdout, stderr, options)
 {
@@ -44,18 +42,9 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	debug(console);
 	count(console);
 
-	bind(console);
-
 	return console;
 }
 
 Console.defaults = extend({}, require('./options').defaults);
 
 Console.colors = Console.prototype.colors = require('cli-color');
-
-function bind (console)
-{
-	bindings(console,
-	[
-	]);
-}
