@@ -61,16 +61,18 @@ require('console-ultimate/global').replace();
 `global.console` is replaced with `console-ultimate` instance.
 
 ### features
-Addtional features are managed by feature-gates.
+Addtional features are managed by feature-gates. All features are enabled by default, but can be turned off or tuned.
 ```javascript
 console = Console(null, null, {
-  clear: true, /* enable `clear` method */
-  count: true, /* enable `count` method */
-
-  timer: /* enable `time`, `timeEnd` */
+  features:
   {
-    hrtime: true /* tune it to use hi-precision timer */
-  }
+    debug: false, /* disable `debug` alias */
+    // clear: true, /* feature is enabled by default */
+
+    timer:
+    {
+      hrtime: true /* tune timers to use hi-precision time */
+    }
 });
 ```
 

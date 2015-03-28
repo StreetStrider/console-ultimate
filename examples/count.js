@@ -2,9 +2,7 @@
 
 var console, Console = require('..');
 
-console = Console(null, null, {
-	count: true
-});
+console = Console();
 
 for (var i = 1; i <= 10; i++)
 {

@@ -2,9 +2,7 @@
 
 var console, Console = require('..');
 
-console = Console(null, null, {
-	debug: true
-});
+console = Console();
 
 console.log('this is `log`');
 console.debug('this is `debug`');

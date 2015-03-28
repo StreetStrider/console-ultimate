@@ -2,9 +2,7 @@
 
 var console, Console = require('..');
 
-console = Console(null, null, {
-	clear: true
-});
+console = Console();
 
 console.log('clear in 3s…');
 
