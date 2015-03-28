@@ -1,4 +1,6 @@
 # console-ultimate
+[![wow](assets/banner.png)](https://www.npmjs.com/package/console-ultimate)
+
 Node-compatible `console` object with extra features. Replace default one with this and you'll have nice styles and advanced features out of the box. Features include: timers, terminal clear, customizable styles and behavior for every function, on-off options for every additional function and other.
 
 All Node-related features are enabled by default and can be noop-ed if required. Any additional feature can be easily turned on and customized.
