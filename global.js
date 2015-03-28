@@ -1,16 +1,36 @@
 
 
 
-var
-	Console = require('./'),
-	console = Console();
+var Console = require('./');
 
-Object.defineProperty(global, 'console', {
-	get: function ()
+exports.replace = function replace (console)
+{
+	console = toConsole(console);
+
+	Object.defineProperty(global, 'console', {
+		get: function ()
+		{
+			return console;
+		},
+
+		enumerable:   true,
+		configurable: true
+	});
+}
+
+exports.patch = function patch (console)
+{
+	/* @todo: global-patch */
+}
+
+function toConsole (console)
+{
+	if (console instanceof Console)
 	{
 		return console;
-	},
-
-	enumerable:   true,
-	configurable: true
-});
+	}
+	else
+	{
+		return Console(null, null, console);
+	}
+}

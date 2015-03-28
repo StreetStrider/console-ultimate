@@ -54,6 +54,12 @@ console.log('...'); // output is bold now
 ```
 
 
+### patch global console
+```javascript
+require('console-ultimate/global').replace();
+```
+`global.console` is replaced with `console-ultimate` instance.
+
 ### features
 Addtional features are managed by feature-gates.
 ```javascript
@@ -95,7 +101,8 @@ Work on features is not come to end. Many additional interesting features, such 
   * [x] per-method feature gate
   * [x] logger's prefixes
 * console variations:
-  * [ ] console/global — path global `console`
+  * [x] console/global — replace global `console` with `console-ultimate` instance
+  * [x] console/global-patch - patch global `console` to make all functions, captured old `console` work with `console-ultimate`
   * [ ] console/proxy — proxy calls to another console instance
   * [ ] null-console — silent console
 * [ ] browserify
