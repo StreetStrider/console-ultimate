@@ -126,7 +126,7 @@ function TimeModel (console)
 {
 	var
 		model,
-		hr = get(console.options, 'timer.hrtime') || false;
+		hr = get(console.options, 'features.timer.hrtime') || false;
 
 	if (hr)
 	{

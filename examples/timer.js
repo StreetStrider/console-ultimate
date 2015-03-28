@@ -8,9 +8,12 @@ var
 c = Console();
 hr = Console(null, null,
 {
-	timer:
+	features:
 	{
-		hrtime: true
+		timer:
+		{
+			hrtime: true
+		}
 	}
 });
 
