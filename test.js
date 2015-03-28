@@ -30,15 +30,17 @@ var c = Console(null, null,
 			color: compose(colr.green, colr.bold)
 		},
 	},
+	features:
+	{
+		timer:
+		{
+			hrtime: true
+		},
+	},
 
 	clear: true,
 	debug: true,
-	count: true,
-
-	timer:
-	{
-		hrtime: true
-	}
+	count: true
 });
 
 var log = c.log;
@@ -124,3 +126,4 @@ catch (e)
 }
 
 c.trace();
+c.log('ok');

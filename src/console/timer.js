@@ -10,11 +10,11 @@ var
 	format = require('../format').format,
 	prefix = require('../format').prefix,
 
-	defaultEnabled = require('../options').defaultEnabled;
+	isOn = require('../feature').isOn;
 
 module.exports = function (console)
 {
-	if (defaultEnabled(console.options, 'timer'))
+	if (isOn(console, 'timer'))
 	{
 		setup(console);
 	}

@@ -12,8 +12,3 @@ options.expand = function (options, Console)
 {
 	return extend({}, Console.defaults, options || {});
 }
-
-options.defaultEnabled = function (object, key)
-{
-	return ! ((key in object) && (! object[key]));
-}

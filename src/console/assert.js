@@ -6,11 +6,11 @@ var
 	ok = require('assert').ok,
 	noop = require('aux.js/noop'),
 	format = require('../format').format,
-	defaultEnabled = require('../options').defaultEnabled;
+	isOn = require('../feature').isOn;
 
 module.exports = function (console)
 {
-	if (defaultEnabled(console.options, 'assert'))
+	if (isOn(console, 'assert'))
 	{
 		setup(console);
 	}

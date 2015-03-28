@@ -6,11 +6,11 @@ var
 
 	format = require('../format').format
 
-	defaultEnabled = require('../options').defaultEnabled;
+	isOn = require('../feature').isOn;
 
 module.exports = function (console)
 {
-	if (defaultEnabled(console.options, 'trace'))
+	if (isOn(console, 'trace'))
 	{
 		setup(console);
 	}
