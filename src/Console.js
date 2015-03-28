@@ -19,8 +19,6 @@ var
 	debug = require('./console/debug'),
 	count = require('./console/count'),
 
-	feature = require('./feature'),
-
 	bindings = require('./bindings');
 
 var Console = module.exports = function Console (stdout, stderr, options)

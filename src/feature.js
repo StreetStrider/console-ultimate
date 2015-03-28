@@ -1,16 +1,9 @@
 
 
 
-var feature = module.exports = function feature (console, mod)
-{
-	if (mod.is(console))
-	{
-		mod.setup(console);
-	}
-}
-
-
 var has = require('object-path').has;
+
+var feature = module.exports = {};
 
 feature.isOn = function isOn (console, feature)
 {
