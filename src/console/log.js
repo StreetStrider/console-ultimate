@@ -7,13 +7,21 @@ var
 	format = require('../format').format,
 	prefix = require('../format').prefix;
 
-module.exports = function (name)
+module.exports = function (console)
+{
+	console.log   = fn(console, 'log');
+	console.info  = fn(console, 'info');
+	console.error = fn(console, 'error');
+	console.warn  = fn(console, 'warn');
+}
+
+function fn (console, name)
 {
 	var styler = styling(name);
 
-	return function ()
+	return function logger ()
 	{
-		var styles = styler(this.options);
+		var styles = styler(console.options);
 
 		var output = format(arguments);
 
@@ -26,6 +34,6 @@ module.exports = function (name)
 			output = styles.color(output);
 		}
 
-		this.writer.writeln(styles.stream, output);
+		console.writer.writeln(styles.stream, output);
 	}
 }

@@ -126,4 +126,4 @@ catch (e)
 }
 
 c.trace();
-c.log('ok');
+c.dir(c);
