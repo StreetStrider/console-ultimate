@@ -21,7 +21,7 @@ var c = Console(null, null,
 		},
 		dir:
 		{
-			colors: false
+			colors: true
 		},
 		warn:
 		{
@@ -36,11 +36,11 @@ var c = Console(null, null,
 		{
 			hrtime: true
 		},
-	},
 
-	clear: true,
-	debug: true,
-	count: true
+		clear: false,
+		debug: true,
+		count: true
+	}
 });
 
 var log = c.log;
