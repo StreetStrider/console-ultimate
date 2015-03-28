@@ -15,8 +15,9 @@ var
 	assert = require('./console/assert'),
 	trace = require('./console/trace'),
 
-	feature = require('./feature'),
 	clear = require('./console/clear'),
+
+	feature = require('./feature'),
 	debug = require('./console/debug'),
 	count = require('./console/count'),
 
@@ -36,7 +37,7 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	prop.value(console, 'options', expand(options, Console));
 
 	log(console);
-	feature(console, clear);
+	clear(console);
 	feature(console, debug);
 	feature(console, count);
 
@@ -61,7 +62,6 @@ function bind (console)
 	[
 		'dir',
 
-		'clear',
 		'debug',
 		'count'
 	]);

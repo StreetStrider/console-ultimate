@@ -2,22 +2,24 @@
 
 
 var
-	reset = require('cli-color').reset;
+	reset = require('cli-color').reset,
+	isOn = require('../feature').isOn;
 
-exports.is = function (console)
+module.exports = function (console)
 {
-	return !! console.options.clear;
+	if (isOn(console, 'clear'))
+	{
+		console.clear = clear(console);
+	}
 }
 
-exports.setup = function (console)
+function clear (console)
 {
-	console.clear = clear;
-}
-
-function clear ()
-{
-	/* @todo: do multistream */
-	/* @todo: stream(s) choosing */
-	this.writer.write('stdout', reset);
-	this.writer.write('stderr', reset);
+	return function clear ()
+	{
+		/* @todo: do multistream */
+		/* @todo: stream(s) choosing */
+		console.writer.write('stdout', reset);
+		console.writer.write('stderr', reset);
+	}
 }
