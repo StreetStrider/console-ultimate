@@ -10,34 +10,39 @@ var
 	format = require('../format'),
 	inspect = format.inspect;
 
-var dir = module.exports = function (object, options /* flags */)
+module.exports = function (console)
 {
-	var console = this;
-
-	if (arguments.length === 1)
-	{
-		options = doStyles(console);
-	}
-	else if (isNodeLike(arguments))
-	{
-		options = doStyles(console, options);
-	}
-	else
-	{
-		/* extended behavior: flags */
-		var
-			eff   = doStyles(console),
-			flags = slice.call(arguments, 1);
-
-		flags.forEach(doFlag(eff));
-
-		options = eff;
-	}
-
-	/* @todo: stream choosing */
-	console.writer.writeln('stdout', inspect(object, options));
+	console.dir = dir(console);
 }
 
+function dir (console)
+{
+	return function dir (object, options /* flags */)
+	{
+		if (arguments.length === 1)
+		{
+			options = doStyles(console);
+		}
+		else if (isNodeLike(arguments))
+		{
+			options = doStyles(console, options);
+		}
+		else
+		{
+			/* extended behavior: flags */
+			var
+				eff   = doStyles(console),
+				flags = slice.call(arguments, 1);
+
+			flags.forEach(doFlag(eff));
+
+			options = eff;
+		}
+
+		/* @todo: stream choosing */
+		console.writer.writeln('stdout', inspect(object, options));
+	}
+}
 
 function doStyles (console, options)
 {

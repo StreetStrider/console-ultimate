@@ -35,13 +35,14 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	prop.value(console, 'options', expand(options, Console));
 
 	log(console);
-	clear(console);
-	debug(console);
-	count(console);
-
+	dir(console);
 	timer(console);
 	assert(console);
 	trace(console);
+
+	clear(console);
+	debug(console);
+	count(console);
 
 	bind(console);
 
@@ -52,12 +53,9 @@ Console.defaults = extend({}, require('./options').defaults);
 
 Console.colors = Console.prototype.colors = require('cli-color');
 
-Console.prototype.dir = dir;
-
 function bind (console)
 {
 	bindings(console,
 	[
-		'dir'
 	]);
 }
