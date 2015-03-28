@@ -14,21 +14,26 @@ function defaultEnabledButOnlyIfStyling /* ow, shit! */ (path)
 {
 	return function (options)
 	{
-		if (! options.styling)
+		if (! ('styling' in options))
 		{
-			/* styling not exists = false (all false) */
+			/* default: all enabled */
+			return true;
+		}
+		else if (! options.styling)
+		{
+			/* styling false → all false */
 			return false;
 		}
 		else
 		{
 			if (! has(options, path))
 			{
-				/* non-existent = true (default) */
+				/* default: feature enabled */
 				return true;
 			}
 			else
 			{
-				/* explicit value = Boolean(value) (explicit) */
+				/* explicit value → Boolean(value) */
 				return !! get(options, path);
 			}
 		}

@@ -3,6 +3,7 @@
 var
 	inst = require('aux.js/inst'),
 	prop = require('aux.js/prop'),
+	extend = require('aux.js/object/extend'),
 
 	expand = require('./options').expand,
 
@@ -47,7 +48,7 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	return console;
 }
 
-Console.defaults = require('./options').defaults;
+Console.defaults = extend({}, require('./options').defaults);
 
 Console.colors = Console.prototype.colors = require('cli-color');
 

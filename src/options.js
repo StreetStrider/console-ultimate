@@ -6,10 +6,7 @@ var
 
 var options = module.exports = {};
 
-options.defaults =
-{
-	styling: true
-}
+options.defaults = {}; /* injected in Console.defaults, can be patched with ref saving */
 
 options.expand = function (options, Console)
 {

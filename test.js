@@ -3,6 +3,8 @@
 var
 	compose = require('aux.js/fn/compose'),
 
+	set = require('object-path').set
+
 	Console = require('../console-ultimate'),
 	colr = Console.colors;
 
@@ -28,6 +30,7 @@ var c = Console(null, null,
 			color: compose(colr.green, colr.bold)
 		},
 	},
+
 	clear: true,
 	debug: true,
 	count: true,
@@ -61,7 +64,7 @@ c.count('X');
 
 c.count();
 
-c.options.styling.log = { color: colr.green };
+set(c.options, 'styling.log', { color: colr.green });
 c.debug('a', 'b', 'c');
 c.debug('%s/%s', 'b', 1);
 c.options.styling.log = { color: colr.bold };
