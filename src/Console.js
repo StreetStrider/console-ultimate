@@ -17,9 +17,9 @@ var
 
 	clear = require('./console/clear'),
 	debug = require('./console/debug'),
+	count = require('./console/count'),
 
 	feature = require('./feature'),
-	count = require('./console/count'),
 
 	bindings = require('./bindings');
 
@@ -39,7 +39,7 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	log(console);
 	clear(console);
 	debug(console);
-	feature(console, count);
+	count(console);
 
 	timer(console);
 	assert(console);
@@ -60,8 +60,6 @@ function bind (console)
 {
 	bindings(console,
 	[
-		'dir',
-
-		'count'
+		'dir'
 	]);
 }

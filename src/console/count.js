@@ -4,18 +4,23 @@
 var
 	styling = require('../styling/count'),
 
-	prefix = require('../format').prefix;
+	prefix = require('../format').prefix,
 
-exports.is = function (console)
+	isOn = require('../feature').isOn;
+
+module.exports = function (console)
 {
-	return !! console.options.count;
+	if (isOn(console, 'count'))
+	{
+		setup(console);
+	}
 }
 
-exports.setup = function (console)
+function setup (console)
 {
 	var counters = {};
 
-	console.count = function (label)
+	console.count = function count (label)
 	{
 		if (arguments.length === 0)
 		{
@@ -38,7 +43,7 @@ exports.setup = function (console)
 			output = label + ': ' + c;
 		}
 
-		var styles = styling(this.options);
+		var styles = styling(console.options);
 		if (styles.prefix)
 		{
 			output = prefix(styles.prefix, output);
@@ -49,6 +54,6 @@ exports.setup = function (console)
 			output = styles.color(output);
 		}
 
-		this.writer.writeln(styles.stream, output);
+		console.writer.writeln(styles.stream, output);
 	}
 }
