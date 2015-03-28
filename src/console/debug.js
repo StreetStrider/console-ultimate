@@ -1,17 +1,21 @@
 
 
 
-exports.is = function (console)
+var
+	isOn = require('../feature').isOn;
+
+module.exports = function (console)
 {
-	return !! console.options.debug;
+	if (isOn(console, 'debug'))
+	{
+		console.debug = debug(console);
+	}
 }
 
-exports.setup = function (console)
+function debug (console)
 {
-	console.debug = debug;
-}
-
-function debug ()
-{
-	return this.log.apply(this, arguments);
+	return function debug ()
+	{
+		return console.log.apply(console, arguments);
+	}
 }

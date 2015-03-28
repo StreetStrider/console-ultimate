@@ -16,9 +16,9 @@ var
 	trace = require('./console/trace'),
 
 	clear = require('./console/clear'),
+	debug = require('./console/debug'),
 
 	feature = require('./feature'),
-	debug = require('./console/debug'),
 	count = require('./console/count'),
 
 	bindings = require('./bindings');
@@ -38,7 +38,7 @@ var Console = module.exports = function Console (stdout, stderr, options)
 
 	log(console);
 	clear(console);
-	feature(console, debug);
+	debug(console);
 	feature(console, count);
 
 	timer(console);
@@ -62,7 +62,6 @@ function bind (console)
 	[
 		'dir',
 
-		'debug',
 		'count'
 	]);
 }
