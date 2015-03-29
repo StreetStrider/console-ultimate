@@ -109,6 +109,7 @@ Work on features is not come to end. Many additional interesting features, such 
   * [ ] null-console — silent console
 * [ ] browserify
 * [ ] tests :)
+* [ ] remote consoles, node-inspector integration (research)
 
 # license
 MIT, copyright © 2015 StreetStrider.
