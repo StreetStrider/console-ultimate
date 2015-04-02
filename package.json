@@ -1,14 +1,16 @@
 {
 	"name": "console-ultimate",
-	"version": "1.0.0-pre3",
+	"version": "1.0.0",
 
 	"description": "replacement for std console with extra features",
 	"tags":
 	[
 		"console", "color", "cli",
-		"dir", "inspect", "format", "util",
+		"log", "dir", "inspect", "format", "util",
 		"timer", "timing", "hrtime", "benchmark",
 		"assert", "trace",
+		"count", "debug",
+		"clear",
 		"node"
 	],
 
