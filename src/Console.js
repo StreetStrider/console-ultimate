@@ -17,7 +17,9 @@ var
 
 	clear = require('./console/clear'),
 	debug = require('./console/debug'),
-	count = require('./console/count');
+	count = require('./console/count'),
+
+	dims = require('./dimensions');
 
 var Console = module.exports = function Console (stdout, stderr, options)
 {
@@ -41,6 +43,8 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	clear(console);
 	debug(console);
 	count(console);
+
+	dims(console);
 
 	return console;
 }

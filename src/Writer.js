@@ -28,19 +28,28 @@ Writer.prototype.add = function (name, stream)
 	return this.__streams[name] = stream;
 }
 
-Writer.prototype.write = function (name, chunk /* encoding */)
-{
-	/* @permissive */
-	if (name in this.__streams)
-	{
-		this.__streams[name].write(chunk);
-	}
-}
-
 /* this method will make sense in ProxyConsole implementation */
 Writer.prototype.writeln = function (name, chunk)
 {
 	this.write(name, nl(chunk));
+}
+
+Writer.prototype.write = function (name, chunk /* encoding */)
+{
+	/* @permissive */
+	var stream = this.get(name);
+	if (stream)
+	{
+		stream.write(chunk);
+	}
+}
+
+Writer.prototype.get = function (name)
+{
+	if (name in this.__streams)
+	{
+		return this.__streams[name];
+	}
 }
 
 prop.get(Writer.prototype, 'names', function ()

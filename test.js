@@ -54,6 +54,9 @@ log('options:');
 c.dir(c.options, Infinity);
 log();
 
+log('terminal:');
+log('columns: %s, rows: %s', c.dimensions.columns(), c.dimensions.rows());
+
 c.log('a', 'b', 'c');
 c.log('%s/%s', 'b', 1);
 
