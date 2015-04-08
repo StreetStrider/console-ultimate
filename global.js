@@ -5,9 +5,14 @@ var Console = require('./');
 
 exports.replace = function replace (console)
 {
+	exports.replaceAt(global, console);
+}
+
+exports.replaceAt = function (context, console)
+{
 	console = toConsole(console);
 
-	Object.defineProperty(global, 'console', {
+	Object.defineProperty(context, 'console', {
 		get: function ()
 		{
 			return console;
