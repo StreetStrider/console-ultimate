@@ -4,7 +4,7 @@
 var
 	noop = require('aux.js/noop'),
 
-	format = require('../format').format
+	format = require('../format').format,
 
 	isOn = require('../feature').isOn;
 
