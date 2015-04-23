@@ -125,7 +125,7 @@ try
 }
 catch (e)
 {
-	console.error(e);
+	c.error(e);
 }
 
 c.trace();
