@@ -5,17 +5,17 @@ var
 	hr,
 	Console = require('..');
 
-c = Console();
-hr = Console(null, null,
+c = Console(null, null,
 {
 	features:
 	{
 		timer:
 		{
-			hrtime: true
+			hrtime: false
 		}
 	}
 });
+hr = Console();
 
 c.log('started…');
 

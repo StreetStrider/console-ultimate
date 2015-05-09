@@ -32,11 +32,6 @@ var c = Console(null, null,
 	},
 	features:
 	{
-		timer:
-		{
-			hrtime: true
-		},
-
 		clear: false,
 		debug: true,
 		count: true
