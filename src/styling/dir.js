@@ -2,7 +2,7 @@
 
 
 var
-	extend = require('aux.js/object/extend'),
+	merge  = require('lodash.merge'),
 	get = require('object-path').get,
 
 	isColors = require('./styling').isColors,
@@ -12,18 +12,13 @@ module.exports = function (options)
 {
 	/* @dry */
 
-	var styles = extend({}, defaults);
+	var styles = merge({}, defaults);
 
-	extend(styles, custom(options));
+	merge(styles, custom(options));
 
 	if (! isColors(options))
 	{
-		styles.colors = false;
-	}
-
-	if (! isPrefix(options))
-	{
-		styles.prefix = false;
+		styles.util.colors = false;
 	}
 
 	return styles;
@@ -31,14 +26,18 @@ module.exports = function (options)
 
 var defaults =
 {
-	customInspect: false,
-	colors: true,
+	stream: 'stdout',
+	util:
+	{
+		customInspect: false,
+		colors: true,
 
-	/* Node defaults: */
-	// showHidden: false,
-	// depth: 2,
-	// colors: false,
-	// customInspect: true,
+		/* Node defaults: */
+		// showHidden: false,
+		// depth: 2,
+		// colors: false,
+		// customInspect: true,
+	}
 }
 
 function custom (options)

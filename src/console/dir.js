@@ -4,6 +4,7 @@
 var
 	slice = Array.prototype.slice,
 	extend = require('aux.js/object/extend'),
+	merge  = require('lodash.merge'),
 
 	styling = require('../styling/dir'),
 
@@ -25,7 +26,7 @@ function dir (console)
 		}
 		else if (isNodeLike(arguments))
 		{
-			options = doStyles(console, options);
+			options = doStyles(console, { util: options });
 		}
 		else
 		{
@@ -34,13 +35,13 @@ function dir (console)
 				eff   = doStyles(console),
 				flags = slice.call(arguments, 1);
 
-			flags.forEach(doFlag(eff));
+			eff.util || (eff.util = {});
+			flags.forEach(doFlag(eff.util));
 
 			options = eff;
 		}
 
-		/* @todo: stream choosing */
-		console.writer.writeln('stdout', inspect(object, options));
+		console.writer.writeln(options.stream, inspect(object, options.util));
 	}
 }
 
@@ -50,7 +51,7 @@ function doStyles (console, options)
 
 	if (options)
 	{
-		extend(eff, options);
+		merge(eff, options);
 	}
 
 	return eff;
@@ -61,46 +62,46 @@ function isNodeLike (A)
 	return (A.length === 2) && (Object(A[1]) === A[1]);
 }
 
-function doFlag (options)
+function doFlag (util)
 {
 	return function (flag)
 	{
 		switch (typeof flag)
 		{
 		case 'object':
-			extend(options, flag);
+			extend(util, flag);
 			break;
 
 		case 'number':
-			extend(options, { depth: flag });
+			util.depth = flag;
 			break;
 
 		case 'string':
-			stringFlag(options, flag);
+			stringFlag(util, flag);
 			break;
 
 		}
 	}
 }
 
-function stringFlag (options, flag)
+function stringFlag (util, flag)
 {
 	switch (flag)
 	{
 	case 'colors':
-		extend(options, { colors: true });
+		util.colors = true;
 		break;
 
 	case 'nocolors':
-		extend(options, { colors: false });
+		util.colors = false;
 		break;
 
 	case 'showHidden':
-		extend(options, { showHidden: true });
+		util.showHidden = true;
 		break;
 
 	case 'customInspect':
-		extend(options, { customInspect: true });
+		util.customInspect = true;
 		break;
 
 	}

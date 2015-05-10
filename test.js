@@ -21,7 +21,10 @@ var c = Console(null, null,
 		},
 		dir:
 		{
-			colors: true
+			util:
+			{
+				colors: true
+			}
 		},
 		warn:
 		{
