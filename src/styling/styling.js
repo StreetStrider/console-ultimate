@@ -7,17 +7,17 @@ var
 
 var styling = module.exports = {};
 
-styling.isColors = defaultEnabledButOnlyIfStyling('styling.colors');
-styling.isPrefix = defaultEnabledButOnlyIfStyling('styling.prefix');
+styling.isColors = defaultButOnlyIfStyling('styling.colors', 'tty');
+styling.isPrefix = defaultButOnlyIfStyling('styling.prefix', true);
 
-function defaultEnabledButOnlyIfStyling /* ow, shit! */ (path)
+function defaultButOnlyIfStyling /* ow, shit! */ (path, def)
 {
 	return function (options)
 	{
 		if (! ('styling' in options))
 		{
-			/* default: all enabled */
-			return true;
+			/* default */
+			return def;
 		}
 		else if (! options.styling)
 		{
@@ -28,14 +28,37 @@ function defaultEnabledButOnlyIfStyling /* ow, shit! */ (path)
 		{
 			if (! has(options, path))
 			{
-				/* default: feature enabled */
-				return true;
+				/* default */
+				return def;
 			}
 			else
 			{
-				/* explicit value → Boolean(value) */
-				return !! get(options, path);
+				/* explicit value */
+				return get(options, path);
 			}
 		}
+	}
+}
+
+styling.isColorsTty = function (console, stream, options)
+{
+	var value = styling.isColors(options);
+
+	if ((value === 'tty') || (value === undefined))
+	{
+		stream = console.writer.get(stream);
+
+		if (stream)
+		{
+			return !! stream.isTTY;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return !! value;
 	}
 }

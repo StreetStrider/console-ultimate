@@ -21,7 +21,7 @@ function fn (console, name)
 
 	return function logger ()
 	{
-		var styles = styler(console.options);
+		var styles = styler(console, console.options);
 
 		var output = format(arguments);
 

@@ -47,7 +47,7 @@ function dir (console)
 
 function doStyles (console, options)
 {
-	var eff = styling(console.options);
+	var eff = styling(console, console.options);
 
 	if (options)
 	{

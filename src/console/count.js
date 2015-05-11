@@ -43,7 +43,7 @@ function setup (console)
 			output = label + ': ' + c;
 		}
 
-		var styles = styling(console.options);
+		var styles = styling(console, console.options);
 		if (styles.prefix)
 		{
 			output = prefix(styles.prefix, output);

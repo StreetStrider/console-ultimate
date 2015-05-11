@@ -6,10 +6,10 @@ var
 	extend = require('aux.js/object/extend'),
 	get = require('object-path').get,
 
-	isColors = require('./styling').isColors,
+	isColorsTty = require('./styling').isColorsTty,
 	isPrefix = require('./styling').isPrefix;
 
-module.exports = function (options)
+module.exports = function (console, options)
 {
 	/* @dry */
 
@@ -17,9 +17,9 @@ module.exports = function (options)
 
 	extend(styles, custom(options));
 
-	if (! isColors(options))
+	if (! isColorsTty(console, styles.stream, options))
 	{
-		styles.colors = false;
+		styles.color = same;
 	}
 
 	if (! isPrefix(options))

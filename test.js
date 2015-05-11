@@ -12,7 +12,7 @@ var c = Console(null, null,
 {
 	styling:
 	{
-		colors: true,
+		colors: 'tty', // true -- colors always, false -- never and 'tty' (default value) -- respect tty
 		// prefix: false,
 
 		log:

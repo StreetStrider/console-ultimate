@@ -184,7 +184,7 @@ function TimeModel (console)
 			output = output;
 		}
 
-		var styles = styling(console.options);
+		var styles = styling(console, console.options);
 		if (styles.prefix)
 		{
 			output = prefix(styles.prefix, output);

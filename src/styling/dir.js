@@ -5,10 +5,10 @@ var
 	merge  = require('lodash.merge'),
 	get = require('object-path').get,
 
-	isColors = require('./styling').isColors,
+	isColorsTty = require('./styling').isColorsTty,
 	isPrefix = require('./styling').isPrefix;
 
-module.exports = function (options)
+module.exports = function (console, options)
 {
 	/* @dry */
 
@@ -16,7 +16,7 @@ module.exports = function (options)
 
 	merge(styles, custom(options));
 
-	if (! isColors(options))
+	if (! isColorsTty(console, styles.stream, options))
 	{
 		styles.util.colors = false;
 	}
