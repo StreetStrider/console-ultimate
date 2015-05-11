@@ -71,7 +71,8 @@ console = Console(null, null, {
 
     timer:
     {
-      hrtime: true /* tune timers to use hi-precision time */
+      // hrtime: true /* tune timers to use hi-precision time */
+      // enabled by default
     }
 });
 ```
