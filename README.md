@@ -91,7 +91,7 @@ Work on features is not come to end. Many additional interesting features, such 
   * [x] count
   * [x] debug
   * [x] time, timeEnd
-    * [x] hrtime
+    * [x] hrtime (with [pretty-hrtime](https://github.com/robrich/pretty-hrtime))
     * [x] retrieve
   * [x] trace
     * [x] better stack traces ([trace](https://github.com/AndreasMadsen/trace) + [clarify](https://github.com/AndreasMadsen/clarify))
