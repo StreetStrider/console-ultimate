@@ -1,22 +1,22 @@
 {
 	"name": "console-ultimate",
-	"version": "2.0.0-pre",
+	"version": "2.0.0",
 
 	"description": "replacement for std console with extra features",
 	"tags":
 	[
-		"console", "color", "cli",
+		"console", "color", "cli", "tty",
 		"log", "dir", "inspect", "format", "util",
-		"timer", "timing", "hrtime", "benchmark",
+		"timer", "timing", "hrtime", "hi-res time", "benchmark",
 		"assert",
-		"trace", "long-stack-traces", "long stacks", "long trace", "stack-chain",
+		"trace", "better traces", "long stacks", "long trace", "long traces", "stack-chain",
 		"count", "debug",
 		"clear",
 		"node"
 	],
 
 	"license": "MIT",
-	"author": "StreetStrider <teamfortresslife@gmail.com>",
+	"author":  "StreetStrider <teamfortresslife@gmail.com>",
 
 	"homepage":            "https://github.com/StreetStrider/console-ultimate",
 	"bugs":       { "url": "https://github.com/StreetStrider/console-ultimate/issues" },
