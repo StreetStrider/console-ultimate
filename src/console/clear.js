@@ -3,6 +3,8 @@
 
 var
 	reset = require('cli-color').reset,
+	get = require('object-path').get,
+
 	isOn = require('../feature').isOn;
 
 module.exports = function (console)
@@ -17,9 +19,19 @@ function clear (console)
 {
 	return function clear ()
 	{
-		/* @todo: do multistream */
-		/* @todo: stream(s) choosing */
-		console.writer.write('stdout', reset);
-		console.writer.write('stderr', reset);
+		var streams = get(console.options, 'features.clear.streams');
+
+		if (streams)
+		{
+			[].concat(streams).forEach(function (stream)
+			{
+				console.writer.write(stream, reset);
+			});
+		}
+		else
+		{
+			console.writer.write('stdout', reset);
+			console.writer.write('stderr', reset);
+		}
 	}
 }

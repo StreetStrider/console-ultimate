@@ -2,7 +2,16 @@
 
 var console, Console = require('..');
 
-console = Console();
+console = Console(null, null,
+{
+	features:
+	{
+		clear:
+		{
+			streams: [ 'stdout', 'stderr', 'another' ]
+		}
+	}
+});
 
 console.log('clear in 3s…');
 
