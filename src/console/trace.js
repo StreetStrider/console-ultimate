@@ -3,6 +3,7 @@
 
 var
 	noop = require('aux.js/noop'),
+	get = require('object-path').get,
 
 	format = require('../format').format,
 
@@ -22,9 +23,16 @@ module.exports = function (console)
 
 function setup (console)
 {
+	var isAdvanced = get(console.options, 'features.trace.advanced', true);
+
+	if (isAdvanced)
+	{
+		require('trace');
+		require('clarify');
+	}
+
 	console.trace = function trace ()
 	{
-		/* @todo: better stack traces */
 		var error = new Error(format(arguments));
 
 		error.name = 'Trace';

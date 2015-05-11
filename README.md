@@ -94,7 +94,7 @@ Work on features is not come to end. Many additional interesting features, such 
     * [x] hrtime
     * [x] retrieve
   * [x] trace
-    * [ ] better stack traces (research)
+    * [x] better stack traces ([trace](https://github.com/AndreasMadsen/trace) + [clarify](https://github.com/AndreasMadsen/clarify))
   * [x] assert
   * [ ] table
   * [ ] group, groupEnd
