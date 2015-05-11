@@ -98,6 +98,7 @@ Work on features is not come to end. Many additional interesting features, such 
   * [x] assert
   * [ ] table
   * [ ] group, groupEnd
+  * [ ] logger partials
 * options & feature gates:
   * [x] colors: turn on|off, advanced styling
   * [x] mapping method → stream (stdout or stderr)
