@@ -121,8 +121,9 @@ View.prototype.output = function (console)
 	}
 
 	var view = this;
+	var sortedColumns = sortColumns(view.columns);
 
-	var header = view.columns
+	var header = sortedColumns
 	.map(function (column)
 	{
 		return bold(pad(column.label, column.width));
@@ -132,7 +133,7 @@ View.prototype.output = function (console)
 
 	view.rows.forEach(function (row)
 	{
-		row = view.columns
+		row = sortedColumns
 		.map(function (column)
 		{
 			var value = row[column.label];
@@ -147,6 +148,39 @@ View.prototype.output = function (console)
 
 	/* @todo calculate size overflow */
 	/* @todo pad rows */
+}
+
+function sortColumns (columns)
+{
+	var r = [];
+
+	addIfLabel(r, columns, _labelIndex);
+	addIfLabel(r, columns, _labelKey);
+	addIfLabel(r, columns, _labelValue);
+
+	r = r.concat(filterNonSpecial(columns));
+
+	return r;
+}
+
+function addIfLabel (proj, columns, label)
+{
+	var item = find(columns, { label: label });
+	if (item)
+	{
+		proj.push(item);
+	}
+}
+
+function filterNonSpecial (columns)
+{
+	return columns.filter(function (column)
+	{
+		if (column.label === _labelIndex) return false;
+		if (column.label === _labelKey) return false;
+		if (column.label === _labelValue) return false;
+		return true;
+	});
 }
 
 function output_row (row)
