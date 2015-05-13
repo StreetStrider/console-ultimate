@@ -12,6 +12,11 @@ format.nl = function (string)
 	return string + NL;
 }
 
+format.spaced = function (string)
+{
+	return ' ' + string + ' ';
+}
+
 format.prefix = function (prefix, string)
 {
 	prefix = prefix.replace(rPt, '%%');

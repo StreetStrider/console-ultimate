@@ -5,12 +5,12 @@ var
 	extend = require('aux.js/object/extend'),
 	each = require('aux.js/object/each'),
 
-	find = require('lodash.find'),
-	pad  = require('lodash.padright'),
+	find   = require('lodash.find'),
+	repeat = require('lodash.repeat'),
 
 	isOn = require('../feature').isOn,
 
-	nl = require('../format').nl;
+	format = require('../format');
 
 /* @todo table styling (tty minimum) */
 /* @todo table stream choosing */
@@ -94,9 +94,7 @@ View.prototype.row = function (row)
 
 	each(row, function (value, key)
 	{
-		value = String(value);
-
-		view.column(key).updateWidth(value.length);
+		view.column(key).updateWidth(value);
 	});
 
 	this.rows.push(row);
@@ -104,6 +102,7 @@ View.prototype.row = function (row)
 
 var
 	colr = require('cli-color'),
+	strip = require('cli-color/strip'),
 	bold = colr.bold,
 	green = colr.green;
 
@@ -138,11 +137,7 @@ View.prototype.output = function (console)
 		{
 			var value = row[column.label];
 
-			(value !== undefined) || (value = '');
-
-			value = String(value);
-			value = pad(value, column.width);
-			value = green(value);
+			value = inspect(value, column.width);
 
 			return value;
 		});
@@ -157,9 +152,11 @@ View.prototype.output = function (console)
 function output_row (row)
 {
 	row = row.join(' ');
-	row = ' ' + row + ' \n';
+	row = format.spaced(row);
+	row = format.nl(row);
 	return row;
 }
+
 
 var Column = View.Column = function Column (label)
 {
@@ -169,7 +166,50 @@ var Column = View.Column = function Column (label)
 	this.width = label.length;
 }
 
-Column.prototype.updateWidth = function (width)
+Column.prototype.updateWidth = function (value)
 {
-	this.width = Math.max(this.width, width);
+	if (value !== undefined)
+	{
+		var ansi = strip(inspect(value, this.width));
+		this.width = Math.max(this.width, ansi.length);
+	}
+}
+
+function inspect (value, width)
+{
+	if (value !== undefined)
+	{
+		value = format.inspect(value, { depth: -1, colors: true });
+		value = pad(value, width);
+	}
+	else
+	{
+		value = repeat(' ', width);
+	}
+
+	return value;
+}
+
+function pad (string, width)
+{
+	var ansi = strip(string);
+
+	//console.log(string.length, string)
+	//console.log(ansi.length, ansi)
+
+	var delta = ansi.length - width;
+
+	if (delta < 0)
+	{
+		return repeat(' ', - delta) + string;
+	}
+	else
+	{
+		return string;
+	}
+}
+
+function trim ()
+{
+	/* inspect -> pad -> trim */
 }

@@ -33,9 +33,9 @@
 	{
 		"aux.js": "^2.3",
 
-		"lodash.merge":    "^3.2.1",
-		"lodash.find":     "^3.2.0",
-		"lodash.padright": "^3.1.1",
+		"lodash.merge":  "^3.2.1",
+		"lodash.find":   "^3.2.0",
+		"lodash.repeat": "^3",
 
 		"object-path": ">=0.9.0 <1.0.0",
 
