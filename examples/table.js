@@ -31,3 +31,10 @@ console.table({
 
 console.info('array of scalars');
 console.table([ 1, 2, 3 ]);
+
+console.info('filter visible columns');
+console.table([
+	{ x: 1, y: 2 },
+	{ x: 2 },
+	{ x: 3 },
+], [ 'x' ]);

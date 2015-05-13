@@ -14,7 +14,6 @@ var
 
 /* @todo table styling (tty minimum) */
 /* @todo table stream choosing */
-/* @todo table 2nd arg */
 
 module.exports = function (console)
 {
@@ -26,7 +25,7 @@ module.exports = function (console)
 
 function setup (console)
 {
-	console.table = function table (data)
+	console.table = function table (data, columns)
 	{
 		var view = new View;
 
@@ -39,7 +38,7 @@ function setup (console)
 			each(data, moving(view, _labelKey));
 		}
 
-		view.output(console);
+		view.output(console, columns);
 	}
 }
 
@@ -107,7 +106,7 @@ var
 	bold = require('cli-color').bold,
 	strip = require('cli-color/strip');
 
-View.prototype.output = function (console)
+View.prototype.output = function (console, visibleColumns)
 {
 	if (! this.rows.length)
 	{
@@ -122,7 +121,7 @@ View.prototype.output = function (console)
 	}
 
 	var view = this;
-	var sortedColumns = sortColumns(view.columns);
+	var sortedColumns = prepareColumns(view.columns, visibleColumns);
 
 	var header = sortedColumns
 	.map(function (column)
@@ -148,7 +147,7 @@ View.prototype.output = function (console)
 	});
 }
 
-function sortColumns (columns)
+function prepareColumns (columns, visibleColumns)
 {
 	var r = [];
 
@@ -157,6 +156,15 @@ function sortColumns (columns)
 	addIfLabel(r, columns, _labelValue);
 
 	r = r.concat(filterNonSpecial(columns));
+
+	if (visibleColumns)
+	{
+		visibleColumns = [].concat(visibleColumns);
+		if (visibleColumns.length)
+		{
+			r = filterVisible(columns, visibleColumns);
+		}
+	}
 
 	return r;
 }
@@ -178,6 +186,14 @@ function filterNonSpecial (columns)
 		if (column.label === _labelKey) return false;
 		if (column.label === _labelValue) return false;
 		return true;
+	});
+}
+
+function filterVisible (columns, visibleColumns)
+{
+	return columns.filter(function (column)
+	{
+		return visibleColumns.indexOf(column.label) !== -1;
 	});
 }
 
