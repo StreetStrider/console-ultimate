@@ -125,7 +125,7 @@ View.prototype.output = function (console)
 	var header = view.columns
 	.map(function (column)
 	{
-		return bold(column.label);
+		return bold(pad(column.label, column.width));
 	});
 
 	stream.write(output_row(header));
@@ -193,9 +193,6 @@ function inspect (value, width)
 function pad (string, width)
 {
 	var ansi = strip(string);
-
-	//console.log(string.length, string)
-	//console.log(ansi.length, ansi)
 
 	var delta = ansi.length - width;
 
