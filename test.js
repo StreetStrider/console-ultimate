@@ -126,5 +126,11 @@ catch (e)
 	c.error(e);
 }
 
+c.table([
+	{ name: 'John Doe', role: 'offence', '#': 2 },
+	{ name: 'Dell Conagher', role: 'defence', '#': 6 },
+	{ name: 'Mr. Mundy', role: 'support', '#': 8 },
+]);
+
 c.trace();
 c.dir(c);

@@ -1,6 +1,6 @@
 {
 	"name": "console-ultimate",
-	"version": "2.0.0",
+	"version": "2.1.0-pre",
 
 	"description": "replacement for std console with extra features",
 	"tags":
@@ -12,6 +12,7 @@
 		"trace", "better traces", "long stacks", "long trace", "long traces", "stack-chain",
 		"count", "debug",
 		"clear",
+		"table", "cli table",
 		"node"
 	],
 

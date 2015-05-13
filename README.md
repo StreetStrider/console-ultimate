@@ -96,7 +96,9 @@ Work on features is not come to end. Many additional interesting features, such 
   * [x] trace
     * [x] better stack traces ([trace](https://github.com/AndreasMadsen/trace) + [clarify](https://github.com/AndreasMadsen/clarify))
   * [x] assert
-  * [ ] table
+  * [x] table
+    * [ ] table with 2nd argument
+    * [ ] advanced styling
   * [ ] group, groupEnd
   * [ ] logger partials
 * options & feature gates:
@@ -106,7 +108,7 @@ Work on features is not come to end. Many additional interesting features, such 
   * [x] logger's prefixes
 * console variations:
   * [x] console/global — replace global `console` with `console-ultimate` instance
-  * [x] console/global-patch - patch global `console` to make all functions, captured old `console` work with `console-ultimate`
+  * [ ] console/global-patch - patch global `console` to make all functions, captured old `console` work with `console-ultimate`
   * [ ] console/proxy — proxy calls to another console instance
   * [ ] null-console — silent console
 * [ ] browserify

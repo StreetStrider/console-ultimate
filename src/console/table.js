@@ -14,7 +14,7 @@ var
 
 /* @todo table styling (tty minimum) */
 /* @todo table stream choosing */
-/* @todo values styling as in dir (inspect) */
+/* @todo table 2nd arg */
 
 module.exports = function (console)
 {
@@ -43,11 +43,6 @@ function setup (console)
 	}
 }
 
-var
-	_labelIndex = '(index)',
-	_labelKey   = '(key)',
-	_labelValue = '(value)';
-
 function moving (view, labelIndex)
 {
 	return function (item, index)
@@ -67,6 +62,14 @@ function moving (view, labelIndex)
 		view.row(row);
 	}
 }
+
+
+/* Labels */
+var
+	_labelIndex = '(index)',
+	_labelKey   = '(key)',
+	_labelValue = '(value)';
+
 
 /* View */
 function View ()
@@ -101,10 +104,8 @@ View.prototype.row = function (row)
 }
 
 var
-	colr = require('cli-color'),
-	strip = require('cli-color/strip'),
-	bold = colr.bold,
-	green = colr.green;
+	bold = require('cli-color').bold,
+	strip = require('cli-color/strip');
 
 View.prototype.output = function (console)
 {
@@ -129,7 +130,7 @@ View.prototype.output = function (console)
 		return bold(pad(column.label, column.width));
 	});
 
-	stream.write(output_row(header));
+	stream.write(outputRow(header));
 
 	view.rows.forEach(function (row)
 	{
@@ -143,11 +144,8 @@ View.prototype.output = function (console)
 			return value;
 		});
 
-		stream.write(output_row(row));
+		stream.write(outputRow(row));
 	});
-
-	/* @todo calculate size overflow */
-	/* @todo pad rows */
 }
 
 function sortColumns (columns)
@@ -183,7 +181,7 @@ function filterNonSpecial (columns)
 	});
 }
 
-function output_row (row)
+function outputRow (row)
 {
 	row = row.join(' ');
 	row = format.spaced(row);
@@ -242,5 +240,6 @@ function pad (string, width)
 
 function trim ()
 {
+	/* @todo calculate size overflow */
 	/* inspect -> pad -> trim */
 }
