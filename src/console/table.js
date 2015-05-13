@@ -123,6 +123,11 @@ View.prototype.output = function (console, visibleColumns)
 	var view = this;
 	var sortedColumns = prepareColumns(view.columns, visibleColumns);
 
+	if (! sortedColumns.length)
+	{
+		return;
+	}
+
 	var header = sortedColumns
 	.map(function (column)
 	{
