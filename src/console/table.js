@@ -4,16 +4,16 @@
 var
 	extend = require('aux.js/object/extend'),
 	each = require('aux.js/object/each'),
+	same = require('aux.js/identity'),
 
 	find   = require('lodash.find'),
 	repeat = require('lodash.repeat'),
 
 	isOn = require('../feature').isOn,
 
-	format = require('../format');
+	format = require('../format'),
 
-/* @todo table styling (tty minimum) */
-/* @todo table stream choosing */
+	styling = require('../styling/table');
 
 module.exports = function (console)
 {
@@ -27,7 +27,9 @@ function setup (console)
 {
 	console.table = function table (data, columns)
 	{
-		var view = new View;
+		var
+			styles = styling(console, console.options),
+			view = new View(styles);
 
 		if (Array.isArray(data))
 		{
@@ -71,8 +73,10 @@ var
 
 
 /* View */
-function View ()
+function View (styles)
 {
+	this.styles = styles;
+
 	this.columns = [];
 	this.rows    = [];
 }
@@ -96,7 +100,7 @@ View.prototype.row = function (row)
 
 	each(row, function (value, key)
 	{
-		view.column(key).updateWidth(value);
+		view.column(key).updateWidth(value, view.styles);
 	});
 
 	this.rows.push(row);
@@ -113,14 +117,16 @@ View.prototype.output = function (console, visibleColumns)
 		return;
 	}
 
-	var stream = console.writer.get('stdout');
+	var
+		view   = this,
+		styles = view.styles,
+		stream = console.writer.get(styles.stream);
 
 	if (! stream)
 	{
 		return;
 	}
 
-	var view = this;
 	var sortedColumns = prepareColumns(view.columns, visibleColumns);
 
 	if (! sortedColumns.length)
@@ -128,10 +134,16 @@ View.prototype.output = function (console, visibleColumns)
 		return;
 	}
 
+	var headerStyle = same;
+	if (styles.color)
+	{
+		headerStyle = bold;
+	}
+
 	var header = sortedColumns
 	.map(function (column)
 	{
-		return bold(pad(column.label, column.width));
+		return headerStyle(pad(column.label, column.width));
 	});
 
 	stream.write(outputRow(header));
@@ -143,7 +155,7 @@ View.prototype.output = function (console, visibleColumns)
 		{
 			var value = row[column.label];
 
-			value = inspect(value, column.width);
+			value = inspect(value, column.width, styles);
 
 			return value;
 		});
@@ -219,20 +231,20 @@ var Column = View.Column = function Column (label)
 	this.width = label.length;
 }
 
-Column.prototype.updateWidth = function (value)
+Column.prototype.updateWidth = function (value, styles)
 {
 	if (value !== undefined)
 	{
-		var ansi = strip(inspect(value, this.width));
+		var ansi = strip(inspect(value, this.width, styles));
 		this.width = Math.max(this.width, ansi.length);
 	}
 }
 
-function inspect (value, width)
+function inspect (value, width, styles)
 {
 	if (value !== undefined)
 	{
-		value = format.inspect(value, { depth: -1, colors: true });
+		value = format.inspect(value, { depth: -1, colors: styles.color });
 		value = pad(value, width);
 	}
 	else
