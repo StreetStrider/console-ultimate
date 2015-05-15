@@ -97,7 +97,7 @@ Work on features is not come to end. Many additional interesting features, such 
     * [x] better stack traces ([trace](https://github.com/AndreasMadsen/trace) + [clarify](https://github.com/AndreasMadsen/clarify))
   * [x] assert
   * [x] table
-    * [ ] table with 2nd argument
+    * [x] table with 2nd argument
     * [ ] advanced styling
   * [ ] group, groupEnd
   * [ ] logger partials
