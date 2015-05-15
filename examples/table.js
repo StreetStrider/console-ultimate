@@ -38,3 +38,9 @@ console.table([
 	{ x: 2 },
 	{ x: 3 },
 ], [ 'x' ]);
+
+console.info('reorder columns');
+console.table([
+	[ 'a', 'b' ],
+	[ 'c', 'd' ],
+], [ '1', '0' ]);

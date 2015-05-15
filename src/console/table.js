@@ -166,24 +166,17 @@ View.prototype.output = function (console, visibleColumns)
 
 function prepareColumns (columns, visibleColumns)
 {
-	var r = [];
+	var
+		specialCs = [],
+		cs = [];
 
-	addIfLabel(r, columns, _labelIndex);
-	addIfLabel(r, columns, _labelKey);
-	addIfLabel(r, columns, _labelValue);
+	addIfLabel(specialCs, columns, _labelIndex);
+	addIfLabel(specialCs, columns, _labelKey);
+	addIfLabel(specialCs, columns, _labelValue);
 
-	r = r.concat(filterNonSpecial(columns));
+	cs = filterByColumns(columns, visibleColumns);
 
-	if (visibleColumns)
-	{
-		visibleColumns = [].concat(visibleColumns);
-		if (visibleColumns.length)
-		{
-			r = filterVisible(columns, visibleColumns);
-		}
-	}
-
-	return r;
+	return [].concat(specialCs, cs);
 }
 
 function addIfLabel (proj, columns, label)
@@ -192,6 +185,25 @@ function addIfLabel (proj, columns, label)
 	if (item)
 	{
 		proj.push(item);
+	}
+}
+
+function filterByColumns (columns, visibleColumns)
+{
+	switch (true)
+	{
+	case true:
+		if (visibleColumns)
+		{
+			visibleColumns = [].concat(visibleColumns);
+			if (visibleColumns.length)
+			{
+				return filterVisible(columns, visibleColumns);
+			}
+		}
+
+	default:
+		return filterNonSpecial(columns);
 	}
 }
 
@@ -208,10 +220,14 @@ function filterNonSpecial (columns)
 
 function filterVisible (columns, visibleColumns)
 {
-	return columns.filter(function (column)
+	columns = visibleColumns
+	.map(function (name)
 	{
-		return visibleColumns.indexOf(column.label) !== -1;
-	});
+		return find(columns, { label: name });
+	})
+	.filter(Boolean);
+
+	return columns;
 }
 
 function outputRow (row)
