@@ -198,6 +198,8 @@ function filterByColumns (columns, visibleColumns)
 			visibleColumns = [].concat(visibleColumns);
 			if (visibleColumns.length)
 			{
+				visibleColumns = visibleColumns.map(String);
+
 				return filterVisible(columns, visibleColumns);
 			}
 		}

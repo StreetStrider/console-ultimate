@@ -43,4 +43,4 @@ console.info('reorder columns');
 console.table([
 	[ 'a', 'b' ],
 	[ 'c', 'd' ],
-], [ '1', '0' ]);
+], [ 1, 0 ]);
