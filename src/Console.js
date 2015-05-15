@@ -29,6 +29,8 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	stdout || (stdout = process.stdout);
 	stderr || (stderr = process.stderr);
 
+	prop.value(console, 'version', Console.version);
+
 	prop.value(console, 'writer', Writer());
 	console.writer.add('stdout', stdout);
 	console.writer.add('stderr', stderr);
@@ -54,3 +56,5 @@ var Console = module.exports = function Console (stdout, stderr, options)
 Console.defaults = extend({}, require('./options').defaults);
 
 Console.colors = Console.prototype.colors = require('cli-color');
+
+prop.value(Console, 'version', require('../package.json').version, 'enum');
