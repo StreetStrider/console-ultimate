@@ -1,6 +1,6 @@
 {
 	"name": "console-ultimate",
-	"version": "2.3.0-pre",
+	"version": "2.3.0",
 
 	"description": "replacement for std console with extra features",
 	"tags":
@@ -13,6 +13,7 @@
 		"count", "debug",
 		"clear",
 		"table", "cli table",
+		"group", "groupEnd", "grouping",
 		"node"
 	],
 

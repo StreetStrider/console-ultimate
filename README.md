@@ -82,7 +82,7 @@ You can find feature-by-feature examples in `examples/` directory.
 
 
 ## todo
-Work on features is not come to end. Many additional interesting features, such as ansi-tables and grouping will arrive. Also, tests will be required if any interest to this module occur.
+Work on features is not come to end. Many additional interesting features will arrive. Also, tests will be required if any interest to this module occur. If you need something special, feel free to post an issue.
 
 * features:
   * [x] log, info, warn, error
@@ -99,7 +99,7 @@ Work on features is not come to end. Many additional interesting features, such 
   * [x] table
     * [x] table with 2nd argument
     * [ ] advanced styling
-  * [ ] group, groupEnd
+  * [x] group, groupEnd
   * [ ] logger partials
 * options & feature gates:
   * [x] colors: turn on|off, advanced styling
