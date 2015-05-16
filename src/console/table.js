@@ -146,7 +146,7 @@ View.prototype.output = function (console, visibleColumns)
 		return headerStyle(pad(column.label, column.width));
 	});
 
-	stream.write(outputRow(header));
+	console.writer.write(styles.stream, outputRow(header));
 
 	view.rows.forEach(function (row)
 	{
@@ -160,7 +160,7 @@ View.prototype.output = function (console, visibleColumns)
 			return value;
 		});
 
-		stream.write(outputRow(row));
+		console.writer.write(styles.stream, outputRow(row));
 	});
 }
 
