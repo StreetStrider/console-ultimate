@@ -19,6 +19,7 @@ var
 	debug = require('./console/debug'),
 	count = require('./console/count'),
 	table = require('./console/table'),
+	groups = require('./console/groups'),
 
 	dims = require('./dimensions');
 
@@ -47,26 +48,9 @@ var Console = module.exports = function Console (stdout, stderr, options)
 	debug(console);
 	count(console);
 	table(console);
+	groups(console);
 
 	dims(console);
-
-	/*0 && */console.writer.transform(function (input)
-	{
-		return input
-		.split('\n')
-		.map(function (line, index, seq)
-		{
-			if (index + 1 === seq.length)
-			{
-				if (! line)
-				{
-					return '';
-				}
-			}
-			return '│' + line;
-		})
-		.join('\n');
-	});
 
 	return console;
 }

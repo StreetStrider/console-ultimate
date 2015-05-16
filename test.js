@@ -132,5 +132,21 @@ c.table([
 	{ name: 'Mr. Mundy', role: 'support', '#': 8 },
 ], [ '#', 'name', 'role' ]);
 
+c.info('starting group:');
+c.group();
+c.count('G');
+c.count('G');
+c.info('starting group in group');
+c.group();
+c.count('G');
+c.count('G');
+c.count('G');
+c.info('end inner group');
+c.groupEnd();
+c.info('ended');
+c.info('end outer group');
+c.group.end();
+c.info('ended');
+
 c.trace();
 c.dir(c);
