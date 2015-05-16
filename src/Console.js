@@ -50,6 +50,24 @@ var Console = module.exports = function Console (stdout, stderr, options)
 
 	dims(console);
 
+	/*0 && */console.writer.transform(function (input)
+	{
+		return input
+		.split('\n')
+		.map(function (line, index, seq)
+		{
+			if (index + 1 === seq.length)
+			{
+				if (! line)
+				{
+					return '';
+				}
+			}
+			return '│' + line;
+		})
+		.join('\n');
+	});
+
 	return console;
 }
 
