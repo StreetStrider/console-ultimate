@@ -1,11 +1,13 @@
 # console-ultimate
 [![wow](assets/banner.png)](https://www.npmjs.com/package/console-ultimate)
 
-Node-compatible `console` object with extra features. Replace default one with this and you'll have nice styles and advanced features out of the box. Features include: timers, terminal clear, customizable styles and behavior for every function, on-off options for every additional function and other.
+Node-compatible `console` with extra features. Replace default one with this and you'll have nice styles and advanced features out of the box. Features include: timers, tables, groups, terminal clear, customizable styles and behaviors for every function, on|off flags for every additional function and other.
 
 All Node-related features are enabled by default and can be noop-ed if required. Any additional feature can be easily turned on and customized.
 
 Now all Node-related features is **implemented** and this module can be used as **drop-in** replacement for **standard console**.
+
+All **major advanced features**, like tables, grouping, improved stack traces and customizing **are implemented too**. Some things still should have enrichment in options. If you need something special, feel free to [open an issue](https://github.com/StreetStrider/console-ultimate/issues).
 
 
 ## install
@@ -36,6 +38,8 @@ The third parameter can be used to pass any options.
 ```javascript
 Console(stdout, stderr, options)
 ```
+
+For compability with Node you must pass stream arguments before options. If you want them point to std, you can pass `null` instead.
 
 
 ### styling
@@ -82,7 +86,7 @@ You can find feature-by-feature examples in `examples/` directory.
 
 
 ## todo
-Work on features is not come to end. Many additional interesting features will arrive. Also, tests will be required if any interest to this module occur. If you need something special, feel free to post an issue.
+Most of the needed features have been implemented. If you need something special, [open an issue](https://github.com/StreetStrider/console-ultimate/issues). If you want to use this module extensively, but also want to be sure that everything is ok, we can work on tests together.
 
 * features:
   * [x] log, info, warn, error
@@ -102,17 +106,18 @@ Work on features is not come to end. Many additional interesting features will a
   * [x] group, groupEnd
   * [ ] logger partials
 * options & feature gates:
-  * [x] colors: turn on|off, advanced styling
-  * [x] mapping method → stream (stdout or stderr)
-  * [x] per-method feature gate
-  * [x] logger's prefixes
+  * [x] colors: `true | false |'tty'`, advanced styling
+  * [x] works properly if redirected to pipe or file (check for TTY)
+  * [x] mapping method → stream (stdout or stderr or custom stream)
+  * [x] per-method feature gates
+  * [x] custom prefixes
 * console variations:
   * [x] console/global — replace global `console` with `console-ultimate` instance
   * [ ] console/global-patch - patch global `console` to make all functions, captured old `console` work with `console-ultimate`
   * [ ] console/proxy — proxy calls to another console instance
   * [ ] null-console — silent console
-* [ ] browserify
-* [ ] tests :)
+* [ ] browserify-noop (return standard browser console)
+* [ ] tests
 * [ ] remote consoles, node-inspector integration (research)
 
 # license
