@@ -4,12 +4,15 @@
 var
 	slice = Array.prototype.slice,
 	extend = require('aux.js/object/extend'),
-	merge  = require('lodash.merge'),
+	merge  = require('lodash.merge');
 
+var
 	styling = require('../styling/dir'),
 
 	format = require('../format'),
-	inspect = format.inspect;
+	inspect = format.inspect,
+
+	thru = require('./thru');
 
 module.exports = function (console)
 {
@@ -18,7 +21,7 @@ module.exports = function (console)
 
 function dir (console)
 {
-	return function dir (object, options /* flags */)
+	var dir = function dir (object, options /* flags */)
 	{
 		if (arguments.length === 1)
 		{
@@ -43,6 +46,10 @@ function dir (console)
 
 		console.writer.writeln(options.stream, inspect(object, options.util));
 	}
+
+	thru(console, dir);
+
+	return dir;
 }
 
 function doStyles (console, options)

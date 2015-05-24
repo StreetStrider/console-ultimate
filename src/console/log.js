@@ -5,7 +5,9 @@ var
 	styling = require('../styling/log'),
 
 	format = require('../format').format,
-	prefix = require('../format').prefix;
+	prefix = require('../format').prefix,
+
+	thru = require('./thru');
 
 module.exports = function (console)
 {
@@ -19,7 +21,7 @@ function fn (console, name)
 {
 	var styler = styling(name);
 
-	return function logger ()
+	var logger = function logger ()
 	{
 		var styles = styler(console, console.options);
 
@@ -36,4 +38,8 @@ function fn (console, name)
 
 		console.writer.writeln(styles.stream, output);
 	}
+
+	thru(console, logger);
+
+	return logger;
 }
