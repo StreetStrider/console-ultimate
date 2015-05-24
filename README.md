@@ -105,6 +105,7 @@ Most of the needed features have been implemented. If you need something special
     * [ ] advanced styling
   * [x] group, groupEnd
   * [ ] logger partials
+  * [ ] dir, retrieve (inspect)
 * options & feature gates:
   * [x] colors: `true | false |'tty'`, advanced styling
   * [x] works properly if redirected to pipe or file (check for TTY)
