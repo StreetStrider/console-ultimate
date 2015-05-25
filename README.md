@@ -104,7 +104,7 @@ Most of the needed features have been implemented. If you need something special
     * [x] table with 2nd argument
     * [ ] advanced styling
   * [x] group, groupEnd
-  * [ ] fp-friendly loggers (log, warn, info, error, dir) via `log.thru` etc…
+  * [x] fp-friendly loggers (log, dir, warn, info, error) via `log.thru`, `dir.thru` etc…
   * [ ] logger partials
   * [ ] dir, retrieve (inspect)
 * options & feature gates:

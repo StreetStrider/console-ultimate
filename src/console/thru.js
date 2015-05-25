@@ -15,7 +15,7 @@ module.exports = function thru (console, fn)
 
 function fnThru (fn)
 {
-	return function thrued (_)
+	return function thru (_)
 	{
 		fn.apply(null, arguments);
 		return _;
