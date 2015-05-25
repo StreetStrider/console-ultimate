@@ -9,8 +9,7 @@ var
 var
 	styling = require('../styling/dir'),
 
-	format = require('../format'),
-	inspect = format.inspect,
+	_inspect = require('../format').inspect,
 
 	thru = require('./thru');
 
@@ -21,35 +20,55 @@ module.exports = function (console)
 
 function dir (console)
 {
-	var dir = function dir (object, options /* flags */)
+	var inspect = function inspect (object, options /* flags */)
 	{
-		if (arguments.length === 1)
-		{
-			options = doStyles(console);
-		}
-		else if (isNodeLike(arguments))
-		{
-			options = doStyles(console, { util: options });
-		}
-		else
-		{
-			/* extended behavior: flags */
-			var
-				eff   = doStyles(console),
-				flags = slice.call(arguments, 1);
+		options = doOptions(console, arguments);
 
-			eff.util || (eff.util = {});
-			flags.forEach(doFlag(eff.util));
-
-			options = eff;
-		}
-
-		console.writer.writeln(options.stream, inspect(object, options.util));
+		return _inspect(object, options.util);
 	}
 
+	var dir = function dir (object, options /* flags */)
+	{
+		options = doOptions(console, arguments);
+
+		var inspected = _inspect(object, options.util);
+
+		console.writer.writeln(options.stream, inspected);
+	}
+
+	dir.inspect = inspect;
 	thru(console, dir);
 
 	return dir;
+}
+
+function doOptions (console, args)
+{
+	var options;
+
+	if (args.length === 1)
+	{
+		options = doStyles(console);
+	}
+	else if (isNodeLike(args))
+	{
+		options = args[1];
+		options = doStyles(console, { util: options });
+	}
+	else
+	{
+		/* extended behavior: flags */
+		var
+			eff   = doStyles(console),
+			flags = slice.call(args, 1);
+
+		eff.util || (eff.util = {});
+		flags.forEach(doFlag(eff.util));
+
+		options = eff;
+	}
+
+	return options;
 }
 
 function doStyles (console, options)

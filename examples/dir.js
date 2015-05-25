@@ -42,3 +42,7 @@ log('');
 log('dir with flags,');
 log('console.dir(object, 1, \'showHidden\');');
 console.dir(object, 1, 'showHidden');
+
+log('dir.inspect:')
+var inspected = console.dir.inspect(object);
+console.writer.writeln('stdout', inspected);
