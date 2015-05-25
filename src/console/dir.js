@@ -8,8 +8,7 @@ var
 
 var
 	styling = require('../styling/dir'),
-
-	_inspect = require('../format').inspect,
+	inspect = require('../format').inspect,
 
 	thru = require('./thru');
 
@@ -20,23 +19,23 @@ module.exports = function (console)
 
 function dir (console)
 {
-	var inspect = function inspect (object, options /* flags */)
+	var retrieve = function retrieve (object, options /* flags */)
 	{
 		options = doOptions(console, arguments);
 
-		return _inspect(object, options.util);
+		return inspect(object, options.util);
 	}
 
 	var dir = function dir (object, options /* flags */)
 	{
 		options = doOptions(console, arguments);
 
-		var inspected = _inspect(object, options.util);
+		var inspected = inspect(object, options.util);
 
 		console.writer.writeln(options.stream, inspected);
 	}
 
-	dir.inspect = inspect;
+	dir.retrieve = retrieve;
 	thru(console, dir);
 
 	return dir;

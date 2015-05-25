@@ -63,7 +63,7 @@ function setup (console)
 		}
 	}
 
-	console.time.retrieve = function time__retrieve (label)
+	console.time.retrieve = function retrieve (label)
 	{
 		var delta = harvest(label);
 
