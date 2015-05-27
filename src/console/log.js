@@ -7,7 +7,8 @@ var
 	format = require('../format').format,
 	prefix = require('../format').prefix,
 
-	thru = require('./thru');
+	thru = require('./thru'),
+	part = require('./util/part');
 
 module.exports = function (console)
 {
@@ -40,6 +41,7 @@ function fn (console, name)
 	}
 
 	thru(console, logger);
+	part(console, logger);
 
 	return logger;
 }

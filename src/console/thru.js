@@ -5,15 +5,15 @@ var
 	prop = require('aux.js/prop').value,
 	isOn = require('../feature').isOn;
 
-module.exports = function thru (console, fn)
+module.exports = function (console, fn)
 {
 	if (isOn(console, 'thru'))
 	{
-		prop(fn, 'thru', fnThru(fn));
+		prop(fn, 'thru', thruer(fn));
 	}
 }
 
-function fnThru (fn)
+function thruer (fn)
 {
 	return function thru (_)
 	{
