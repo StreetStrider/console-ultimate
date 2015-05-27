@@ -3,7 +3,7 @@
 
 var
 	prop = require('aux.js/prop').value,
-	isOn = require('../feature').isOn;
+	isOn = require('../../feature').isOn;
 
 module.exports = function (console, fn)
 {

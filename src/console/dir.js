@@ -10,7 +10,7 @@ var
 	styling = require('../styling/dir'),
 	inspect = require('../format').inspect,
 
-	thru = require('./thru');
+	thru = require('./util/thru');
 
 module.exports = function (console)
 {

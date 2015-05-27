@@ -7,7 +7,7 @@ var
 	format = require('../format').format,
 	prefix = require('../format').prefix,
 
-	thru = require('./thru'),
+	thru = require('./util/thru'),
 	part = require('./util/part');
 
 module.exports = function (console)
