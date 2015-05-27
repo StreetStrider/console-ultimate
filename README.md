@@ -105,7 +105,7 @@ Most of the needed features have been implemented. If you need something special
     * [ ] advanced styling
   * [x] group, groupEnd
   * [x] fp-friendly loggers (log, dir, warn, info, error) via `log.thru`, `dir.thru` etc…
-  * [ ] logger partials
+  * [x] logger partials via `log.part`
   * [x] inspect values with `dir.retrieve`
 * options & feature gates:
   * [x] colors: `true | false |'tty'`, advanced styling
