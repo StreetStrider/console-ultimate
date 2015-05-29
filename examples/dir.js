@@ -2,6 +2,11 @@
 
 
 var
+	util = require('util'),
+	format = util.format,
+	specialColor = util.inspect.styles.special;
+
+var
 	Console = require('..'),
 	console = Console(),
 
@@ -40,8 +45,21 @@ console.dir(object, { depth: 1, showHidden: true });
 log('');
 
 log('dir with flags,');
-log('console.dir(object, 1, \'showHidden\');');
-console.dir(object, 1, 'showHidden');
+log('console.dir(object, 1, \'hidden\');');
+console.dir(object, 1, 'hidden');
+
+log('dir custom inspect is on by default');
+var special = {
+	c: 17,
+	inspect: function ()
+	{
+		return console.colors[specialColor](format('[c: %d]', this.c));
+	}
+}
+console.dir(special);
+
+log('dir custom inspect is off');
+console.dir(special, 'noinspect');
 
 log('dir.retrieve:')
 var retrieved = console.dir.retrieve(object);

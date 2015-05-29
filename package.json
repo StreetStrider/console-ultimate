@@ -1,6 +1,6 @@
 {
 	"name": "console-ultimate",
-	"version": "2.7.0-pre",
+	"version": "2.7.0",
 
 	"description": "replacement for std console with extra features",
 	"tags":
