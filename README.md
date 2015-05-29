@@ -91,6 +91,7 @@ Most of the needed features have been implemented. If you need something special
 * features:
   * [x] log, info, warn, error
   * [x] dir
+    * [x] advanced flags (like `hidden` & `noinspect`)
   * [x] clear
   * [x] count
   * [x] debug

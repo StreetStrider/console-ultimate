@@ -29,7 +29,6 @@ var defaults =
 	stream: 'stdout',
 	util:
 	{
-		customInspect: false,
 		colors: true,
 
 		/* Node defaults: */

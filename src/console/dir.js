@@ -122,11 +122,17 @@ function stringFlag (util, flag)
 		break;
 
 	case 'showHidden':
+	case 'hidden':
 		util.showHidden = true;
 		break;
 
 	case 'customInspect':
+	case 'inspect':
 		util.customInspect = true;
+		break;
+
+	case 'noinspect':
+		util.customInspect = false;
 		break;
 
 	}
