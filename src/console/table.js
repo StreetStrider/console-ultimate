@@ -106,9 +106,7 @@ View.prototype.row = function (row)
 	this.rows.push(row);
 }
 
-var
-	bold = require('cli-color').bold,
-	strip = require('cli-color/strip');
+var bold = require('cli-color').bold
 
 View.prototype.output = function (console, visibleColumns)
 {
@@ -249,12 +247,15 @@ var Column = View.Column = function Column (label)
 	this.width = label.length;
 }
 
+
+var length = require('cli-color/get-stripped-length')
+
 Column.prototype.updateWidth = function (value, styles)
 {
 	if (value !== undefined)
 	{
-		var ansi = strip(inspect(value, this.width, styles));
-		this.width = Math.max(this.width, ansi.length);
+		value = inspect(value, this.width, styles)
+		this.width = Math.max(length(value), this.width)
 	}
 }
 
@@ -275,17 +276,15 @@ function inspect (value, width, styles)
 
 function pad (string, width)
 {
-	var ansi = strip(string);
-
-	var delta = ansi.length - width;
+	var delta = length(string) - width
 
 	if (delta < 0)
 	{
-		return repeat(' ', - delta) + string;
+		return repeat(' ', - delta) + string
 	}
 	else
 	{
-		return string;
+		return string
 	}
 }
 
