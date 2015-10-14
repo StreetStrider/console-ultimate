@@ -28,25 +28,10 @@ function setup (console)
 	}
 }
 
+
+var bordered = require('../bordered')
+
 function grouped (styles)
 {
-	var prefix = styles.prefix;
-
-	return function (input)
-	{
-		return input
-		.split('\n')
-		.map(function (line, index, seq)
-		{
-			if (index + 1 === seq.length)
-			{
-				if (! line)
-				{
-					return '';
-				}
-			}
-			return prefix + line;
-		})
-		.join('\n');
-	}
+	return bordered(styles.prefix)
 }
