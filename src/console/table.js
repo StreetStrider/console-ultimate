@@ -3,8 +3,8 @@
 
 var
 	extend = require('aux.js/object/extend'),
-	each = require('aux.js/object/each'),
-	same = require('aux.js/identity'),
+	forOwn = require('aux.js/object/each'),
+	same   = require('aux.js/identity'),
 
 	find   = require('lodash.find'),
 	repeat = require('lodash.repeat'),
@@ -37,7 +37,7 @@ function setup (console)
 		}
 		else
 		{
-			each(data, moving(view, _labelKey));
+			forOwn(data, moving(view, _labelKey));
 		}
 
 		view.output(console, columns);
@@ -98,7 +98,7 @@ View.prototype.row = function (row)
 {
 	var view = this;
 
-	each(row, function (value, key)
+	forOwn(row, function (value, key)
 	{
 		view.column(key).updateWidth(value, view.styles);
 	});
