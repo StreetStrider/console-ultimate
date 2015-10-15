@@ -11,5 +11,5 @@ module.exports = function (console, options)
 
 var defaults =
 {
-	prefix: ' │ '
+	prefix: require('../bordered').prefix
 }

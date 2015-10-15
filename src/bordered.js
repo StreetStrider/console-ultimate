@@ -1,7 +1,7 @@
 
 
 
-module.exports = function (prefix)
+var bordered = module.exports = function (prefix)
 {
 	return function bordered__by (it)
 	{
@@ -21,3 +21,5 @@ module.exports = function (prefix)
 		.join('\n');
 	}
 }
+
+bordered.prefix = ' | '
