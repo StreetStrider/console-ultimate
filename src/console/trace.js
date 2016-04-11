@@ -23,12 +23,15 @@ module.exports = function (console)
 
 function setup (console)
 {
-	var isAdvanced = get(console.options, 'features.trace.advanced', true);
+	var isAdvanced = get(console.options, 'features.trace.advanced', 'linux')
 
+	if (isAdvancedPlatform(isAdvanced))
+	{
+		require('trace')
+	}
 	if (isAdvanced)
 	{
-		require('trace');
-		require('clarify');
+		require('clarify')
 	}
 
 	console.trace = function trace ()
@@ -39,6 +42,18 @@ function setup (console)
 		Error.captureStackTrace(error, trace);
 
 		console.error(error.stack);
+	}
+}
+
+function isAdvancedPlatform (value)
+{
+	if (typeof value === 'string')
+	{
+		return value === process.platform
+	}
+	else
+	{
+		return !! value
 	}
 }
 
