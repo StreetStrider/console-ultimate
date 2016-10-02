@@ -25,13 +25,20 @@ function setup (console)
 {
 	var isAdvanced = get(console.options, 'features.trace.advanced', 'linux')
 
-	if (isAdvancedPlatform(isAdvanced))
+	try
 	{
-		require('trace')
+		if (isAdvancedPlatform(isAdvanced))
+		{
+			require('trace')
+		}
+		if (isAdvanced)
+		{
+			require('clarify')
+		}
 	}
-	if (isAdvanced)
+	catch (e)
 	{
-		require('clarify')
+		return
 	}
 
 	console.trace = function trace ()
