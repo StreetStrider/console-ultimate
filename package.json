@@ -40,7 +40,7 @@
 
 		"pretty-hrtime": "^1",
 
-		"trace":   "^1.2.0",
-		"clarify": "^1.0.5"
+		"trace":   "2",
+		"clarify": "2"
 	}
 }
