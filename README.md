@@ -126,4 +126,4 @@ Most of the needed features have been implemented. If you need something special
 * [ ] ansi word-wrap
 
 # license
-MIT, copyright © 2015 StreetStrider.
+MIT, copyright © 2015 — 2017 Strider.
