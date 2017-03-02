@@ -26,6 +26,36 @@ function setup (console)
 	{
 		var pe = new PE()
 
+		pe.appendStyle(
+		{
+			'pretty-error':
+			{
+				color: 'black',
+				marginLeft: 1,
+			},
+			'pretty-error > header > title > kind':
+			{
+				color: 'red',
+				background: 'bright-white'
+			},
+			'pretty-error > trace > item > header > pointer > file':
+			{
+				color: 'red'
+			},
+			'pretty-error > trace > item':
+			{
+				bullet: '"<grey>•</grey>"'
+			},
+			'pretty-error > trace > item > header > pointer > line':
+			{
+				color: 'red',
+			},
+			'pretty-error > trace > item > header > what':
+			{
+				color: 'black'
+			}
+		})
+
 		console.trace = function trace ()
 		{
 			var error = produce(arguments, trace)
