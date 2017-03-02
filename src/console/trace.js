@@ -1,26 +1,20 @@
 
+var noop = require('aux.js/noop')
+var get  = require('object-path').get
+var PE   = require('pretty-error')
 
-
-var
-	noop = require('aux.js/noop'),
-	get = require('object-path').get,
-
-	format = require('../format').format,
-
-	isOn = require('../feature').isOn;
-
-var PE = require('pretty-error')
-
+var isOn   = require('../feature').isOn
+var format = require('../format').format
 
 module.exports = function (console)
 {
 	if (isOn(console, 'trace'))
 	{
-		setup(console);
+		setup(console)
 	}
 	else
 	{
-		stub(console);
+		stub(console)
 	}
 }
 
@@ -54,7 +48,7 @@ function produce (args, trace)
 {
 	var error = new Error(format(args))
 
-	error.name = 'Trace';
+	error.name = 'Trace'
 	Error.captureStackTrace(error, trace)
 
 	return error
@@ -62,5 +56,5 @@ function produce (args, trace)
 
 function stub (console)
 {
-	console.trace = noop;
+	console.trace = noop
 }

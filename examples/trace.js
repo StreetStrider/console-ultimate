@@ -1,8 +1,8 @@
 
 
-var console, Console = require('..');
+var Console = require('..')
 
-console = Console(null, null,
+var console = Console(null, null,
 {
 	features:
 	{
@@ -11,21 +11,21 @@ console = Console(null, null,
 			// advanced: false /* turn-off advanced (async) stack traces */
 		}
 	}
-});
+})
 
-F('some_value');
+F('some_value')
 
 function F (v)
 {
-	T(v);
+	T(v)
 }
 
 function T (v)
 {
-	setTimeout(W.bind(null, v), 100);
+	setTimeout(W.bind(null, v), 100)
 }
 
 function W (v)
 {
-	console.trace('thats_wrong: %s', v);
+	console.trace('thats_wrong: %s', v)
 }
