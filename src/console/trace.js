@@ -9,6 +9,9 @@ var
 
 	isOn = require('../feature').isOn;
 
+var PE = require('pretty-error')
+
+
 module.exports = function (console)
 {
 	if (isOn(console, 'trace'))
@@ -23,45 +26,38 @@ module.exports = function (console)
 
 function setup (console)
 {
-	var isAdvanced = get(console.options, 'features.trace.advanced', 'linux')
+	var isAdvanced = get(console.options, 'features.trace.advanced', true)
 
-	try
+	if (isAdvanced)
 	{
-		if (isAdvancedPlatform(isAdvanced))
+		var pe = new PE()
+
+		console.trace = function trace ()
 		{
-			require('trace')
+			var error = produce(arguments, trace)
+
+			console.writer.writeln('stdout', pe.render(error))
 		}
-		if (isAdvanced)
-		{
-			require('clarify')
-		}
-	}
-	catch (e)
-	{
-		return
-	}
-
-	console.trace = function trace ()
-	{
-		var error = new Error(format(arguments));
-
-		error.name = 'Trace';
-		Error.captureStackTrace(error, trace);
-
-		console.error(error.stack);
-	}
-}
-
-function isAdvancedPlatform (value)
-{
-	if (typeof value === 'string')
-	{
-		return value === process.platform
 	}
 	else
 	{
-		return !! value
+		console.trace = function trace ()
+		{
+			var error = produce(arguments, trace)
+
+			console.error(error.stack)
+		}
 	}
+}
+
+function produce (args, trace)
+{
+	var error = new Error(format(args))
+
+	error.name = 'Trace';
+	Error.captureStackTrace(error, trace)
+
+	return error
 }
 
 function stub (console)

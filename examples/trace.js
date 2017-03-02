@@ -27,6 +27,5 @@ function T (v)
 
 function W (v)
 {
-	console.log('Trace:');
 	console.trace('thats_wrong: %s', v);
 }
