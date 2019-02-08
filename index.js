@@ -1,4 +1,8 @@
 
-import Console from './lib/Console'
+import value from './console'
 
-export default Console()
+Object.defineProperty(global, 'console',
+{
+	value,
+	configurable: true,
+})
