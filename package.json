@@ -1,0 +1,30 @@
+{
+	"name": "console-ultimate",
+	"version": "0.0.0",
+
+	"description": "Node-compatible console object with extra features",
+
+	"license": "ISC",
+	"author":  "Strider <strange.transistor@gmail.com>",
+
+	"esm": true,
+
+	"engines":
+	{
+		"node": ">= 6"
+	},
+
+	"homepage":            "https://github.com/StreetStrider/console-ultimate",
+	"bugs":       { "url": "https://github.com/StreetStrider/console-ultimate/issues" },
+	"repository": { "url": "https://github.com/StreetStrider/console-ultimate.git", "type": "git" },
+
+	"scripts":
+	{
+		"test": "node -r esm start.js"
+	},
+
+	"dependencies":
+	{
+		"esm": "3"
+	}
+}
