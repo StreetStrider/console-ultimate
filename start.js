@@ -2,7 +2,7 @@
 // import './'
 require('./')
 
-console({ x: 1 })
+console.log({ x: 1 })
 
 // import c from './console'
-console(console === require('./console').default)
+console.log(console === require('./console').default)
