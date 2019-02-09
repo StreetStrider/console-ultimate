@@ -9,6 +9,8 @@ console.warn(X)
 console.info(X)
 console.dir(X)
 
-console.log('%s %d %j', 1, true, {})
+console.log('%s %d %j', 1, true, { x: 5 })
+console.log('%s %d', 1, true, { x: 5 })
+console.log('%s %d %j', 1, true)
 
 // console.error(X)
