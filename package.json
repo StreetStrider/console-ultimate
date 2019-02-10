@@ -20,8 +20,10 @@
 
 	"scripts":
 	{
-		"test": "node -r esm start.js",
-		"unit": "mocha -r esm -r test/globals test/*.test.js"
+		"start": "node -r esm start.js",
+
+		"unit": "mocha -r esm -r test/globals test/*.test.js",
+		"test": "npm run unit"
 	},
 
 	"dependencies":
