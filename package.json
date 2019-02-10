@@ -27,6 +27,7 @@
 	{
 		"esm": "3",
 		"function-name": "2",
-		"kleur": "3"
+		"kleur": "3",
+		"stack-utils": "1"
 	}
 }
