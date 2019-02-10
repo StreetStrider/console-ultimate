@@ -19,6 +19,7 @@ describe('console', () =>
 		},
 	})
 
+	//
 	it_console(
 	{
 		title: 'colors = true, tty = false',
@@ -96,6 +97,32 @@ describe('console', () =>
 		test (console)
 		{
 			console.log(1)
+		},
+	})
+
+	//
+	it_console(
+	{
+		title: 'log, warn, info',
+		output: ' ⚫ 1\n ⚫ 2\n ⚫ 3\n',
+		test (console)
+		{
+			console.log(1)
+			console.warn(2)
+			console.info(3)
+		},
+	})
+
+	it_console(
+	{
+		isTTY: true,
+		title: 'log, warn, info',
+		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[33m ⚫ \u001b[33m2\u001b[33m\u001b[39m\n\u001b[34m ⚫ \u001b[33m3\u001b[34m\u001b[39m\n',
+		test (console)
+		{
+			console.log(1)
+			console.warn(2)
+			console.info(3)
 		},
 	})
 })
