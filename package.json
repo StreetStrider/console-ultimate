@@ -20,7 +20,8 @@
 
 	"scripts":
 	{
-		"test": "node -r esm start.js"
+		"test": "node -r esm start.js",
+		"unit": "mocha -r esm -r test/globals test/*.test.js"
 	},
 
 	"dependencies":
@@ -29,5 +30,12 @@
 		"function-name": "2",
 		"kleur": "3",
 		"stack-utils": "1"
+	},
+
+	"devDependencies":
+	{
+		"mocha": "5",
+		"chai": "4",
+		"concat-stream": "2"
 	}
 }
