@@ -22,8 +22,9 @@
 	{
 		"start": "node -r esm start.js",
 
+		"st":   "eslint *.js lib/ test/",
 		"unit": "mocha -r esm -r test/globals test/*.test.js",
-		"test": "npm run unit"
+		"test": "npm run st && npm run unit"
 	},
 
 	"dependencies":
@@ -37,6 +38,9 @@
 
 	"devDependencies":
 	{
+		"eslint": "5",
+		"js-outlander": "StrangeTransistor/js-outlander#2.5.0",
+
 		"mocha": "5",
 		"chai": "4",
 		"concat-stream": "2"
