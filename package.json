@@ -25,6 +25,8 @@
 
 	"dependencies":
 	{
-		"esm": "3"
+		"esm": "3",
+		"function-name": "2",
+		"kleur": "3"
 	}
 }
