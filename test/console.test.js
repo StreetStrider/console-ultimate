@@ -7,7 +7,15 @@ describe('console', () =>
 {
 	it('log', async () =>
 	{
-		test_console({}, ' ⚫ 1\n', (console) =>
+		await test_console({}, ' ⚫ 1\n', (console) =>
+		{
+			console.log(1)
+		})
+	})
+	it('colors = true, tty = false', async () =>
+	{
+		await test_console({ colors: true }, '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n',
+		(console) =>
 		{
 			console.log(1)
 		})
