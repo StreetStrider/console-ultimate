@@ -115,6 +115,17 @@ describe('console', () =>
 
 	it_console(
 	{
+		do_stderr: true,
+		title: 'error prim',
+		output: ' ⚫ 4\n',
+		test (console)
+		{
+			console.error(4)
+		},
+	})
+
+	it_console(
+	{
 		isTTY: true,
 		title: 'log, warn, info',
 		// eslint-disable-next-line max-len
@@ -124,6 +135,18 @@ describe('console', () =>
 			console.log(1)
 			console.warn(2)
 			console.info(3)
+		},
+	})
+
+	it_console(
+	{
+		isTTY: true,
+		do_stderr: true,
+		title: 'error prim',
+		output: '\u001b[31m ⚫ \u001b[33m4\u001b[31m\u001b[39m\n',
+		test (console)
+		{
+			console.error(4)
 		},
 	})
 
