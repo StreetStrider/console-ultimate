@@ -7,13 +7,21 @@ describe('console', () =>
 {
 	it('log', async () =>
 	{
-		var [ s, p ] = cat()
-
-		var console = Console({ stdout: s })
-
-		console.log(1)
-		s.end()
-
-		expect(await p).eq(' ⚫ 1\n')
+		test_console({}, ' ⚫ 1\n', (console) =>
+		{
+			console.log(1)
+		})
 	})
 })
+
+async function test_console (options, output, test)
+{
+	var [ stdout, result ] = cat()
+
+	var console = Console({ ...options, stdout })
+
+	test(console)
+	stdout.end()
+
+	expect(await result).eq(output)
+}
