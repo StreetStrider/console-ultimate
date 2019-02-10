@@ -147,19 +147,49 @@ describe('console', () =>
 			console.dir(1)
 		},
 	})
+
+	//
+	it_console(
+	{
+		// do_stderr: true,
+		title: 'error',
+		output (output)
+		{
+			output.split('\n').forEach((line, n) =>
+			{
+				if (! n)
+				{
+					expect(line).eq(' ⚫ Error:')
+					return
+				}
+
+				if (! line)
+				{
+					return
+				}
+
+				expect(line).match(/^(.+ \(.+:\d+:\d+\)|.+:\d+:\d+)$/)
+			})
+		},
+		test (console)
+		{
+			var e = new Error
+			console.error(e)
+		},
+	})
 })
 
-function it_console ({ isTTY, title, options = {}, output, test })
+function it_console ({ isTTY, do_stderr, title, options = {}, output, test })
 {
 	if (! title) { return }
 
 	it(title, async () =>
 	{
-		await test_console(isTTY, options, output, test)
+		await test_console({ isTTY, do_stderr, options, output, test })
 	})
 }
 
-async function test_console (isTTY, options, output, test)
+async function test_console ({ isTTY, do_stderr, options, output, test })
 {
 	var [ stdout, result ] = cat()
 
@@ -168,10 +198,26 @@ async function test_console (isTTY, options, output, test)
 		stdout.isTTY = isTTY
 	}
 
-	var console = Console({ ...options, stdout })
+	if (do_stderr)
+	{
+		options = { ...options, stderr: stdout }
+	}
+	else
+	{
+		options = { ...options, stdout }
+	}
+
+	var console = Console(options)
 
 	test(console)
 	stdout.end()
 
-	expect(await result).eq(output)
+	if (typeof output === 'function')
+	{
+		output(await result)
+	}
+	else
+	{
+		expect(await result).eq(output)
+	}
 }
