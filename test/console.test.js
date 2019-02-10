@@ -29,21 +29,95 @@ describe('console', () =>
 			console.log(1)
 		},
 	})
+
+	it_console(
+	{
+		title: 'colors = auto, tty = false',
+		options: { colors: 'auto' },
+		output: ' ⚫ 1\n',
+		test (console)
+		{
+			console.log(1)
+		},
+	})
+
+	it_console(
+	{
+		title: 'colors = false, tty = false',
+		options: { colors: false },
+		output: ' ⚫ 1\n',
+		test (console)
+		{
+			console.log(1)
+		},
+	})
+
+	it_console(
+	{
+		isTTY: true,
+		title: 'tty = true',
+		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n',
+		test (console)
+		{
+			console.log(1)
+		},
+	})
+
+	it_console(
+	{
+		isTTY: true,
+		title: 'colors = true, tty = true',
+		options: { colors: true },
+		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n',
+		test (console)
+		{
+			console.log(1)
+		},
+	})
+
+	it_console(
+	{
+		isTTY: true,
+		title: 'colors = auto, tty = true',
+		options: { colors: 'auto' },
+		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n',
+		test (console)
+		{
+			console.log(1)
+		},
+	})
+
+	it_console(
+	{
+		isTTY: true,
+		title: 'colors = false, tty = true',
+		options: { colors: false },
+		output: ' ⚫ 1\n',
+		test (console)
+		{
+			console.log(1)
+		},
+	})
 })
 
-function it_console ({ title, options = {}, output, test })
+function it_console ({ isTTY, title, options = {}, output, test })
 {
 	if (! title) { return }
 
 	it(title, async () =>
 	{
-		await test_console(options, output, test)
+		await test_console(isTTY, options, output, test)
 	})
 }
 
-async function test_console (options, output, test)
+async function test_console (isTTY, options, output, test)
 {
 	var [ stdout, result ] = cat()
+
+	if (isTTY)
+	{
+		stdout.isTTY = isTTY
+	}
 
 	var console = Console({ ...options, stdout })
 
