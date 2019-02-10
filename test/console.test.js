@@ -125,6 +125,28 @@ describe('console', () =>
 			console.info(3)
 		},
 	})
+
+	//
+	it_console(
+	{
+		title: 'dir',
+		output: '1\n',
+		test (console)
+		{
+			console.dir(1)
+		},
+	})
+
+	it_console(
+	{
+		isTTY: true,
+		title: 'dir',
+		output: '\u001b[33m1\u001b[39m\n',
+		test (console)
+		{
+			console.dir(1)
+		},
+	})
 })
 
 function it_console ({ isTTY, title, options = {}, output, test })
