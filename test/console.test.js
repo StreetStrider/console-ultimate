@@ -177,6 +177,38 @@ describe('console', () =>
 			console.error(e)
 		},
 	})
+	it_console(
+	{
+		isTTY: true,
+		// do_stderr: true,
+		title: 'error',
+		output (output)
+		{
+			output.split('\n').forEach((line, n) =>
+			{
+				if (! n)
+				{
+					expect(line).eq('\u001b[31m ⚫ Error:\u001b[39m')
+					return
+				}
+				if (! line)
+				{
+					return
+				}
+				if (line === '\u001b[39m')
+				{
+					return
+				}
+
+				expect(line).match(/^(.+ \(.+:\d+:\d+\)|.+:\d+:\d+)$/)
+			})
+		},
+		test (console)
+		{
+			var e = new Error
+			console.error(e)
+		},
+	})
 })
 
 function it_console ({ isTTY, do_stderr, title, options = {}, output, test })
