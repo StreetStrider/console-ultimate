@@ -151,7 +151,7 @@ describe('console', () =>
 	//
 	it_console(
 	{
-		// do_stderr: true,
+		do_stderr: true,
 		title: 'error',
 		output (output)
 		{
@@ -180,7 +180,7 @@ describe('console', () =>
 	it_console(
 	{
 		isTTY: true,
-		// do_stderr: true,
+		do_stderr: true,
 		title: 'error',
 		output (output)
 		{
