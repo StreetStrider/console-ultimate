@@ -29,6 +29,7 @@
 	"dependencies":
 	{
 		"esm": "3",
+		"object-path": "0.11",
 		"function-name": "2",
 		"kleur": "3",
 		"stack-utils": "1"
