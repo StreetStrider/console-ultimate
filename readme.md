@@ -14,7 +14,7 @@ Now porting features, to catch up with v2:
 * features:
   * [x] log, info, warn, error
   * [x] dir
-    * [ ] advanced flags (like `hidden` & `noinspect`)
+    * [ ] advanced flags (like `hidden` & `noinspect`) (https://nodejs.org/api/util.html#util_util_inspect_object_options)
   * [x] clear
   * [ ] count
   * [ ] debug
