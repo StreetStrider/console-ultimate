@@ -15,7 +15,9 @@ import console from 'console-ultimate/console'
 /* Node-compatible constructor */
 import Console from 'console-ultimate/Console'
 
-/* replace instance globally */
+let console = Console({ stdout })
+
+/* replace console instance globally */
 require('console-ultimate')
 ```
 
