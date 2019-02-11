@@ -7,7 +7,8 @@ require('./')
 // console.log({ x: 17, y: true, z: [ null, NaN, /xyz/ ] })
 
 // console.log({ x: 17, y: true, z: [ null, NaN, /xyz/ ] })
-console.log(console)
+console.log(Object.keys(global))
+console.log(global)
 
 // console.error({ x: 17, y: true, z: [ null, NaN, /xyz/ ] })
 

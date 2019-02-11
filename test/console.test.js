@@ -100,6 +100,16 @@ describe('console', () =>
 		},
 	})
 
+	it_console(
+	{
+		title: 'indent',
+		output: ' ⚫ 1\n   2\n   3\n',
+		test (console)
+		{
+			console.log('1\n2\n3')
+		},
+	})
+
 	//
 	it_console(
 	{
