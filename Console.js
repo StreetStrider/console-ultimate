@@ -1,8 +1,8 @@
 
 import { coalesce } from 'object-path'
 
-import Out from './Out'
-import Err from './Err'
+import Out from './lib/Out'
+import Err from './lib/Err'
 
 
 var defaults =

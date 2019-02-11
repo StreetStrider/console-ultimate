@@ -1,5 +1,5 @@
 
-import Console from '../lib/Console'
+import Console from '../Console'
 
 import cat from './cat'
 

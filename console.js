@@ -1,4 +1,4 @@
 
-import Console from './lib/Console'
+import Console from './Console'
 
 export default Console()

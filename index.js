@@ -6,3 +6,5 @@ Object.defineProperty(global, 'console',
 	value,
 	configurable: true,
 })
+
+export default value
