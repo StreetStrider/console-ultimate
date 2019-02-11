@@ -196,6 +196,18 @@ describe('console', () =>
 	//
 	it_console(
 	{
+		title: 'dir',
+		output: ' ⚫ 1\n\u001b[2J\u001b[0;0H',
+		test (console)
+		{
+			console.log(1)
+			console.clear()
+		},
+	})
+
+	//
+	it_console(
+	{
 		do_stderr: true,
 		title: 'error',
 		output (output)

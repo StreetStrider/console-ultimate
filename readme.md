@@ -15,7 +15,7 @@ Now porting features, to catch up with v2:
   * [x] log, info, warn, error
   * [x] dir
     * [ ] advanced flags (like `hidden` & `noinspect`)
-  * [ ] clear
+  * [x] clear
   * [ ] count
   * [ ] debug
   * [ ] time, timeEnd
