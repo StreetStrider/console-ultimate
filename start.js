@@ -13,6 +13,4 @@ console.warn(X)
 console.error(X)
 console.error(new Error('X'))
 
-// console.clear()
-
-console.dir(console)
+console.dir(new Error('X'))

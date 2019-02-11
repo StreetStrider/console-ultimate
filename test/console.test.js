@@ -213,7 +213,7 @@ describe('console', () =>
 					return
 				}
 
-				expect(line).match(/^(.+ \(.+:\d+:\d+\)|.+:\d+:\d+)$/)
+				expect(line).match(/^   • (.+ \(.+:\d+:\d+\)|.+:\d+:\d+)$/)
 			})
 		},
 		test (console)
@@ -245,7 +245,7 @@ describe('console', () =>
 					return
 				}
 
-				expect(line).match(/^(.+ \(.+:\d+:\d+\)|.+:\d+:\d+)$/)
+				expect(line).match(/^.*   • (.+ \(.+:\d+:\d+\)|.+:\d+:\d+).*$/)
 			})
 		},
 		test (console)
