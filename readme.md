@@ -6,6 +6,19 @@ Currently v2 is stable. Install it:
 npm i console-ultimate
 ```
 
+# usage
+
+```js
+/* console-ultimate instance */
+import console from 'console-ultimate/console'
+
+/* Node-compatible constructor */
+import Console from 'console-ultimate/Console'
+
+/* replace instance globally */
+require('console-ultimate')
+```
+
 # todo
 Work in progress on modern v3.
 
