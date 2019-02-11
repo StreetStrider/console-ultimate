@@ -102,11 +102,22 @@ describe('console', () =>
 
 	it_console(
 	{
-		title: 'indent',
+		title: 'indent log',
 		output: ' ⚫ 1\n   2\n   3\n',
 		test (console)
 		{
 			console.log('1\n2\n3')
+		},
+	})
+
+	it_console(
+	{
+		title: 'indent dir',
+		// eslint-disable-next-line max-len
+		output: ' ⚫ [ \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\',\n     \'expect\',\n     \'before\',\n     \'after\',\n     \'beforeEach\',\n     \'afterEach\',\n     \'run\',\n     \'context\',\n     \'describe\',\n     \'xcontext\',\n     \'xdescribe\',\n     \'specify\',\n     \'it\',\n     \'xspecify\',\n     \'xit\' ]\n',
+		test (console)
+		{
+			console.dir(Object.keys(global))
 		},
 	})
 
@@ -164,7 +175,7 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'dir',
-		output: '1\n',
+		output: ' ⚫ 1\n',
 		test (console)
 		{
 			console.dir(1)
@@ -175,7 +186,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'dir',
-		output: '\u001b[33m1\u001b[39m\n',
+		output: ' ⚫ \u001b[33m1\u001b[39m\n',
 		test (console)
 		{
 			console.dir(1)

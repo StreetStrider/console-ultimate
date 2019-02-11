@@ -2,14 +2,13 @@
 /* import './' */
 require('./')
 
-// console.dir(console)
+var X = { x: 17, y: true, z: [ null, NaN, /xyz/ ] }
 
-// console.log({ x: 17, y: true, z: [ null, NaN, /xyz/ ] })
+console.dir(Object.keys(global))
 
-// console.log({ x: 17, y: true, z: [ null, NaN, /xyz/ ] })
-console.log(Object.keys(global))
-console.log(global)
+console.log(X)
+console.info(X)
+console.warn(X)
 
-// console.error({ x: 17, y: true, z: [ null, NaN, /xyz/ ] })
-
-// console.error(new Error('X'))
+console.error(X)
+console.error(new Error('X'))
