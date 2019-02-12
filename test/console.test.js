@@ -113,7 +113,6 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'indent dir',
-		// eslint-disable-next-line max-len
 		output: ' ⚫ [ \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\',\n     \'expect\',\n     \'before\',\n     \'after\',\n     \'beforeEach\',\n     \'afterEach\',\n     \'run\',\n     \'context\',\n     \'describe\',\n     \'xcontext\',\n     \'xdescribe\',\n     \'specify\',\n     \'it\',\n     \'xspecify\',\n     \'xit\' ]\n',
 		test (console)
 		{
@@ -133,18 +132,6 @@ describe('console', () =>
 			console.info(3)
 		},
 	})
-
-	it_console(
-	{
-		do_stderr: true,
-		title: 'error prim',
-		output: ' ⚫ 4\n',
-		test (console)
-		{
-			console.error(4)
-		},
-	})
-
 	it_console(
 	{
 		isTTY: true,
@@ -161,6 +148,16 @@ describe('console', () =>
 
 	it_console(
 	{
+		do_stderr: true,
+		title: 'error primitive',
+		output: ' ⚫ 4\n',
+		test (console)
+		{
+			console.error(4)
+		},
+	})
+	it_console(
+	{
 		isTTY: true,
 		do_stderr: true,
 		title: 'error prim',
@@ -171,7 +168,65 @@ describe('console', () =>
 		},
 	})
 
-	//
+	it_console(
+	{
+		title: 'printf',
+		options: { colors: false },
+		output: ' ⚫ 1 2 3\n ⚫ 1 2 %s\n',
+		test (console)
+		{
+			console.log('%s %s', 1, 2, 3)
+			console.log('%s %s %s', 1, 2)
+		},
+	})
+	it_console(
+	{
+		title: 'printf log, warn, info',
+		options: { colors: false },
+		output: ' ⚫ 1 2 3\n ⚫ 1 2 3\n ⚫ 1 2 3\n',
+		test (console)
+		{
+			console.log('%s %s', 1, 2, 3)
+			console.warn('%s %s', 1, 2, 3)
+			console.info('%s %s', 1, 2, 3)
+		},
+	})
+	it_console(
+	{
+		do_stderr: true,
+		title: 'printf error',
+		options: { colors: false },
+		output: ' ⚫ 1 2 3\n',
+		test (console)
+		{
+			console.error('%s %s', 1, 2, 3)
+		},
+	})
+	it_console(
+	{
+		isTTY: true,
+		title: 'printf log, warn, info',
+		output: '\u001b[0m ⚫ 1 2 3\u001b[0m\n\u001b[33m ⚫ 1 2 3\u001b[39m\n\u001b[34m ⚫ 1 2 3\u001b[39m\n',
+		test (console)
+		{
+			console.log('%s %s', 1, 2, 3)
+			console.warn('%s %s', 1, 2, 3)
+			console.info('%s %s', 1, 2, 3)
+		},
+	})
+	it_console(
+	{
+		do_stderr: true,
+		isTTY: true,
+		title: 'printf error',
+		output: '\u001b[31m ⚫ 1 2 3\u001b[39m\n',
+		test (console)
+		{
+			console.error('%s %s', 1, 2, 3)
+		},
+	})
+
+	// Dir
 	it_console(
 	{
 		title: 'dir',
