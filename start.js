@@ -25,7 +25,7 @@ stdout._write = ((stream, $write) =>
 console.group('GR')
 console.dir(Object.keys(global))
 
-console.group('GR2')
+console.group()
 console.log(X)
 console.info(X)
 console.warn(X)
