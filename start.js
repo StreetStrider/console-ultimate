@@ -28,11 +28,11 @@ stdout._write = ((stream, $write) =>
 console.dir(Object.keys(global))
 
 console.log(X)
-// console.info(X)
-// console.warn(X)
+console.info(X)
+console.warn(X)
 
-// console.error(X)
-// console.error(new Error('X'))
+console.error(X)
+console.error(new Error('X'))
 
 // console.dir(new Error('X'))
 
