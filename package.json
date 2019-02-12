@@ -32,8 +32,10 @@
 		"esm": "3",
 		"object-path": "0.11",
 		"function-name": "2",
+		"stack-utils": "1",
 		"kleur": "3",
-		"stack-utils": "1"
+		"slice-ansi": "2",
+		"strip-ansi": "5"
 	},
 
 	"devDependencies":
