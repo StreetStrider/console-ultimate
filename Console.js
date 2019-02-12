@@ -20,6 +20,9 @@ export default function Console (...args)
 	var stderr = (options.stderr || process.stderr)
 
 	/*
+https://github.com/nodejs/node/blob/771b2901daae2e4389d157c18bb0f6674a0a19a4/lib/internal/console/constructor.js#L230-L249
+https://github.com/nodejs/node/blob/771b2901daae2e4389d157c18bb0f6674a0a19a4/lib/internal/errors.js#L474-L483
+
 var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	*/
 	var colors = coalesce(options, [ 'colorMode', 'colors' ], 'auto')
