@@ -22,9 +22,7 @@ stdout._write = ((stream, $write) =>
 	stdout._write
 )
 
-// console.log(stdout._write)
-// console.log(stdout._writev)
-
+console.group('GR')
 console.dir(Object.keys(global))
 
 console.log(X)
@@ -35,5 +33,6 @@ console.error(X)
 console.error(new Error('X'))
 
 // console.dir(new Error('X'))
+console.groupEnd()
 
 console.log('Spy', spy)

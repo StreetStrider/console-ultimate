@@ -7,6 +7,7 @@ import { coalesce } from 'object-path'
 import Writer from './lib/Writer'
 import Out from './lib/Out'
 import Err from './lib/Err'
+import Group from './lib/Group'
 
 
 var defaults =
@@ -45,6 +46,13 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 
 	console.clear = Clear(stdout)
 
+	var { group, group: groupCollapsed, groupEnd } = Group({ writer: stdout })
+
+	console.group = group
+	console.groupCollapsed = groupCollapsed
+	console.groupEnd = groupEnd
+
+
 	console.debug  =
 	console.dirxml = log
 
@@ -57,10 +65,6 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 
 	console.count =
 	console.countReset = noop
-
-	console.group =
-	console.groupCollapsed =
-	console.groupEnd = noop
 
 	console.table = noop
 
