@@ -1,4 +1,6 @@
 
+var noop = () => void 0
+
 import { coalesce } from 'object-path'
 
 import Out from './lib/Out'
@@ -24,7 +26,7 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	var inspect_with = coalesce(options, [ 'inspectOptions', 'inspect_with' ])
 	inspect_with = { ...defaults, ...inspect_with, colors }
 
-	var console = {}
+	var console = { Console }
 
 	var { log, warn, info, dir } = Out({ inspect_with, stdout })
 
@@ -36,6 +38,35 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	console.error = Err({ inspect_with, stderr })
 
 	console.clear = Clear(stdout)
+
+	console.debug  =
+	console.dirxml = log
+
+	console.time =
+	console.timeEnd = noop
+
+	console.trace = noop
+	console.assert = noop
+
+	console.count =
+	console.countReset = noop
+
+	console.group =
+	console.groupCollapsed =
+	console.groupEnd = noop
+
+	console.table = noop
+
+	console.timeline =
+	console.markTimeline =
+	console.timeStamp =
+	console.timelineEnd = noop
+
+	console.profile =
+	console.profileEnd = noop
+
+	/* ? */
+	console.context = noop
 
 	return console
 }
