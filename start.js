@@ -25,14 +25,17 @@ stdout._write = ((stream, $write) =>
 console.group('GR')
 console.dir(Object.keys(global))
 
+console.group('GR2')
 console.log(X)
 console.info(X)
 console.warn(X)
 
 console.error(X)
 console.error(new Error('X'))
+console.groupEnd() //<
 
-// console.dir(new Error('X'))
-console.groupEnd()
+console.error(new Error('X'))
+console.dir(new Error('X'))
+console.groupEnd() //<
 
 console.log('Spy', spy)
