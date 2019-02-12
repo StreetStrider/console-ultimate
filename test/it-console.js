@@ -33,7 +33,7 @@ async function test_console ({ isTTY, do_stderr, options, output, test })
 
 	var console = Console(options)
 
-	test(console)
+	test(console, options)
 	stdout.end()
 
 	if (typeof output === 'function')

@@ -74,4 +74,17 @@ describe('console.group', () =>
 			console.log(0)
 		},
 	})
+
+	it_console(
+	{
+		title: 'capturing around stream writes',
+		output: ' ■\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 1\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 1\n ■\n',
+		test (console, options)
+		{
+			console.group()
+			console.log(1)
+			options.stdout.write(' ⚫ 1\n')
+			console.groupEnd()
+		},
+	})
 })
