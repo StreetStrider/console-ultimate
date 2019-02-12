@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 
 /* import './' */
 require('./')
@@ -16,8 +17,10 @@ stdout._write = ((stream, $write) =>
 
 		$write.apply(stream, args)
 	}
-})
-(stdout, stdout._write)
+})(
+	stdout,
+	stdout._write
+)
 
 // console.log(stdout._write)
 // console.log(stdout._writev)
