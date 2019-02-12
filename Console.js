@@ -46,7 +46,7 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 
 	console.clear = Clear(stdout)
 
-	var { group, group: groupCollapsed, groupEnd } = Group({ stdout, stderr })
+	var { group, group: groupCollapsed, groupEnd } = Group({ inspect_with, stdout, stderr })
 
 	console.group = group
 	console.groupCollapsed = groupCollapsed
