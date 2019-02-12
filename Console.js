@@ -3,6 +3,7 @@ var noop = () => void 0
 
 import { coalesce } from 'object-path'
 
+import Writer from './lib/Writer'
 import Out from './lib/Out'
 import Err from './lib/Err'
 
@@ -16,8 +17,8 @@ export default function Console (...args)
 {
 	var options = Options(...args)
 
-	var stdout = (options.stdout || process.stdout)
-	var stderr = (options.stderr || process.stderr)
+	var stdout = Writer(options.stdout || process.stdout)
+	var stderr = Writer(options.stderr || process.stderr)
 
 	/*
 https://github.com/nodejs/node/blob/771b2901daae2e4389d157c18bb0f6674a0a19a4/lib/internal/console/constructor.js#L230-L249
@@ -31,14 +32,14 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 
 	var console = { Console }
 
-	var { log, warn, info, dir } = Out({ inspect_with, stdout })
+	var { log, warn, info, dir } = Out({ inspect_with, writer: stdout })
 
 	console.log  = log
 	console.warn = warn
 	console.info = info
 	console.dir  = dir
 
-	console.error = Err({ inspect_with, stderr })
+	console.error = Err({ inspect_with, writer: stderr })
 
 	console.clear = Clear(stdout)
 
@@ -129,10 +130,10 @@ function is_nothing (...args)
 }
 
 
-function Clear (stdout)
+function Clear (writer)
 {
 	return function clear ()
 	{
-		stdout.write('\u001b[2J\u001b[0;0H')
+		writer.stream.write('\u001b[2J\u001b[0;0H')
 	}
 }
