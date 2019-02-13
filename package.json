@@ -33,9 +33,7 @@
 		"object-path": "0.11",
 		"function-name": "2",
 		"stack-utils": "1",
-		"kleur": "3",
-		"slice-ansi": "2",
-		"strip-ansi": "5"
+		"kleur": "3"
 	},
 
 	"devDependencies":
