@@ -1,3 +1,6 @@
+
+[![Travis](https://img.shields.io/travis/StreetStrider/console-ultimate.svg?style=flat-square)](https://travis-ci.org/StreetStrider/console-ultimate)
+
 # install
 
 Currently v2 is stable. Install it:
