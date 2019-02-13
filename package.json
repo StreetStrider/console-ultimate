@@ -18,6 +18,14 @@
 	"bugs":       { "url": "https://github.com/StreetStrider/console-ultimate/issues" },
 	"repository": { "url": "https://github.com/StreetStrider/console-ultimate.git", "type": "git" },
 
+	"files":
+	[
+		"lib/",
+		"Console.js",
+		"console.js",
+		"index.js"
+	],
+
 	"scripts":
 	{
 		"start": "node -r esm start.js",
