@@ -57,6 +57,7 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	console.dirxml = log
 
 	console.time =
+	console.timeLog =
 	console.timeEnd = noop
 
 	console.trace  = noop
