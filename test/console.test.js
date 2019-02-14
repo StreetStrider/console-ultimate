@@ -107,10 +107,21 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'indent dir',
-		output: ' ⚫ [ \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\',\n     \'expect\',\n     \'before\',\n     \'after\',\n     \'beforeEach\',\n     \'afterEach\',\n     \'run\',\n     \'context\',\n     \'describe\',\n     \'xcontext\',\n     \'xdescribe\',\n     \'specify\',\n     \'it\',\n     \'xspecify\',\n     \'xit\' ]\n',
+		output: ' ⚫ [ \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\' ]\n',
 		test (console)
 		{
-			console.dir(Object.keys(global))
+			console.dir(
+			[
+				'global',
+				'process',
+				'Buffer',
+				'clearImmediate',
+				'clearInterval',
+				'clearTimeout',
+				'setImmediate',
+				'setInterval',
+				'setTimeout',
+			])
 		},
 	})
 
