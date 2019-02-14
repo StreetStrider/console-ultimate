@@ -200,7 +200,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'printf log, warn, info',
-		output: '\u001b[0m ⚫ 1 2 3\u001b[0m\n\u001b[33m ⚫ 1 2 3\u001b[39m\n\u001b[34m ⚫ 1 2 3\u001b[39m\n',
+		output: '\u001b[0m ⚫ 1 2 \u001b[33m3\u001b[39m\u001b[0m\n\u001b[33m ⚫ 1 2 \u001b[33m3\u001b[33m\u001b[39m\n\u001b[34m ⚫ 1 2 \u001b[33m3\u001b[34m\u001b[39m\n',
 		test (console)
 		{
 			console.log('%s %s', 1, 2, 3)
@@ -213,7 +213,7 @@ describe('console', () =>
 		do_stderr: true,
 		isTTY: true,
 		title: 'printf error',
-		output: '\u001b[31m ⚫ 1 2 3\u001b[39m\n',
+		output: '\u001b[31m ⚫ 1 2 \u001b[33m3\u001b[31m\u001b[39m\n',
 		test (console)
 		{
 			console.error('%s %s', 1, 2, 3)
