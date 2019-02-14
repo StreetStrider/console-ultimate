@@ -210,6 +210,18 @@ describe('console', () =>
 	})
 	it_console(
 	{
+		isTTY: true,
+		title: 'printf log variants',
+		output: '\u001b[0m ⚫ 1 2 3\u001b[0m\n\u001b[0m ⚫ 1 2 \u001b[33m3\u001b[39m\u001b[0m\n\u001b[0m ⚫ 1 2 { x: \u001b[33m3\u001b[39m }\u001b[0m\n',
+		test (console)
+		{
+			console.log('%s %s %s', 1, 2, 3)
+			console.log('%s %s', 1, 2, 3)
+			console.log('%s %s', 1, 2, { x: 3 })
+		},
+	})
+	it_console(
+	{
 		do_stderr: true,
 		isTTY: true,
 		title: 'printf error',
