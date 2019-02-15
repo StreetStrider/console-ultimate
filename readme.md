@@ -45,8 +45,9 @@ Now porting features, to catch up with v2:
   * [ ] table
     * [ ] table with 2nd argument
     * [ ] advanced styling
-  * [ ] group, groupEnd
-    * [ ] bordered
+  * [x] group, groupEnd
+    * [x] bordered
+    * [x] group.end alias
   * [x] fp-friendly loggers (log, dir, warn, info, error) via `log.thru`, `dir.thru` etc…
   * [ ] logger partials via `log.part`
   * [ ] inspect values with `dir.retrieve`
