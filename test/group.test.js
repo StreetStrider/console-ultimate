@@ -35,7 +35,7 @@ describe('console.group', () =>
 	it_console(
 	{
 		title: 'group name',
-		output: ' ■ X:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 1\n ■ X:\n ■ Y:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 2\n ■ Y:\n ■\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 3\n ■\n',
+		output: ' ■ X:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 1\n ■ X.\n ■ Y:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 2\n ■ Y.\n ■\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 3\n ■\n',
 		test (console)
 		{
 			console.group('X')
@@ -55,7 +55,7 @@ describe('console.group', () =>
 	it_console(
 	{
 		title: 'nesting',
-		output: ' ⚫ 0\n ■ X1:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 1\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ■ X2:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 2\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ■ X3:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 3\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ■ X3:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 2\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ■ X2:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 1\n ■ X1:\n ⚫ 0\n',
+		output: ' ⚫ 0\n ■ X1:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 1\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ■ X2:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 2\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ■ X3:\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 3\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ■ X3.\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 2\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ■ X2.\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m ⚫ 1\n ■ X1.\n ⚫ 0\n',
 		test (console)
 		{
 			console.log(0)
