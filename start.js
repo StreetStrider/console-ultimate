@@ -20,4 +20,4 @@ console.groupEnd() //<
 
 console.error(new Error('X'))
 console.dir(new Error('X'))
-console.groupEnd() //<
+console.group.end() //<
