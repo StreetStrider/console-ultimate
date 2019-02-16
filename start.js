@@ -2,7 +2,7 @@
 /* import './' */
 require('./')
 
-// var X = { x: 17, y: true, z: [ null, NaN, /xyz/ ] }
+var X = { x: 17, y: true, z: [ null, NaN, /xyz/ ] }
 
 function F1 ()
 {
@@ -21,11 +21,16 @@ function F3 ()
 
 try
 {
-	F1()
+	0 && F1()
 }
 catch (e)
 {
 	console.error(e)
 }
 
-console.trace()
+0 && console.trace()
+
+console.log(X)
+console.warn(X)
+console.debug(X)
+console.dirxml(X)

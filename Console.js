@@ -56,8 +56,8 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	console.groupEnd = groupEnd
 
 
-	console.debug  =
-	console.dirxml = log
+	console.debug  = warn
+	console.dirxml = warn
 
 	console.time =
 	console.timeLog =
