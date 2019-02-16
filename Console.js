@@ -42,7 +42,10 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	console.info = info
 	console.dir  = dir
 
-	console.error = Err({ inspect_with, writer: stderr })
+	var { error, trace } = Err({ inspect_with, writer: stderr })
+
+	console.error = error
+	console.trace = trace
 
 	console.clear = Clear(stdout)
 
@@ -59,8 +62,6 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	console.time =
 	console.timeLog =
 	console.timeEnd = noop
-
-	console.trace  = noop
 
 	console.assert = noop
 

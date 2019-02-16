@@ -27,3 +27,5 @@ catch (e)
 {
 	console.error(e)
 }
+
+console.trace()
