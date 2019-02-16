@@ -39,8 +39,8 @@ Now porting features, to catch up with v2:
   * [ ] time, timeEnd
     * [ ] hrtime (with [pretty-hrtime](https://github.com/robrich/pretty-hrtime))
     * [ ] retrieve
-  * [ ] trace
-    * [ ] better stack traces ([trace](https://github.com/AndreasMadsen/trace) + [clarify](https://github.com/AndreasMadsen/clarify))
+  * [x] trace
+    * [x] purified stack traces
   * [ ] assert
   * [ ] table
     * [ ] table with 2nd argument
