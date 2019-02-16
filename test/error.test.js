@@ -24,6 +24,7 @@ describe('console.error, console.trace', () =>
 			console.error(e)
 		},
 	})
+
 	it_console(
 	{
 		isTTY: true,
@@ -44,6 +45,28 @@ describe('console.error, console.trace', () =>
 		{
 			var e = new Error
 			console.error(e)
+		},
+	})
+
+	it_console(
+	{
+		isTTY: true,
+		do_stderr: true,
+		title: 'trace',
+		output: test_trace(
+		{
+			head (line)
+			{
+				expect(line).eq('\u001b[31m ⚫ Trace:\u001b[39m')
+			},
+			body (line)
+			{
+				expect(line).match(/^.*   • (.+ \(.+:\d+:\d+\)|.+:\d+:\d+).*$/)
+			}
+		}),
+		test (console)
+		{
+			console.trace()
 		},
 	})
 })
