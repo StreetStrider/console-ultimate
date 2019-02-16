@@ -32,5 +32,4 @@ catch (e)
 
 console.log(X)
 console.warn(X)
-console.debug(X)
-console.dirxml(X)
+console.assert(false, 'LOL %s', 17)

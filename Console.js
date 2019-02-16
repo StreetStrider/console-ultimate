@@ -42,6 +42,9 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	console.info = info
 	console.dir  = dir
 
+	console.debug  = warn
+	console.dirxml = warn
+
 	var { error, trace } = Err({ inspect_with, writer: stderr })
 
 	console.error = error
@@ -55,15 +58,12 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	console.groupCollapsed = groupCollapsed
 	console.groupEnd = groupEnd
 
+	console.assert = Assert(warn)
 
-	console.debug  = warn
-	console.dirxml = warn
-
+	/* = */
 	console.time =
 	console.timeLog =
 	console.timeEnd = noop
-
-	console.assert = noop
 
 	console.count =
 	console.countReset = noop
@@ -146,6 +146,27 @@ function Clear (writer)
 		if (writer.stream.isTTY)
 		{
 			writer.stream.write('\u001b[2J\u001b[0;0H')
+		}
+	}
+}
+
+
+function Assert (warn)
+{
+	return function assert (expr, ...args)
+	{
+		if (! expr)
+		{
+			var _ = ''
+
+			if (args.length)
+			{
+				_ = ' ' + args[0]
+			}
+
+			args[0] = `Assertion failed:${ _ }`
+
+			warn(...args)
 		}
 	}
 }
