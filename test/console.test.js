@@ -268,8 +268,19 @@ describe('console', () =>
 	//
 	it_console(
 	{
-		title: 'dir',
-		output: ' ⚫ 1\n\u001b[2J\u001b[0;0H',
+		title: 'clear',
+		output: ' ⚫ 1\n',
+		test (console)
+		{
+			console.log(1)
+			console.clear()
+		},
+	})
+	it_console(
+	{
+		isTTY: true,
+		title: 'clear tty',
+		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[2J\u001b[0;0H',
 		test (console)
 		{
 			console.log(1)

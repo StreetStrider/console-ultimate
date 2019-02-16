@@ -143,6 +143,9 @@ function Clear (writer)
 {
 	return function clear ()
 	{
-		writer.stream.write('\u001b[2J\u001b[0;0H')
+		if (writer.stream.isTTY)
+		{
+			writer.stream.write('\u001b[2J\u001b[0;0H')
+		}
 	}
 }
