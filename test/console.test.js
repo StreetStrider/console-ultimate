@@ -165,7 +165,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		do_stderr: true,
-		title: 'error prim',
+		title: 'error primitive',
 		output: '\u001b[31m ⚫ \u001b[33m4\u001b[31m\u001b[39m\n',
 		test (console)
 		{
@@ -285,68 +285,6 @@ describe('console', () =>
 		{
 			console.log(1)
 			console.clear()
-		},
-	})
-
-	//
-	it_console(
-	{
-		do_stderr: true,
-		title: 'error',
-		output (output)
-		{
-			output.split('\n').forEach((line, n) =>
-			{
-				if (! n)
-				{
-					expect(line).eq(' ⚫ Error:')
-					return
-				}
-
-				if (! line)
-				{
-					return
-				}
-
-				expect(line).match(/^   • (.+ \(.+:\d+:\d+\)|.+:\d+:\d+)$/)
-			})
-		},
-		test (console)
-		{
-			var e = new Error
-			console.error(e)
-		},
-	})
-	it_console(
-	{
-		isTTY: true,
-		do_stderr: true,
-		title: 'error',
-		output (output)
-		{
-			output.split('\n').forEach((line, n) =>
-			{
-				if (! n)
-				{
-					expect(line).eq('\u001b[31m ⚫ Error:\u001b[39m')
-					return
-				}
-				if (! line)
-				{
-					return
-				}
-				if (line === '\u001b[39m')
-				{
-					return
-				}
-
-				expect(line).match(/^.*   • (.+ \(.+:\d+:\d+\)|.+:\d+:\d+).*$/)
-			})
-		},
-		test (console)
-		{
-			var e = new Error
-			console.error(e)
 		},
 	})
 })
