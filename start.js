@@ -2,22 +2,28 @@
 /* import './' */
 require('./')
 
-var X = { x: 17, y: true, z: [ null, NaN, /xyz/ ] }
+// var X = { x: 17, y: true, z: [ null, NaN, /xyz/ ] }
 
-console.dir(Object.keys(global))
-console.group('Group')
-console.dir(Object.keys(global))
+function F1 ()
+{
+	return F2()
+}
 
-console.group()
-console.log(X)
-console.info(X)
-process.stdout.write('YYY\n')
-console.warn(X)
+function F2 ()
+{
+	return F3()
+}
 
-console.error(X)
-console.error(new Error('X'))
-console.groupEnd() //<
+function F3 ()
+{
+	throw new TypeError('xyz')
+}
 
-console.error(new Error('X'))
-console.dir(new Error('X'))
-console.group.end() //<
+try
+{
+	F1()
+}
+catch (e)
+{
+	console.error(e)
+}
