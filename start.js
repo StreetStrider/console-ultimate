@@ -2,7 +2,7 @@
 /* import './' */
 require('./')
 
-var X = { x: 17, y: true, z: [ null, NaN, /xyz/ ] }
+// var X = { x: 17, y: true, z: [ null, NaN, /xyz/ ] }
 
 function F1 ()
 {
@@ -30,6 +30,7 @@ catch (e)
 
 0 && console.trace()
 
-console.log(X)
-console.warn(X)
-console.assert(false, 'LOL %s', 17)
+console.log(console)
+
+console.profile()
+console.profileEnd()

@@ -8,6 +8,7 @@ import Writer from './lib/Writer'
 import Out from './lib/Out'
 import Err from './lib/Err'
 import Group from './lib/Group'
+import Internal from './lib/Internal'
 
 
 var defaults =
@@ -70,13 +71,14 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 
 	console.table = noop
 
-	console.timeline =
-	console.markTimeline =
-	console.timeStamp =
-	console.timelineEnd = noop
+	/* inspector */
+	console.timeline = Internal('timeline')
+	console.markTimeline = Internal('markTimeline')
+	console.timeStamp = Internal('timeStamp')
+	console.timelineEnd = Internal('timelineEnd')
 
-	console.profile =
-	console.profileEnd = noop
+	console.profile = Internal('profile')
+	console.profileEnd = Internal('profileEnd')
 
 	/* ? */
 	console.context = noop
