@@ -8,6 +8,7 @@ import Writer from './lib/Writer'
 import Out from './lib/Out'
 import Err from './lib/Err'
 import Group from './lib/Group'
+import Table from './lib/Table'
 import Internal from './lib/Internal'
 
 
@@ -69,7 +70,7 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	console.count =
 	console.countReset = noop
 
-	console.table = noop
+	console.table = Table({ writer: stdout })
 
 	/* inspector */
 	console.timeline = Internal('timeline')

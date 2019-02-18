@@ -2,35 +2,8 @@
 /* import './' */
 require('./')
 
-// var X = { x: 17, y: true, z: [ null, NaN, /xyz/ ] }
+var X = { x: 17, y: true, z: [ null, NaN, /xyz/ ] }
+var Y = [ X, X, X ]
 
-function F1 ()
-{
-	return F2()
-}
-
-function F2 ()
-{
-	return F3()
-}
-
-function F3 ()
-{
-	throw new TypeError('xyz')
-}
-
-try
-{
-	0 && F1()
-}
-catch (e)
-{
-	console.error(e)
-}
-
-0 && console.trace()
-
-console.log(console)
-
-console.profile()
-console.profileEnd()
+console.log(Y)
+console.table(Y)

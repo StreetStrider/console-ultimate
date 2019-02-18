@@ -41,7 +41,8 @@
 		"object-path": "0.11",
 		"function-name": "2",
 		"stack-utils": "1",
-		"kleur": "3"
+		"kleur": "3",
+		"cli-table": "0.3"
 	},
 
 	"devDependencies":
