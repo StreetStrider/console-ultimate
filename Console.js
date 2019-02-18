@@ -70,7 +70,7 @@ var ignore_errors = coalesce(options, [ 'ignoreErrors', 'ignore_errors' ], true)
 	console.count =
 	console.countReset = noop
 
-	console.table = Table({ writer: stdout })
+	console.table = Table({ log, writer: stdout })
 
 	/* inspector */
 	console.timeline = Internal('timeline')
