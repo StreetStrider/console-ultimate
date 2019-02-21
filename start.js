@@ -5,7 +5,7 @@ require('./')
 // var X = { x: 17, x2: 1, y: true, z: [ null, NaN, /xyz/ ] }
 // var Y = [ X, X, X ]
 
-console.table(17)
+// console.table(17)
 
 console.table(
 [
@@ -14,6 +14,7 @@ console.table(
 	17,
 	{ x: 1, z: 3 },
 	[ 17 ],
+	[[ 17 ]],
 ])
 
 console.table(
@@ -25,4 +26,5 @@ console.table(
 	15: { x: 1, z: 3 },
 	16: Symbol('foo'),
 	25: [ 17 ],
+	27: [[ 17 ]],
 })
