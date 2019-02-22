@@ -5,6 +5,8 @@ require('./')
 // var X = { x: 17, x2: 1, y: true, z: [ null, NaN, /xyz/ ] }
 // var Y = [ X, X, X ]
 
+console.group('X')
+
 console.table(
 [
 	{ x: 1, y: 2 },
@@ -17,6 +19,8 @@ console.table(
 	Symbol('S'),
 ])
 
+console.group('Y')
+
 console.table(
 {
 	1: { x: 1, y: 2 },
@@ -28,3 +32,6 @@ console.table(
 	25: { x: 1, a: [] },
 	21: Symbol('S'),
 })
+
+console.group.end()
+console.group.end()
