@@ -42,9 +42,8 @@ Now porting features, to catch up with v2:
   * [x] trace
     * [x] purified stack traces
   * [ ] assert
-  * [ ] table
-    * [ ] table with 2nd argument
-    * [ ] advanced styling
+  * [x] table
+    * [ ] table props
   * [x] group, groupEnd
     * [x] bordered
     * [x] group.end alias

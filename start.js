@@ -6,6 +6,18 @@ require('./')
 // var Y = [ X, X, X ]
 
 console.table(
+[
+	{ x: 1, y: 2 },
+	{ y: 2, z: 3 },
+	17,
+	{ x: 1, z: 3 },
+	[ 17 ],
+	[[ 17 ]],
+	{ x: 1, a: [] },
+	Symbol('S'),
+])
+
+console.table(
 {
 	1: { x: 1, y: 2 },
 	2: { y: 2, z: 3 },
