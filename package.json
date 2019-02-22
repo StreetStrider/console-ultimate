@@ -42,7 +42,8 @@
 		"function-name": "2",
 		"stack-utils": "1",
 		"kleur": "3",
-		"cli-table": "0.3"
+		"cli-table": "0.3",
+		"string-length": "2"
 	},
 
 	"devDependencies":
