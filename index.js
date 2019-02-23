@@ -1,10 +1,6 @@
 
 require = require('esm')(module)
 
-var value = module.exports = require('./console').default
+var upgrade = require('./upgrade')
 
-Object.defineProperty(global, 'console',
-{
-	value,
-	configurable: true,
-})
+module.exports = upgrade({})

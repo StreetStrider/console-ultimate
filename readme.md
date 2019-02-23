@@ -15,15 +15,25 @@ npm i console-ultimate
 /* replace console instance globally */
 import 'console-ultimate'
 
-/* console-ultimate instance */
+/* instance with default options */
+import console from 'console-ultimate'
+
+/* instance with default options (not replacing global instance) */
 import console from 'console-ultimate/console'
 
-/* Node-compatible constructor */
+/* upgrade global instance with certain options */
+import upgrade from 'console-ultimate/upgrade'
+
+upgrade({ stdout })
+
+
+/* instantiate your own custom instance
+   via Console, a Node-compatible constructor */
 import Console from 'console-ultimate/Console'
 
 let console = Console({ stdout })
 
-console.log()
+console.log(console)
 ```
 
 # todo

@@ -1,4 +1,7 @@
 
+// import Console from './Console'; var console = Console()
+// import console from './console'
+// import upgrade from './upgrade'; upgrade({})
 import '.'
 
 // var X = { x: 17, x2: 1, y: true, z: [ null, NaN, /xyz/ ] }
