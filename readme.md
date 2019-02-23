@@ -2,7 +2,7 @@
 [![Travis](https://img.shields.io/travis/StreetStrider/console-ultimate.svg?style=flat-square)](https://travis-ci.org/StreetStrider/console-ultimate)
 
 <p align='center'>
-  <img src='/assets/b.png' width='250' />
+  <img src='/assets/b.png' width='100%' />
 </p>
 
 # What's this?
