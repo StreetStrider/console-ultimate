@@ -1,6 +1,10 @@
 
 [![Travis](https://img.shields.io/travis/StreetStrider/console-ultimate.svg?style=flat-square)](https://travis-ci.org/StreetStrider/console-ultimate)
 
+<p align='center'>
+  <img src='/assets/b.png' width='250' />
+</p>
+
 # What's this?
 This is an opinionated console for Node with some default styling and additional features.
 The main focus is to be Node-compatible console with more pretty look and feel.
