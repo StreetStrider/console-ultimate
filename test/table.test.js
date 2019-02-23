@@ -1,7 +1,7 @@
 
 import it_console from './it-console'
 
-describe('table', () =>
+describe('console.table', () =>
 {
 	it_console(
 	{
