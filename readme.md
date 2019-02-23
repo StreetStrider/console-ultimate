@@ -12,6 +12,9 @@ npm i console-ultimate
 # usage
 
 ```js
+/* replace console instance globally */
+import 'console-ultimate'
+
 /* console-ultimate instance */
 import console from 'console-ultimate/console'
 
@@ -20,8 +23,7 @@ import Console from 'console-ultimate/Console'
 
 let console = Console({ stdout })
 
-/* replace console instance globally */
-require('console-ultimate')
+console.log()
 ```
 
 # todo
