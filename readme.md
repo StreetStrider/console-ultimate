@@ -15,9 +15,9 @@ Connect it with one line and get all the benefits at once.
 * Fully Node-compatible API. So **console-ultimate** can replace **`console`** globally.
 * Nicely looking `log`, `info`, `warn`, `error`. They are colored, so more distinctive in terminal.
 Also some unicode decorations included.
-* Better stack traces and overall `error` formatting. Stack trace is cleared from internal entries.
-* Nice grouping (`console.group`) with visual indent and pseudographics.
-* Nice `console.table` with adequate ansi coloring handle, borders and colors.
+* Better stack traces and overall `error` formatting. Stack trace is cleared from internal entries (`console.error`, `console.trace`).
+* Nice grouping (`console.group`) with visual indentation and pseudographics.
+* `console.table` with adequate table width, including ansi-colored things, nice borders and colors.
 * FP-friendly loggers that can passthrough value, so they can be used in pipes (`.then`, `.map` etc…).
 * Deprecated methods are also supported for compability (`console.debug`, `console.dirxml`).
 
@@ -54,7 +54,7 @@ let console = Console({ stdout })
 console.log(console)
 ```
 
-# things to be done
+# Things to be done
 * Better `thru` and `partial`.
 * Retrieve (get formatted string instead of writing to stream).
 * Advanced dir flags (like `hidden` & `noinspect`). (https://nodejs.org/api/util.html#util_util_inspect_object_options)
