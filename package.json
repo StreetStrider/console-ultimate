@@ -23,6 +23,7 @@
 		"lib/",
 		"Console.js",
 		"console.js",
+		"upgrade.js",
 		"index.js"
 	],
 
