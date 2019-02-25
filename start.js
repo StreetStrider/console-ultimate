@@ -4,8 +4,18 @@
 // import upgrade from './upgrade'; upgrade({ colors: false })
 import '.'
 
-// var X = { x: 17, x2: 1, y: true, z: [ null, NaN, /xyz/ ] }
-// var Y = [ X, X, X ]
+var X = { x: 17, x2: 1, y: true, z: [ null, NaN, /xyz/ ] }
+var Y = [ X, X, X ]
+
+console.log(Y)
+console.warn(Y)
+console.info(Y)
+console.error(Y)
+console.debug(Y)
+console.dirxml(Y)
+
+console.log(console)
+process.exit()
 
 console.group('X')
 
