@@ -1,6 +1,6 @@
 
 // import Console from './Console'; var console = Console({ colors: false })
-// import console from './console'
+// import console from './default'
 // import upgrade from './upgrade'; upgrade({ colors: false })
 import '.'
 

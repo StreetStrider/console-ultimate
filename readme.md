@@ -36,7 +36,7 @@ import 'console-ultimate'
 import console from 'console-ultimate'
 
 /* get instance with default options (not replacing global instance) */
-import console from 'console-ultimate/console'
+import console from 'console-ultimate/default'
 
 /* upgrade global instance with certain options */
 import upgrade from 'console-ultimate/upgrade'
