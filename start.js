@@ -7,12 +7,9 @@ import '.'
 var X = { x: 17, x2: 1, y: true, z: [ null, NaN, /xyz/ ] }
 var Y = [ X, X, X ]
 
-console(console)
-
-console.log(Y)
-console.warn(Y)
 console.info(Y)
 console.error(Y)
+console.warn(Y)
 console.debug(Y)
 console.dirxml(Y)
 

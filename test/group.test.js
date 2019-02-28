@@ -35,7 +35,7 @@ describe('console.group', () =>
 	{
 		isTTY: true,
 		title: 'grouping colors',
-		output: ' ■\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[33m ⚫ \u001b[33m2\u001b[33m\u001b[39m\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[34m ⚫ \u001b[33m3\u001b[34m\u001b[39m\n ■\n',
+		output: ' ■\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[32m ⚫ \u001b[33m2\u001b[32m\u001b[39m\n\u001b[0m\u001b[0m ┊ \u001b[0m\u001b[0m\u001b[34m ⚫ \u001b[33m3\u001b[34m\u001b[39m\n ■\n',
 		test (console)
 		{
 			console.group()
