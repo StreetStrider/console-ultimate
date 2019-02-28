@@ -141,7 +141,6 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'log, warn, info',
-		// eslint-disable-next-line max-len
 		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[32m ⚫ \u001b[33m2\u001b[32m\u001b[39m\n\u001b[34m ⚫ \u001b[33m3\u001b[34m\u001b[39m\n',
 		test (console)
 		{
@@ -154,7 +153,6 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'debug, dirxml',
-		// eslint-disable-next-line max-len
 		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[35m ⚫ \u001b[33m2\u001b[35m\u001b[39m\n\u001b[36m ⚫ \u001b[33m3\u001b[36m\u001b[39m\n',
 		test (console)
 		{
