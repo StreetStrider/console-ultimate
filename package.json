@@ -22,7 +22,7 @@
 	[
 		"lib/",
 		"Console.js",
-		"console.js",
+		"default.js",
 		"upgrade.js",
 		"index.js"
 	],
