@@ -7,9 +7,10 @@ import '.'
 // var X = { x: 17, x2: 1, y: true, z: [ null, NaN, /xyz/ ] }
 // var Y = [ X, X, X ]
 
-console.log(1)
+console.log('-')
 console.count()
 console.count()
-console.count('x')
 console.count()
-console.log(2)
+console.count.reset()
+console.count()
+console.log('-')
