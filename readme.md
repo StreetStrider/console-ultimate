@@ -58,7 +58,6 @@ console.log(console)
 * Better `thru` and `partial`.
 * Retrieve (get formatted string instead of writing to stream).
 * Advanced dir flags (like `hidden` & `noinspect`). (https://nodejs.org/api/util.html#util_util_inspect_object_options)
-* `console.count`.
 * `console.time`. (+retrieve)
 * Table props.
 * `ignoreErrors`
