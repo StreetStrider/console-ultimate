@@ -7,6 +7,20 @@
 	"license": "ISC",
 	"author":  "Strider <strange.transistor@gmail.com>",
 
+	"tags":
+	[
+		"console", "color", "tty",
+		"log", "dir", "inspect", "format", "util",
+		"timer", "hrtime",
+		"assert",
+		"trace", "better traces", "long stacks", "long trace", "long traces",
+		"count", "debug",
+		"clear",
+		"table", "cli table",
+		"group", "groupEnd", "grouping",
+		"node"
+	],
+
 	"esm": true,
 
 	"engines":
