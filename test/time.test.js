@@ -16,7 +16,7 @@ describe('console.time', () =>
 
 	it_console(
 	{
-		title: 'time',
+		title: 'time labels',
 		output: detime(' ⌚ A T U\n ⌚ B T U\n'),
 		test (console)
 		{
@@ -24,6 +24,19 @@ describe('console.time', () =>
 			console.time('B')
 			console.timeEnd('A')
 			console.timeEnd('B')
+		},
+	})
+
+	it_console(
+	{
+		title: 'time intermediate',
+		output: detime(' ⌚ A T U\n ⌚ B T U\n'),
+		test (console)
+		{
+			console.time('A')
+			console.time('B')
+			console.timeLog('A')
+			console.timeLog('B')
 		},
 	})
 })
