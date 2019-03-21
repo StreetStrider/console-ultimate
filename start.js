@@ -8,9 +8,8 @@ import '.'
 // var Y = [ X, X, X ]
 
 console.log('-')
-console.count(console.color.red('1'))
-console.count()
-console.count()
-console.count.reset()
-console.count()
+console.time(console.color.red('1'))
+console.time()
+console.timeEnd()
+console.timeEnd(console.color.red('1'))
 console.log('-')
