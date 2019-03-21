@@ -1,7 +1,7 @@
 
 import it_console from './it-console'
 
-describe('console', () =>
+describe('console.count', () =>
 {
 	it_console(
 	{
