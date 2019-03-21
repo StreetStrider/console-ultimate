@@ -9,7 +9,7 @@
 This is an opinionated console for Node with some default styling and additional features.
 The main focus is to be Node-compatible console with more pretty look and feel.
 There's also some additional features.
-Connect it with one line and get all the benefits at once.
+Turn it on with one line and get all the benefits at once.
 
 # What's included?
 * Fully Node-compatible API. So **console-ultimate** can replace **`console`** globally.
@@ -19,6 +19,7 @@ Also some unicode decorations included.
 * Nice grouping (`console.group`) with visual indentation and pseudographics.
 * `console.table` with adequate table width, including ansi-colored things, nice borders and colors.
 * FP-friendly loggers that can passthrough value, so they can be used in pipes (`.then`, `.map` etc…).
+* All other stuff, like `console.count` and `console.time`.
 * Deprecated methods are also supported for compability (`console.debug`, `console.dirxml`).
 
 # Install
@@ -32,10 +33,10 @@ npm i console-ultimate
 /* replace console instance globally */
 import 'console-ultimate'
 
-/* get instance with default options and replace globally */
+/* get instance with default options AND replace globally */
 import console from 'console-ultimate'
 
-/* get instance with default options (not replacing global instance) */
+/* get instance with default options (NOT replacing global instance) */
 import console from 'console-ultimate/default'
 
 /* upgrade global instance with certain options */
@@ -58,7 +59,6 @@ console.log(console)
 * Better `thru` and `partial`.
 * Retrieve (get formatted string instead of writing to stream).
 * Advanced dir flags (like `hidden` & `noinspect`). (https://nodejs.org/api/util.html#util_util_inspect_object_options)
-* `console.time`. (+retrieve)
 * Table props.
 * `ignoreErrors`
 * `debug`-like API with sub-instantiating, creating sybsystem-wise consoles.
