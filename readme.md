@@ -1,8 +1,20 @@
 
-[![Travis](https://img.shields.io/travis/StreetStrider/console-ultimate.svg?style=flat-square)](https://travis-ci.org/StreetStrider/console-ultimate)
-
 <p align='center'>
-  <img src='/assets/b.png' width='100%' />
+  <a href='https://travis-ci.org/StreetStrider/console-ultimate'>
+    <img alt='Travis' src='https://img.shields.io/travis/StreetStrider/console-ultimate.svg?style=flat-square'>
+  </a>
+
+  <a href='https://www.npmjs.org/package/console-ultimate'>
+    <img alt='npm|console-ultimate' src='http://img.shields.io/badge/npm-console--ultimate-CB3837.svg?style=flat-square'>
+  </a>
+
+  <a href='#license'>
+    <img alt='ISC licensed' src='http://img.shields.io/badge/license-ISC-brightgreen.svg?style=flat-square'>
+  </a>
+
+  <a href='https://www.npmjs.org/package/console-ultimate'>
+    <img src='/assets/b.png' width='100%'>
+  </a>
 </p>
 
 # What's this?
