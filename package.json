@@ -7,7 +7,7 @@
 	"license": "ISC",
 	"author":  "Strider <strange.transistor@gmail.com>",
 
-	"tags":
+	"keywords":
 	[
 		"console", "color", "tty",
 		"log", "dir", "inspect", "format", "util",
