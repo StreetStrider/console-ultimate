@@ -43,7 +43,7 @@
 
 	"scripts":
 	{
-		"start": "node -r esm start.js",
+		"start": "node -r esm test/start.js",
 
 		"st":   "eslint *.js lib/ test/",
 		"unit": "mocha -r esm -r test/globals test/*.test.js",
