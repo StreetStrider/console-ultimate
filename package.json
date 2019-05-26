@@ -67,7 +67,7 @@
 		"eslint": "5",
 		"js-outlander": "StrangeTransistor/js-outlander#2.5.0",
 
-		"mocha": "5",
+		"mocha": "6",
 		"chai": "4",
 		"concat-stream": "2"
 	}
