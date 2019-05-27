@@ -107,6 +107,7 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'indent log massive',
+		trim: true,
 		output: ' ⚫ [\n     \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\'\n   ]\n',
 		test (console)
 		{
@@ -128,6 +129,7 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'indent dir massive',
+		trim: true,
 		output: ' ⚫ [\n     \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\'\n   ]\n',
 		test (console)
 		{

@@ -3,17 +3,19 @@ import Console from '../Console'
 
 import cat from './cat'
 
-export default function it_console ({ isTTY, do_stderr, title, options = {}, output, test })
+export default function it_console (options)
 {
+	var { title } = options
+
 	if (! title) { return }
 
 	it(title, async () =>
 	{
-		await test_console({ isTTY, do_stderr, options, output, test })
+		await test_console(options)
 	})
 }
 
-async function test_console ({ isTTY, do_stderr, options, output, test })
+async function test_console ({ isTTY, trim, do_stderr, options, output, test })
 {
 	var [ stdout, result ] = cat()
 
@@ -35,6 +37,14 @@ async function test_console ({ isTTY, do_stderr, options, output, test })
 
 	test(console, options)
 	stdout.end()
+
+	result = await result
+
+	if (trim)
+	{
+		result = result.replace(/\s/g, '')
+		output = output.replace(/\s/g, '')
+	}
 
 	if (typeof output === 'function')
 	{
