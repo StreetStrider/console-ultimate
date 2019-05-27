@@ -106,8 +106,29 @@ describe('console', () =>
 
 	it_console(
 	{
-		title: 'indent dir',
-		output: ' ⚫ [ \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\' ]\n',
+		title: 'indent log massive',
+		output: ' ⚫ [\n     \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\'\n   ]\n',
+		test (console)
+		{
+			console.dir(
+			[
+				'global',
+				'process',
+				'Buffer',
+				'clearImmediate',
+				'clearInterval',
+				'clearTimeout',
+				'setImmediate',
+				'setInterval',
+				'setTimeout',
+			])
+		},
+	})
+
+	it_console(
+	{
+		title: 'indent dir massive',
+		output: ' ⚫ [\n     \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\'\n   ]\n',
 		test (console)
 		{
 			console.dir(
