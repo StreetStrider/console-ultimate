@@ -64,8 +64,9 @@
 
 	"devDependencies":
 	{
-		"eslint": "5",
-		"js-outlander": "StrangeTransistor/js-outlander#2.5.0",
+		"eslint": "7",
+		"js-outlander": "StrangeTransistor/js-outlander#2.10.0",
+		"eslint-plugin-node": "11",
 
 		"mocha": "6",
 		"chai": "4",

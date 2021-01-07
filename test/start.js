@@ -1,3 +1,4 @@
+/* eslint-disable node/no-unsupported-features/node-builtins */
 
 // import Console from './Console'; var console = Console({ colors: false })
 // import console from './default'
