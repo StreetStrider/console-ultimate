@@ -88,8 +88,13 @@
 		"eslint-plugin-node":
 			"11",
 
-		"mocha": "6",
-		"chai": "4",
-		"concat-stream": "2"
+		"mocha":
+			"8.4.0",
+
+		"chai":
+			"4",
+
+		"concat-stream":
+			"2"
 	}
 }
