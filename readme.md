@@ -81,4 +81,4 @@ console.log(console)
 * node-inspector integration.
 
 # License
-ISC, © 2019 Strider.
+ISC, © 2023 Strider.
