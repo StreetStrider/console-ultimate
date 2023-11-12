@@ -1,6 +1,6 @@
 
 import $console from 'console'
-import Console from '../Console'
+import Console from 'console-ultimate/Console'
 
 describe('conformance', () =>
 {

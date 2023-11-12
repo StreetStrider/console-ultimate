@@ -1,9 +1,7 @@
 
-require = require('esm')(module)
+import Console from './Console.js'
 
-var Console = require('./Console').default
-
-module.exports = function upgrade (options)
+export default function upgrade (options)
 {
 	var value = Console(options)
 

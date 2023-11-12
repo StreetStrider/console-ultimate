@@ -1,6 +1,6 @@
 {
 	"name": "console-ultimate",
-	"version": "3.0.1",
+	"version": "4.0.0-pre",
 
 	"description": "Node-compatible console object with extra features",
 
@@ -21,16 +21,13 @@
 		"node"
 	],
 
-	"esm": true,
-
-	"engines":
-	{
-		"node": ">= 8.3"
-	},
+	"engines": { "node": ">= 8.3" },
 
 	"homepage":            "https://github.com/StreetStrider/console-ultimate",
 	"bugs":       { "url": "https://github.com/StreetStrider/console-ultimate/issues" },
 	"repository": { "url": "https://github.com/StreetStrider/console-ultimate.git", "type": "git" },
+
+	"type": "module",
 
 	"exports":
 	{
@@ -51,10 +48,10 @@
 
 	"scripts":
 	{
-		"start": "node -r esm test/start.js",
+		"start": "node test/start.js",
 
 		"st":   "eslint *.js lib/ test/",
-		"unit": "mocha -r esm -r test/globals test/*.test.js",
+		"unit": "mocha -r test/globals.js test/*.test.js",
 		"test": "npm run st && npm run unit",
 
 		"ex": "node example/overview.js"
@@ -62,9 +59,6 @@
 
 	"dependencies":
 	{
-		"esm":
-			"3.2.25",
-
 		"object-path":
 			"0.11.8",
 

@@ -1,5 +1,5 @@
 
-require('console-ultimate')
+import 'console-ultimate'
 
 console.log('console.log()')
 console.warn('console.warn()')

@@ -1,6 +1,4 @@
 
-require = require('esm')(module)
+import Console from './Console.js'
 
-var Console = require('./Console').default
-
-module.exports = Console()
+export default Console()

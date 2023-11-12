@@ -1,7 +1,4 @@
-// TODO: esm
 
-require = require('esm')(module)
+import upgrade from './upgrade.js'
 
-var upgrade = require('./upgrade')
-
-module.exports = upgrade({})
+export default upgrade({})

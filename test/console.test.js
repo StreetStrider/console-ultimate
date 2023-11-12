@@ -1,5 +1,5 @@
 
-import it_console from './it-console'
+import it_console from './it-console.js'
 
 describe('console', () =>
 {

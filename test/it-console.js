@@ -1,7 +1,7 @@
 
-import Console from '../Console'
+import Console from 'console-ultimate/Console'
 
-import cat from './cat'
+import cat from './cat.js'
 
 export default function it_console (options)
 {
