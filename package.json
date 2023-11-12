@@ -47,7 +47,9 @@
 
 		"st":   "eslint *.js lib/ test/",
 		"unit": "mocha -r esm -r test/globals test/*.test.js",
-		"test": "npm run st && npm run unit"
+		"test": "npm run st && npm run unit",
+
+		"ex": "node example/overview.js"
 	},
 
 	"dependencies":
@@ -79,6 +81,9 @@
 
 	"devDependencies":
 	{
+		"console-ultimate":
+			"./",
+
 		"eslint":
 			"8",
 
