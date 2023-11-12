@@ -39,6 +39,13 @@ Also some unicode decorations included.
 * All other stuff, like `console.count` and `console.time`.
 * Deprecated methods are also supported for compability (`console.debug`, `console.dirxml`).
 
+# Differences between v3 and v4
+By the time of v3 the package was implemented with the help of transitional package called [esm](https://www.npmjs.com/package/esm). The package, in fact, CJS, but uses this package for sugars and as an experiment with early ESM syntax.
+
+v4 is a direct upgrade to standard [ESM](https://nodejs.org/api/esm.html) with the same functionality and modern dependencies.
+
+Both versions provide [export maps](https://nodejs.org/api/packages.html#package-entry-points).
+
 # Install
 ```
 npm i console-ultimate
