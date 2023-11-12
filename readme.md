@@ -24,7 +24,7 @@ Turn it on with one line and get all the benefits at once.
 <table>
   <tr>
     <td><img src='assets/s1.png'></td>
-    <td><img src='assets/s2.png'></td>
+    <td><img src='assets/s3.png'></td>
   </tr>
 </table>
 
