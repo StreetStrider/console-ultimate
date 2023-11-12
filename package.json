@@ -32,13 +32,21 @@
 	"bugs":       { "url": "https://github.com/StreetStrider/console-ultimate/issues" },
 	"repository": { "url": "https://github.com/StreetStrider/console-ultimate.git", "type": "git" },
 
+	"exports":
+	{
+		".": "./index.js",
+		"./default": "./default.js",
+		"./upgrade": "./upgrade.js",
+		"./Console": "./Console.js"
+	},
+
 	"files":
 	[
-		"lib/",
-		"Console.js",
+		"index.js",
 		"default.js",
 		"upgrade.js",
-		"index.js"
+		"Console.js",
+		"lib/"
 	],
 
 	"scripts":
