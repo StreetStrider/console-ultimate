@@ -23,6 +23,13 @@ The main focus is to be Node-compatible console with more pretty look and feel.
 There's also some additional features.
 Turn it on with one line and get all the benefits at once.
 
+<table>
+  <tr>
+    <td><img src='img/s1.png'></td>
+    <td><img src='img/s2.png'></td>
+  </tr>
+</table>
+
 # What's included?
 * Fully Node-compatible API. So **console-ultimate** can replace **`console`** globally.
 * Nicely looking `log`, `info`, `warn`, `error`. They are colored, so more distinctive in terminal.
