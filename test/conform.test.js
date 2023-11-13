@@ -1,5 +1,5 @@
 
-import $console from 'console'
+import $console from 'node:console'
 import Console from 'console-ultimate/Console'
 
 describe('conformance', () =>
