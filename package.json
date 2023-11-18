@@ -49,12 +49,12 @@
 	"scripts":
 	{
 		"start": "node test/start.js",
+		"ex":    "node example/overview.js",
 
-		"st":   "eslint *.js lib/ test/",
-		"unit": "mocha -r test/globals.js test/*.test.js",
-		"test": "npm run st && npm run unit",
-
-		"ex": "node example/overview.js"
+		"st":    "eslint *.js lib/ test/",
+		"unit":  "mocha -r test/globals.js test/*.test.js",
+		"cover": "c8 -r text -r html npm run unit",
+		"test":  "npm run st && npm run unit && npm run cover"
 	},
 
 	"dependencies":
@@ -100,6 +100,9 @@
 
 		"chai":
 			"4",
+
+		"c8":
+			"8",
 
 		"concat-stream":
 			"2"
