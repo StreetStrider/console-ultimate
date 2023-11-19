@@ -26,3 +26,5 @@ console.table(Y)
 console.time.end()
 
 console.group.end()
+
+console.error(new TypeError)

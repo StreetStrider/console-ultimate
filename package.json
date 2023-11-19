@@ -48,7 +48,7 @@
 
 	"scripts":
 	{
-		"start": "node test/start.js",
+		"start": "node example/start.js",
 		"ex":    "node example/overview.js",
 
 		"st":    "eslint *.js lib/ test/",
