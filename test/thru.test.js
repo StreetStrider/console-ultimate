@@ -6,7 +6,7 @@ describe('thru, as', () =>
 	it_console(
 	{
 		title: 'log.thru',
-		output: ' ⚫ 5\n',
+		output: ' ⚫ 5 0 [ 5 ]\n',
 		test (console)
 		{
 			expect([ 5 ].map(console.log.thru)).deep.eq([ 5 ])
