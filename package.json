@@ -21,7 +21,7 @@
 		"node"
 	],
 
-	"engines": { "node": ">= 8.3" },
+	"engines": { "node": ">= 16" },
 
 	"homepage":            "https://github.com/StreetStrider/console-ultimate",
 	"bugs":       { "url": "https://github.com/StreetStrider/console-ultimate/issues" },
