@@ -11,7 +11,7 @@ describe('console.error, console.trace', () =>
 		{
 			head (line)
 			{
-				expect(line).eq(' ⚫ Error:')
+				expect(line).eq(' ⬤ Error:')
 			},
 			body (line)
 			{
@@ -34,7 +34,7 @@ describe('console.error, console.trace', () =>
 		{
 			head (line)
 			{
-				expect(line).eq('\u001b[31m ⚫ Error:\u001b[39m')
+				expect(line).eq('\u001b[31m ⬤ Error:\u001b[39m')
 			},
 			body (line)
 			{
@@ -57,7 +57,7 @@ describe('console.error, console.trace', () =>
 		{
 			head (line)
 			{
-				expect(line).eq('\u001b[31m ⚫ Trace:\u001b[39m')
+				expect(line).eq('\u001b[31m ⬤ Trace:\u001b[39m')
 			},
 			body (line)
 			{

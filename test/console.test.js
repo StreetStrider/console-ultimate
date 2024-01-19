@@ -6,7 +6,7 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'log',
-		output: ' ⚫ 1\n',
+		output: ' ⬤ 1\n',
 		test (console)
 		{
 			console.log(1)
@@ -18,7 +18,7 @@ describe('console', () =>
 	{
 		title: 'colors = true, tty = false',
 		options: { colors: true },
-		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n',
+		output: '\u001b[0m ⬤ \u001b[33m1\u001b[39m\u001b[0m\n',
 		test (console)
 		{
 			console.log(1)
@@ -29,7 +29,7 @@ describe('console', () =>
 	{
 		title: 'colors = auto, tty = false',
 		options: { colors: 'auto' },
-		output: ' ⚫ 1\n',
+		output: ' ⬤ 1\n',
 		test (console)
 		{
 			console.log(1)
@@ -40,7 +40,7 @@ describe('console', () =>
 	{
 		title: 'colors = false, tty = false',
 		options: { colors: false },
-		output: ' ⚫ 1\n',
+		output: ' ⬤ 1\n',
 		test (console)
 		{
 			console.log(1)
@@ -51,7 +51,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'tty = true',
-		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n',
+		output: '\u001b[0m ⬤ \u001b[33m1\u001b[39m\u001b[0m\n',
 		test (console)
 		{
 			console.log(1)
@@ -63,7 +63,7 @@ describe('console', () =>
 		isTTY: true,
 		title: 'colors = true, tty = true',
 		options: { colors: true },
-		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n',
+		output: '\u001b[0m ⬤ \u001b[33m1\u001b[39m\u001b[0m\n',
 		test (console)
 		{
 			console.log(1)
@@ -75,7 +75,7 @@ describe('console', () =>
 		isTTY: true,
 		title: 'colors = auto, tty = true',
 		options: { colors: 'auto' },
-		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n',
+		output: '\u001b[0m ⬤ \u001b[33m1\u001b[39m\u001b[0m\n',
 		test (console)
 		{
 			console.log(1)
@@ -87,7 +87,7 @@ describe('console', () =>
 		isTTY: true,
 		title: 'colors = false, tty = true',
 		options: { colors: false },
-		output: ' ⚫ 1\n',
+		output: ' ⬤ 1\n',
 		test (console)
 		{
 			console.log(1)
@@ -97,7 +97,7 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'indent log',
-		output: ' ⚫ 1\n   2\n   3\n',
+		output: ' ⬤ 1\n   2\n   3\n',
 		test (console)
 		{
 			console.log('1\n2\n3')
@@ -108,7 +108,7 @@ describe('console', () =>
 	{
 		title: 'indent log massive',
 		trim: true,
-		output: ' ⚫ [\n     \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\'\n   ]\n',
+		output: ' ⬤ [\n     \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\'\n   ]\n',
 		test (console)
 		{
 			console.dir(
@@ -130,7 +130,7 @@ describe('console', () =>
 	{
 		title: 'indent dir massive',
 		trim: true,
-		output: ' ⚫ [\n     \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\'\n   ]\n',
+		output: ' ⬤ [\n     \'global\',\n     \'process\',\n     \'Buffer\',\n     \'clearImmediate\',\n     \'clearInterval\',\n     \'clearTimeout\',\n     \'setImmediate\',\n     \'setInterval\',\n     \'setTimeout\'\n   ]\n',
 		test (console)
 		{
 			console.dir(
@@ -152,7 +152,7 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'log, warn, info',
-		output: ' ⚫ 1\n ⚫ 2\n ⚫ 3\n',
+		output: ' ⬤ 1\n ⬤ 2\n ⬤ 3\n',
 		test (console)
 		{
 			console.log(1)
@@ -164,7 +164,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'log, warn, info',
-		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[32m ⚫ \u001b[33m2\u001b[39m\u001b[32m\u001b[39m\n\u001b[34m ⚫ \u001b[33m3\u001b[39m\u001b[34m\u001b[39m\n',
+		output: '\u001b[0m ⬤ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[32m ⬤ \u001b[33m2\u001b[39m\u001b[32m\u001b[39m\n\u001b[34m ⬤ \u001b[33m3\u001b[39m\u001b[34m\u001b[39m\n',
 		test (console)
 		{
 			console.log(1)
@@ -176,7 +176,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'debug, dirxml',
-		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[35m ⚫ \u001b[33m2\u001b[39m\u001b[35m\u001b[39m\n\u001b[36m ⚫ \u001b[33m3\u001b[39m\u001b[36m\u001b[39m\n',
+		output: '\u001b[0m ⬤ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[35m ⬤ \u001b[33m2\u001b[39m\u001b[35m\u001b[39m\n\u001b[36m ⬤ \u001b[33m3\u001b[39m\u001b[36m\u001b[39m\n',
 		test (console)
 		{
 			console.log(1)
@@ -189,7 +189,7 @@ describe('console', () =>
 	{
 		do_stderr: true,
 		title: 'error primitive',
-		output: ' ⚫ 4\n',
+		output: ' ⬤ 4\n',
 		test (console)
 		{
 			console.error(4)
@@ -200,7 +200,7 @@ describe('console', () =>
 		isTTY: true,
 		do_stderr: true,
 		title: 'error primitive',
-		output: '\u001b[31m ⚫ \u001b[33m4\u001b[39m\u001b[31m\u001b[39m\n',
+		output: '\u001b[31m ⬤ \u001b[33m4\u001b[39m\u001b[31m\u001b[39m\n',
 		test (console)
 		{
 			console.error(4)
@@ -211,7 +211,7 @@ describe('console', () =>
 	{
 		title: 'printf',
 		options: { colors: false },
-		output: ' ⚫ 1 2 3\n ⚫ 1 2 %s\n',
+		output: ' ⬤ 1 2 3\n ⬤ 1 2 %s\n',
 		test (console)
 		{
 			console.log('%s %s', 1, 2, 3)
@@ -222,7 +222,7 @@ describe('console', () =>
 	{
 		title: 'printf log, warn, info',
 		options: { colors: false },
-		output: ' ⚫ 1 2 3\n ⚫ 1 2 3\n ⚫ 1 2 3\n',
+		output: ' ⬤ 1 2 3\n ⬤ 1 2 3\n ⬤ 1 2 3\n',
 		test (console)
 		{
 			console.log('%s %s', 1, 2, 3)
@@ -235,7 +235,7 @@ describe('console', () =>
 		do_stderr: true,
 		title: 'printf error',
 		options: { colors: false },
-		output: ' ⚫ 1 2 3\n',
+		output: ' ⬤ 1 2 3\n',
 		test (console)
 		{
 			console.error('%s %s', 1, 2, 3)
@@ -245,7 +245,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'printf log, warn, info',
-		output: '\u001b[0m ⚫ 1 2 \u001b[33m3\u001b[39m\u001b[0m\n\u001b[32m ⚫ 1 2 \u001b[33m3\u001b[39m\u001b[32m\u001b[39m\n\u001b[34m ⚫ 1 2 \u001b[33m3\u001b[39m\u001b[34m\u001b[39m\n',
+		output: '\u001b[0m ⬤ 1 2 \u001b[33m3\u001b[39m\u001b[0m\n\u001b[32m ⬤ 1 2 \u001b[33m3\u001b[39m\u001b[32m\u001b[39m\n\u001b[34m ⬤ 1 2 \u001b[33m3\u001b[39m\u001b[34m\u001b[39m\n',
 		test (console)
 		{
 			console.log('%s %s', 1, 2, 3)
@@ -257,7 +257,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'printf log variants',
-		output: '\u001b[0m ⚫ 1 2 3\u001b[0m\n\u001b[0m ⚫ 1 2 \u001b[33m3\u001b[39m\u001b[0m\n\u001b[0m ⚫ 1 2 { x: \u001b[33m3\u001b[39m }\u001b[0m\n',
+		output: '\u001b[0m ⬤ 1 2 3\u001b[0m\n\u001b[0m ⬤ 1 2 \u001b[33m3\u001b[39m\u001b[0m\n\u001b[0m ⬤ 1 2 { x: \u001b[33m3\u001b[39m }\u001b[0m\n',
 		test (console)
 		{
 			console.log('%s %s %s', 1, 2, 3)
@@ -270,7 +270,7 @@ describe('console', () =>
 		do_stderr: true,
 		isTTY: true,
 		title: 'printf error',
-		output: '\u001b[31m ⚫ 1 2 \u001b[33m3\u001b[39m\u001b[31m\u001b[39m\n',
+		output: '\u001b[31m ⬤ 1 2 \u001b[33m3\u001b[39m\u001b[31m\u001b[39m\n',
 		test (console)
 		{
 			console.error('%s %s', 1, 2, 3)
@@ -281,7 +281,7 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'dir',
-		output: ' ⚫ 1\n',
+		output: ' ⬤ 1\n',
 		test (console)
 		{
 			console.dir(1)
@@ -292,7 +292,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'dir',
-		output: ' ⚫ \u001b[33m1\u001b[39m\n',
+		output: ' ⬤ \u001b[33m1\u001b[39m\n',
 		test (console)
 		{
 			console.dir(1)
@@ -303,7 +303,7 @@ describe('console', () =>
 	it_console(
 	{
 		title: 'clear',
-		output: ' ⚫ 1\n',
+		output: ' ⬤ 1\n',
 		test (console)
 		{
 			console.log(1)
@@ -314,7 +314,7 @@ describe('console', () =>
 	{
 		isTTY: true,
 		title: 'clear tty',
-		output: '\u001b[0m ⚫ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[2J\u001b[0;0H',
+		output: '\u001b[0m ⬤ \u001b[33m1\u001b[39m\u001b[0m\n\u001b[2J\u001b[0;0H',
 		test (console)
 		{
 			console.log(1)

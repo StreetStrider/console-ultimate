@@ -6,7 +6,7 @@ describe('console.table', () =>
 	it_console(
 	{
 		title: 'primitive',
-		output: ' ⚫ 17\n',
+		output: ' ⬤ 17\n',
 		test (console)
 		{
 			console.table(17)
@@ -58,7 +58,7 @@ describe('console.table', () =>
 	{
 		isTTY: true,
 		title: 'primitive (color)',
-		output: ' ⚫ \u001b[33m17\u001b[39m\n',
+		output: ' ⬤ \u001b[33m17\u001b[39m\n',
 		test (console)
 		{
 			console.table(17)
