@@ -4,7 +4,9 @@
     <img alt='npm|console-ultimate' src='http://img.shields.io/badge/npm-console--ultimate-CB3837?style=flat-square'>
   </a>
 
-  <img alt='ESM' src='http://img.shields.io/badge/module-ESM-F7DF1E?style=flat-square'>
+  <a href='https://nodejs.org/api/esm.html'>
+    <img alt='ESM' src='http://img.shields.io/badge/module-ESM-F7DF1E?style=flat-square'>
+  </a>
 
   <a href='#license'>
     <img alt='ISC licensed' src='http://img.shields.io/badge/license-ISC-3AB164?style=flat-square'>
