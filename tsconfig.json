@@ -1,0 +1,17 @@
+{
+	"include":
+	[
+		"**/*.ts",
+	],
+	"compilerOptions":
+	{
+		"noEmit": true,
+		"pretty": true,
+
+		"strict": true,
+
+		"lib":  [ "es2021" ],
+		"target": "es2021",
+		"module": "node16"
+	}
+}

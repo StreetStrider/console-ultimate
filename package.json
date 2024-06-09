@@ -39,6 +39,7 @@
 
 	"files":
 	[
+		"*.d.ts",
 		"index.js",
 		"default.js",
 		"upgrade.js",
@@ -52,9 +53,10 @@
 		"ex":    "node example/overview.js",
 
 		"st":    "eslint *.js lib/ test/",
+		"ts":    "tsc",
 		"unit":  "mocha -r test/globals.js test/*.test.js",
 		"cover": "c8 -r text -r html npm run unit",
-		"test":  "npm run st && npm run unit && npm run cover"
+		"test":  "npm run st && npm run ts && npm run unit && npm run cover"
 	},
 
 	"dependencies":
@@ -94,6 +96,9 @@
 
 		"eslint-plugin-node":
 			"11",
+
+		"typescript":
+			"5.4.5",
 
 		"mocha":
 			"10",
