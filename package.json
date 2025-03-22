@@ -91,14 +91,14 @@
 		"eslint":
 			"8",
 
-		"js-outlander":
-			"StrangeTransistor/js-outlander#2.12.1",
+		"outlander":
+			"StrangeTransistor/outlander#2.12.1",
 
 		"eslint-plugin-node":
 			"11",
 
 		"typescript":
-			"5.4.5",
+			"5.8.2",
 
 		"mocha":
 			"10",
